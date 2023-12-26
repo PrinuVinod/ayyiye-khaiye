@@ -3,5 +3,5 @@ This is a menu, ordering, etc Web App for Restaurants.
 
 ## Installation
 ```
-npm install express mongoose body-parser
+npm install express mongoose body-parser dotenv
 ```
