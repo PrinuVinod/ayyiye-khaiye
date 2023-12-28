@@ -108,6 +108,8 @@
           <!-- Add other categories as needed -->
         </select>
       </div>
+      <label for="search-input">Search by Item Name:</label>
+      <input type="text" id="search-input" oninput="searchMenu()" placeholder="Search Item">
       <button onclick="callWaiter()">Call Waiter</button>
       <button onclick="reviewOrder()">Review Order</button>
     </nav>
@@ -144,6 +146,23 @@
       tableRows.forEach(row => {
         const itemCategory = row.getAttribute('data-category');
         if (category === 'all' || itemCategory === category) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    // Function to search an item
+    function searchMenu() {
+      const searchInput = document.getElementById('search-input');
+      const searchTerm = searchInput.value.toLowerCase();
+
+      const tableRows = document.querySelectorAll('tbody tr');
+
+      tableRows.forEach(row => {
+        const itemName = row.querySelector('td:first-child').textContent.toLowerCase();
+        if (itemName.includes(searchTerm)) {
           row.style.display = '';
         } else {
           row.style.display = 'none';
