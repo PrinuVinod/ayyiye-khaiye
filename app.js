@@ -11,7 +11,12 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-mongoose.connect(process.env.MONGODB_CONNECT_URI, {
+// mongoose.connect(process.env.MONGODB_CONNECT_URI, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+
+mongoose.connect('mongodb+srv://prinuvinod:blahblah123@cluster0.398ttkq.mongodb.net/cluster0?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

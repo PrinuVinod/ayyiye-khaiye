@@ -21,43 +21,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/menu/add-to-order', async (req, res) => {
-  try {
-    const { itemName, quantity } = req.body;
-
-    console.log('Data received on the server:', { itemName, quantity });
-
-    // Validate input
-    if (!itemName || !quantity || quantity < 1) {
-      return res.status(400).json({ error: 'Invalid input' });
-    }
-
-    // Find the selected menu item
-    const menuItem = await MenuItem.findOne({ name: itemName });
-
-    if (!menuItem) {
-      return res.status(404).json({ error: 'Menu item not found' });
-    }
-
-    // Create a new order
-    const order = new Order({
-      itemName: menuItem.name,
-      quantity: quantity,
-      // Copy other relevant properties from menuItem to order if needed
-      // Example: price: menuItem.price,
-    });
-
-    // Save the order to the 'orders' collection
-    await order.save();
-
-    res.status(201).json({ message: 'Item added to order', order });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
-
 router.get('/get-orders', async (req, res) => {
   try {
     const orderList = await Order.find();
