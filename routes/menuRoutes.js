@@ -26,13 +26,15 @@ router.get('/', async (req, res) => {
     if (req.xhr || req.headers.accept.indexOf('json') > -1) {
       res.json({ menu });
     } else {
-      res.render('menu', { menu, selectedCategory: category, order: [] });
+      const tableNumbers = [1, 2, 3, 4, 5];  // Add this line to define tableNumbers
+      res.render('menu', { menu, selectedCategory: category, order: [], tableNumbers });
     }
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal Server Error');
   }
 });
+
 
 router.get('/get-orders', async (req, res) => {
   try {
@@ -55,13 +57,15 @@ router.post('/add-to-order', upload.none(), async (req, res) => {
   try {
     const itemName = req.body.itemName;
     const quantity = req.body.quantity;
+    const tableNumber = req.body.tableNumber; // Retrieve the selected table number from the request
     
     // Validate data if needed
     
-    // Save the order in the database
+    // Save the order in the database, including the table number
     const order = new Order({
       itemName,
       quantity,
+      tableNumber,
     });
     await order.save();
 

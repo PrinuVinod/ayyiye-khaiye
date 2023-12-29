@@ -131,6 +131,8 @@
 <body>
   <script>
     var menu = [];
+    var tableNumbers = [1, 2, 3, 4, 5];
+    var selectedTableNumber;
 
     if (typeof serverMenu !== 'undefined') {
       menu = serverMenu;
@@ -165,6 +167,14 @@
   </header>
 
   <main>
+    <div style="text-align: center; margin-bottom: 10px;">
+      <label for="table-number-dropdown">Select Table Number: </label>
+      <select style="background-color: white; color: black; border-color: orange; border-radius: 5px;" id="table-number-dropdown">
+        <% tableNumbers.forEach(number => { %>
+          <option value="<%= number %>"><%= number %></option>
+        <% }); %>
+      </select>
+    </div>
     <table>
       <thead>
         <tr>
@@ -200,13 +210,18 @@
         return;
       }
 
+      // Get the selected table number
+      const tableNumberDropdown = document.getElementById('table-number-dropdown');
+      selectedTableNumber = tableNumberDropdown.value;
+
       // Log the data before making the request
-      console.log('Data to be sent:', { itemName, quantity});
+      console.log('Data to be sent:', { itemName, quantity, tableNumber: selectedTableNumber });
 
       // Create a FormData object and append data
       const formData = new FormData();
       formData.append('itemName', itemName);
       formData.append('quantity', quantity);
+      formData.append('tableNumber', selectedTableNumber); // Append the selected table number
 
       // Make a POST request to add the item to the order
       fetch('/menu/add-to-order', {
