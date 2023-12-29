@@ -239,16 +239,18 @@
             fetch(`/menu/delete-order/${orderId}`, {
                 method: 'DELETE',
             })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Item Deleted From Order.', data);
-                    // After deletion, fetch and display updated order data
-                    fetchOrderData();
+                .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
+                }
+                console.log('Item Deleted From Order.');
+                // After deletion, reload the page to fetch and display updated order data
+                location.reload();
                 })
                 .catch(error => {
-                    console.error('Error Deleting Order.', error);
+                console.error('Error Deleting Order.', error);
                 });
-        }
+            }
         
         function backtoMenu() {
           window.location.href = '/menu';
