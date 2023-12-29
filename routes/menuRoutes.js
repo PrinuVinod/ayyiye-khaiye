@@ -55,9 +55,9 @@ router.post('/add-to-order', upload.none(), async (req, res) => {
   try {
     const itemName = req.body.itemName;
     const quantity = req.body.quantity;
-
+    
     // Validate data if needed
-
+    
     // Save the order in the database
     const order = new Order({
       itemName,
