@@ -1,14 +1,48 @@
 // routes/menuRoutes.js
 const express = require('express');
+const multer = require('multer');
 const router = express.Router();
 const MenuItem = require('../models/MenuItem');
 const Order = require('../models/Order');
+
+// Set up multer
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
+router.post('/add-to-order', upload.none(), async (req, res) => {
+  try {
+    const itemName = req.body.itemName;
+    const quantity = req.body.quantity;
+
+    // Validate data if needed
+
+    // Save the order in the database
+    const order = new Order({
+      itemName,
+      quantity,
+    });
+    await order.save();
+
+    res.json({ success: true, message: 'Item added to order' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error', details: error.message });
+  }
+});
 
 router.get('/', async (req, res) => {
   try {
     const { category } = req.query;
     const query = category ? { category } : {};
-    const menu = await MenuItem.find(query);
+    let menu = await MenuItem.find(query);
+
+    // Sort the menu items by category and name
+    menu = menu.sort((a, b) => {
+      if (a.category === b.category) {
+        return a.name.localeCompare(b.name);
+      }
+      return a.category.localeCompare(b.category);
+    });
 
     if (req.xhr || req.headers.accept.indexOf('json') > -1) {
       res.json({ menu });

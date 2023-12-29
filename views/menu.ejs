@@ -91,6 +91,15 @@
   </style>
 </head>
 <body>
+  <script>
+    // Define a default empty menu array
+    var menu = [];
+
+    // Check if the server has provided the menu data
+    if (typeof serverMenu !== 'undefined') {
+      menu = serverMenu;
+    }
+  </script>
   <header>
     <nav>
       <div class="restaurant-name">PVN's Paradise</div>
@@ -139,7 +148,47 @@
   </main>
 
   <script>
-    // Function to filter the menu based on category
+    // Function to add an item to the order
+    function addToOrder(itemName) {
+      // Find the selected menu item
+      const item = menu.find(item => item.name === itemName);
+
+      // Validate quantity
+      const quantityInput = document.querySelector(`input[data-item="${itemName}"]`);
+      const quantity = parseInt(quantityInput.value, 10);
+      if (isNaN(quantity) || quantity < 1) {
+        console.error('Invalid quantity');
+        return;
+      }
+
+      // Log the data before making the request
+      console.log('Data to be sent:', { itemName, quantity});
+
+      // Create a FormData object and append data
+      const formData = new FormData();
+      formData.append('itemName', itemName);
+      formData.append('quantity', quantity);
+
+      // Make a POST request to add the item to the order
+      fetch('/menu/add-to-order', {
+        method: 'POST',
+        body: formData,
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.error) {
+            console.error('Error adding item to order:', data.error);
+          } else {
+            console.log('Item added to order:', data);
+            // Optionally, you can update the UI or show a success message
+          }
+        })
+        .catch(error => {
+          console.error('Error adding item to order:', error);
+        });
+    }
+
+    // Function to filter the menu
     function filterMenu(category) {
       const tableRows = document.querySelectorAll('tbody tr');
       

@@ -1,5 +1,4 @@
 // models/order.js
-
 const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
@@ -11,7 +10,12 @@ const orderSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-});
+  price: {
+    type: Number,
+  },
+  // Add other fields as needed
+  // Example: user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+}, { timestamps: true });
 
 const Order = mongoose.model('Order', orderSchema);
 

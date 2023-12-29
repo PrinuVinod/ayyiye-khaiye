@@ -1,5 +1,4 @@
 <!-- views/revieworder.ejs -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,7 +109,6 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Display order details from the database -->
                 <% orderList.forEach(order => { %>
                     <tr>
                         <td><%= order.itemName %></td>
@@ -123,7 +121,6 @@
             </tbody>
         </table>
 
-        <!-- Button to submit the order (send data to the database) -->
         <div style="text-align: center; margin-top: 20px;">
             <button onclick="submitOrder()">Submit Order</button>
         </div>
@@ -133,11 +130,10 @@
             fetch('/menu/get-orders')
                 .then(response => response.text())
                 .then(data => {
-                    // Process HTML data (assuming it's the rendered revieworder.ejs content)
                     document.body.innerHTML = data;
                 })
                 .catch(error => {
-                    console.error('Error fetching order data:', error);
+                    console.error('Error fetching order data.', error);
                 });
         }
 
@@ -157,18 +153,18 @@
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log('Order deleted:', data);
+                    console.log('Item Deleted From Order.', data);
                     // After deletion, fetch and display updated order data
                     fetchOrderData();
                 })
                 .catch(error => {
-                    console.error('Error deleting order:', error);
+                    console.error('Error Deleting Order.', error);
                 });
         }
+        
         function backtoMenu() {
           window.location.href = '/menu';
         }
     </script>
-
 </body>
 </html>
