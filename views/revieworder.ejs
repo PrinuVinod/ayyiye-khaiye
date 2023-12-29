@@ -133,8 +133,8 @@
         <nav>
             <div class="restaurant-name">Tasty</div>
             <div style="display: flex;">
-            <button style="margin-right: 10px; border-radius: 20px;" onclick="callWaiter()">Call Waiter</button>
-            <button style="border-radius: 20px;" onclick="backtoMenu()">Menu</button>
+            <button style="margin-right: 10px; border-radius: 5px;" onclick="callWaiter()">Call Waiter</button>
+            <button style="border-radius: 5px;" onclick="backtoMenu()">Menu</button>
             </div>
         </nav>
     </header>
@@ -154,7 +154,7 @@
                         <td><%= order.itemName %></td>
                         <td><%= order.quantity %></td>
                         <td>
-                            <button style="border-radius: 20px;" onclick="deleteOrder('<%= order._id %>')">Delete</button>
+                            <button style="border-radius: 5px;" onclick="deleteOrder('<%= order._id %>')">Delete</button>
                         </td>
                     </tr>
                 <% }); %>
@@ -162,7 +162,7 @@
         </table>
 
         <div style="text-align: center; margin-top: 20px;">
-            <button style="border-radius: 20px;" onclick="submitOrder()">Submit Order</button>
+            <button style="border-radius: 5px;" onclick="submitOrder()">Submit Order</button>
         </div>
     </main>
     <script>
