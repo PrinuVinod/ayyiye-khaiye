@@ -4,98 +4,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review Order | PVN's Paradise</title>
+    <title>Review Order | Tasty</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #080808;
+        color: #fff;
         }
 
         header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            text-align: center;
+        background-color: #000;
+        color: #fff;
+        padding: 10px 20px;
+        text-align: center;
         }
 
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
         }
 
         .restaurant-name {
-            font-size: 1.5em;
-            font-weight: bold;
+        font-size: 1.5em;
+        font-weight: bold;
         }
 
         .options-dropdown {
-            display: flex;
+        display: flex;
+        align-items: center;
         }
 
         .options-dropdown a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px;
-            margin: 0 10px;
+        color: #fff;
+        text-decoration: none;
+        padding: 10px;
+        margin: 0 10px;
+        display: none;
+        }
+
+        .hamburger-menu {
+        font-size: 1.5em;
+        cursor: pointer;
         }
 
         .main-container {
-            max-width: 800px;
-            margin: 20px auto;
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: black;
+        padding: 10px;
         }
 
         table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        color: #fff; /* White text for table */
         }
 
         th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
+        border: 1px solid orange; /* Orange borders */
+        padding: 8px;
+        text-align: left;
         }
 
         th {
-            background-color: #333;
-            color: #fff;
+        background-color: orange; /* Orange background for header */
+        color: #fff; /* White text for header */
         }
 
         tbody tr:nth-child(even) {
-            background-color: #f2f2f2;
+        background-color: black; /* Dark background for even rows */
         }
 
         input[type="number"] {
-            width: 50px;
+        width: 50px;
+        color: #000; /* Black text for number input */
         }
 
         button {
-            background-color: #4caf50;
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            cursor: pointer;
+        background-color: orange;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        cursor: pointer;
         }
 
         button:hover {
-            background-color: #45a049;
+        background-color: white;
+        color: black;
         }
 
         form {
-            text-align: center;
-            margin-top: 20px;
+        text-align: center;
+        margin-top: 20px;
+        }
+        
+        select {
+        background-color: black;
+        color: #fff;
+        }
+
+        @media only screen and (max-width: 600px) {
+        .options-dropdown a {
+            display: block; /* Display options for small screens */
+        }
+
+        .options-dropdown.active {
+            display: flex; /* Display options when active class is applied */
+        }
+
+        .options-dropdown {
+            display: none; /* Hide options for small screens by default */
+            width: 100%;
+        }
+
+        .restaurant-name {
+            margin-bottom: 10px; /* Add some space between restaurant name and options for small screens */
+        }
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="restaurant-name">PVN's Paradise</div>
-            <button onclick="callWaiter()">Call Waiter</button>
-            <button onclick="backtoMenu()">Menu</button>
+            <div class="restaurant-name">Tasty</div>
+            <div style="display: flex;">
+            <button style="margin-right: 10px; border-radius: 20px;" onclick="callWaiter()">Call Waiter</button>
+            <button style="border-radius: 20px;" onclick="backtoMenu()">Menu</button>
+            </div>
         </nav>
     </header>
     <main>
@@ -114,7 +154,7 @@
                         <td><%= order.itemName %></td>
                         <td><%= order.quantity %></td>
                         <td>
-                            <button onclick="deleteOrder('<%= order._id %>')">Delete</button>
+                            <button style="border-radius: 20px;" onclick="deleteOrder('<%= order._id %>')">Delete</button>
                         </td>
                     </tr>
                 <% }); %>
@@ -122,7 +162,7 @@
         </table>
 
         <div style="text-align: center; margin-top: 20px;">
-            <button onclick="submitOrder()">Submit Order</button>
+            <button style="border-radius: 20px;" onclick="submitOrder()">Submit Order</button>
         </div>
     </main>
     <script>

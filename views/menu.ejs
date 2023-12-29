@@ -4,123 +4,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu | PVN's Paradise</title>
+  <title>Menu | Tasty</title>
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f5f5;
-    }
+        body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #080808;
+        color: #fff;
+        }
 
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 10px 20px;
-      text-align: center;
-    }
+        header {
+        background-color: #000;
+        color: #fff;
+        padding: 10px 20px;
+        text-align: center;
+        }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        }
 
-    .restaurant-name {
-      font-size: 1.5em;
-      font-weight: bold;
-    }
+        .restaurant-name {
+        font-size: 1.5em;
+        font-weight: bold;
+        }
 
-    .options-dropdown {
-      display: flex;
-    }
+        .options-dropdown {
+        display: flex;
+        align-items: center;
+        }
 
-    .options-dropdown a {
-      color: #fff;
-      text-decoration: none;
-      padding: 10px;
-      margin: 0 10px;
-    }
+        .options-dropdown a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px;
+        margin: 0 10px;
+        display: none;
+        }
 
-    .main-container {
-      max-width: 800px;
-      margin: 20px auto;
-    }
+        .hamburger-menu {
+        font-size: 1.5em;
+        cursor: pointer;
+        }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
+        .main-container {
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: black;
+        padding: 10px;
+        }
 
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
-    }
+        table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        color: #fff; /* White text for table */
+        }
 
-    th {
-      background-color: #333;
-      color: #fff;
-    }
+        th, td {
+        border: 1px solid orange; /* Orange borders */
+        padding: 8px;
+        text-align: left;
+        }
 
-    tbody tr:nth-child(even) {
-      background-color: #f2f2f2;
-    }
+        th {
+        background-color: orange; /* Orange background for header */
+        color: #fff; /* White text for header */
+        }
 
-    input[type="number"] {
-      width: 50px;
-    }
+        tbody tr:nth-child(even) {
+        background-color: black; /* Dark background for even rows */
+        }
 
-    button {
-      background-color: #4caf50;
-      color: #fff;
-      border: none;
-      padding: 8px 16px;
-      cursor: pointer;
-    }
+        input[type="number"] {
+        width: 50px;
+        color: #000; /* Black text for number input */
+        }
 
-    button:hover {
-      background-color: #45a049;
-    }
+        button {
+        background-color: orange;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        cursor: pointer;
+        }
 
-    form {
-      text-align: center;
-      margin-top: 20px;
-    }
-  </style>
+        button:hover {
+        background-color: white;
+        color: black;
+        }
+
+        form {
+        text-align: center;
+        margin-top: 20px;
+        }
+        
+        select {
+        background-color: black;
+        color: #fff;
+        }
+
+        @media only screen and (max-width: 600px) {
+        .options-dropdown a {
+            display: block; /* Display options for small screens */
+        }
+
+        .options-dropdown.active {
+            display: flex; /* Display options when active class is applied */
+        }
+
+        .options-dropdown {
+            display: none; /* Hide options for small screens by default */
+            width: 100%;
+        }
+
+        .restaurant-name {
+            margin-bottom: 10px; /* Add some space between restaurant name and options for small screens */
+        }
+        }
+    </style>
 </head>
 <body>
   <script>
-    // Define a default empty menu array
     var menu = [];
 
-    // Check if the server has provided the menu data
     if (typeof serverMenu !== 'undefined') {
       menu = serverMenu;
     }
   </script>
   <header>
     <nav>
-      <div class="restaurant-name">PVN's Paradise</div>
-      <div class="options-dropdown">
-        <label for="category-dropdown">Select Category: </label>
-        <select id="category-dropdown" onchange="filterMenu(this.value)">
-          <option value="all">All</option>
-          <option value="soups">Soups</option>
-          <option value="starters">Starters</option>
-          <option value="breads">Breads</option>
-          <option value="maincourse">Main Course</option>
-          <option value="snacks">Snacks</option>
-          <option value="desserts">Desserts</option>
-          <option value="drinks">Drinks</option>
-          <!-- Add other categories as needed -->
-        </select>
+      <div class="restaurant-name">Tasty</div>
+      <div style="display: flex;">
+        <div class="options-dropdown">
+          <div style="height: auto;">
+            <label style="margin-right: 2px;" for="category-dropdown">Select Category: </label>
+            <select style="margin-right: 10px; background-color: white; color: black; border-color: orange; border-radius: 20px;" id="category-dropdown" onchange="filterMenu(this.value)">
+              <option value="all">All</option>
+              <option value="soups">Soups</option>
+              <option value="starters">Starters</option>
+              <option value="breads">Breads</option>
+              <option value="maincourse">Main Course</option>
+              <option value="snacks">Snacks</option>
+              <option value="desserts">Desserts</option>
+              <option value="drinks">Drinks</option>
+            </select>
+          </div>
+          <a href="#" onclick="toggleOptions()" class="hamburger-menu">&#9776;</a>
+        </div>
+        <!-- <label for="search-input">Search by Item Name:</label> -->
+        <input style="border-color: orange; margin-right: 10px; border-radius: 20px;" type="text" id="search-input" oninput="searchMenu()" placeholder="Search Item">
+        <button style="margin-right: 10px; border-radius: 20px;" onclick="callWaiter()">Call Waiter</button>
+        <button style="border-radius: 20px;" onclick="reviewOrder()">Review Order</button>
       </div>
-      <label for="search-input">Search by Item Name:</label>
-      <input type="text" id="search-input" oninput="searchMenu()" placeholder="Search Item">
-      <button onclick="callWaiter()">Call Waiter</button>
-      <button onclick="reviewOrder()">Review Order</button>
     </nav>
   </header>
 
@@ -139,14 +179,13 @@
           <tr data-category="<%= item.category %>">
             <td><%= item.name %></td>
             <td>INR <%= item.price.toFixed(2) %></td>
-            <td><input type="number" min="1" value="1" data-item="<%= item.name %>"></td>
-            <td><button onclick="addToOrder('<%= item.name %>')">Add</button></td>
+            <td><input style="border-radius: 20px;" type="number" min="1" value="1" data-item="<%= item.name %>"></td>
+            <td><button style="border-radius: 20px;" onclick="addToOrder('<%= item.name %>')">Add</button></td>
           </tr>
         <% }); %>
       </tbody>
     </table>
   </main>
-
   <script>
     // Function to add an item to the order
     function addToOrder(itemName) {
@@ -186,6 +225,12 @@
         .catch(error => {
           console.error('Error adding item to order:', error);
         });
+    }
+
+    // Function to toggle options for small screens
+    function toggleOptions() {
+      const optionsDropdown = document.querySelector('.options-dropdown');
+      optionsDropdown.classList.toggle('active');
     }
 
     // Function to filter the menu
