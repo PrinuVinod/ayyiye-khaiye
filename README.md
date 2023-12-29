@@ -30,7 +30,7 @@ The restaurant menu application enhances the overall dining experience by combin
 
 ## Installation
 ```
-npm install express mongoose body-parser dotenv ejs
+npm install express mongoose body-parser dotenv ejs multer
 ```
 
 ## Paths
