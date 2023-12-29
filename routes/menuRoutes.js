@@ -9,33 +9,12 @@ const Order = require('../models/Order');
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-router.post('/add-to-order', upload.none(), async (req, res) => {
-  try {
-    const itemName = req.body.itemName;
-    const quantity = req.body.quantity;
-
-    // Validate data if needed
-
-    // Save the order in the database
-    const order = new Order({
-      itemName,
-      quantity,
-    });
-    await order.save();
-
-    res.json({ success: true, message: 'Item added to order' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal Server Error', details: error.message });
-  }
-});
-
 router.get('/', async (req, res) => {
   try {
     const { category } = req.query;
     const query = category ? { category } : {};
     let menu = await MenuItem.find(query);
-
+    
     // Sort the menu items by category and name
     menu = menu.sort((a, b) => {
       if (a.category === b.category) {
@@ -58,7 +37,7 @@ router.get('/', async (req, res) => {
 router.get('/get-orders', async (req, res) => {
   try {
     const orderList = await Order.find();
-
+    
     // Check if it's an AJAX request
     if (req.xhr || req.headers.accept.indexOf('json') > -1) {
       res.json({ orderList });
@@ -69,6 +48,27 @@ router.get('/get-orders', async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+router.post('/add-to-order', upload.none(), async (req, res) => {
+  try {
+    const itemName = req.body.itemName;
+    const quantity = req.body.quantity;
+
+    // Validate data if needed
+
+    // Save the order in the database
+    const order = new Order({
+      itemName,
+      quantity,
+    });
+    await order.save();
+
+    res.json({ success: true, message: 'Item added to order' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error', details: error.message });
   }
 });
 
