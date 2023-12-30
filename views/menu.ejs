@@ -160,7 +160,7 @@
         </div>
         <!-- <label for="search-input">Search by Item Name:</label> -->
         <input style="border-color: orange; margin-right: 10px; border-radius: 5px;" type="text" id="search-input" oninput="searchMenu()" placeholder="Search Item">
-        <button style="margin-right: 10px; border-radius: 5px;" onclick="callWaiter()">Call Waiter</button>
+        <!-- <button style="margin-right: 10px; border-radius: 5px;" onclick="callWaiter()">Call Waiter</button> -->
         <button style="border-radius: 5px;" onclick="reviewOrder()">Review Order</button>
       </div>
     </nav>
@@ -182,10 +182,10 @@
           </th>
         </tr>
         <tr>
-          <th>Item Name</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Add to Order</th>
+          <th style="border-color: black;">Item Name</th>
+          <th style="border-color: black;">Price</th>
+          <th style="border-color: black;">Quantity</th>
+          <th style="border-color: black;">Add to Order</th>
         </tr>
       </thead>
       <tbody>
@@ -245,7 +245,6 @@
       console.error('Error adding item to order:', error);
     });
 }
-
 
     // Function to toggle options for small screens
     function toggleOptions() {
