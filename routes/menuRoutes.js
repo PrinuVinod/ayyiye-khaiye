@@ -35,7 +35,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-
 router.get('/get-orders', async (req, res) => {
   try {
     const orderList = await Order.find();
@@ -57,7 +56,7 @@ router.post('/add-to-order', upload.none(), async (req, res) => {
   try {
     const itemName = req.body.itemName;
     const quantity = req.body.quantity;
-    const tableNumber = req.body.tableNumber; // Retrieve the selected table number from the request
+    const tableNumber = parseInt(req.body.tableNumber, 10); // Parse as number
     
     // Validate data if needed
     
@@ -75,6 +74,7 @@ router.post('/add-to-order', upload.none(), async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error', details: error.message });
   }
 });
+
 
 router.delete('/delete-order/:orderId', async (req, res) => {
   try {
