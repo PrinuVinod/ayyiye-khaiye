@@ -62,27 +62,27 @@
         width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
-        color: #fff; /* White text for table */
+        color: #fff;
         }
 
         th, td {
-        border: 1px solid orange; /* Orange borders */
+        border: 1px solid orange;
         padding: 8px;
         text-align: left;
         }
 
         th {
-        background-color: orange; /* Orange background for header */
-        color: #fff; /* White text for header */
+        background-color: orange;
+        color: #fff;
         }
 
         tbody tr:nth-child(even) {
-        background-color: black; /* Dark background for even rows */
+        background-color: black;
         }
 
         input[type="number"] {
         width: 50px;
-        color: #000; /* Black text for number input */
+        color: #000;
         }
 
         button {
@@ -110,20 +110,20 @@
 
         @media only screen and (max-width: 600px) {
         .options-dropdown a {
-            display: block; /* Display options for small screens */
+            display: block;
         }
 
         .options-dropdown.active {
-            display: flex; /* Display options when active class is applied */
+            display: flex;
         }
 
         .options-dropdown {
-            display: none; /* Hide options for small screens by default */
+            display: none;
             width: 100%;
         }
 
         .restaurant-name {
-            margin-bottom: 10px; /* Add some space between restaurant name and options for small screens */
+            margin-bottom: 10px;
         }
         }
     </style>
@@ -203,48 +203,41 @@
   <script>
     // Function to add an item to the order
     function addToOrder(itemName) {
-  // Find the selected menu item
-  const item = menu.find(item => item.name === itemName);
+      const item = menu.find(item => item.name === itemName);
 
-  // Validate quantity
-  const quantityInput = document.querySelector(`input[data-item="${itemName}"]`);
-  const quantity = parseInt(quantityInput.value, 10);
-  if (isNaN(quantity) || quantity < 1) {
-    console.error('Invalid quantity');
-    return;
-  }
-
-  // Get the selected table number from the dropdown
-  const tableNumberDropdown = document.getElementById('table-number-dropdown');
-  const selectedTableNumber = parseInt(tableNumberDropdown.value, 10); // Parse as number
-
-  // Log the data before making the request
-  console.log('Data to be sent:', { itemName, quantity, tableNumber: selectedTableNumber });
-
-  // Create a FormData object and append data
-  const formData = new FormData();
-  formData.append('itemName', itemName);
-  formData.append('quantity', quantity);
-  formData.append('tableNumber', selectedTableNumber); // Append the selected table number
-
-  // Make a POST request to add the item to the order
-  fetch('/menu/add-to-order', {
-    method: 'POST',
-    body: formData,
-  })
-    .then(response => response.json())
-    .then(data => {
-      if (data.error) {
-        console.error('Error adding item to order:', data.error);
-      } else {
-        console.log('Item added to order:', data);
-        // Optionally, you can update the UI or show a success message
+      const quantityInput = document.querySelector(`input[data-item="${itemName}"]`);
+      const quantity = parseInt(quantityInput.value, 10);
+      if (isNaN(quantity) || quantity < 1) {
+        console.error('Invalid quantity');
+        return;
       }
-    })
-    .catch(error => {
-      console.error('Error adding item to order:', error);
-    });
-}
+
+      const tableNumberDropdown = document.getElementById('table-number-dropdown');
+      const selectedTableNumber = parseInt(tableNumberDropdown.value, 10);
+
+      console.log('Data to be sent:', { itemName, quantity, tableNumber: selectedTableNumber });
+
+      const formData = new FormData();
+      formData.append('itemName', itemName);
+      formData.append('quantity', quantity);
+      formData.append('tableNumber', selectedTableNumber);
+
+      fetch('/menu/add-to-order', {
+        method: 'POST',
+        body: formData,
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.error) {
+            console.error('Error adding item to order:', data.error);
+          } else {
+            console.log('Item added to order:', data);
+          }
+        })
+        .catch(error => {
+          console.error('Error adding item to order:', error);
+        });
+    }
 
     // Function to toggle options for small screens
     function toggleOptions() {
@@ -285,7 +278,6 @@
 
     // Function to call the waiter
     function callWaiter() {
-        // Add your logic to call the waiter here
         console.log('Calling waiter...');
       }
 

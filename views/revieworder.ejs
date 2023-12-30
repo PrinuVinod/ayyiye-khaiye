@@ -62,27 +62,27 @@
         width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
-        color: #fff; /* White text for table */
+        color: #fff;
         }
 
         th, td {
-        border: 1px solid orange; /* Orange borders */
+        border: 1px solid orange;
         padding: 8px;
         text-align: left;
         }
 
         th {
-        background-color: orange; /* Orange background for header */
-        color: #fff; /* White text for header */
+        background-color: orange;
+        color: #fff;
         }
 
         tbody tr:nth-child(even) {
-        background-color: black; /* Dark background for even rows */
+        background-color: black;
         }
 
         input[type="number"] {
         width: 50px;
-        color: #000; /* Black text for number input */
+        color: #000;
         }
 
         button {
@@ -110,20 +110,20 @@
 
         @media only screen and (max-width: 600px) {
         .options-dropdown a {
-            display: block; /* Display options for small screens */
+            display: block;
         }
 
         .options-dropdown.active {
-            display: flex; /* Display options when active class is applied */
+            display: flex;
         }
 
         .options-dropdown {
-            display: none; /* Hide options for small screens by default */
+            display: none;
             width: 100%;
         }
 
         .restaurant-name {
-            margin-bottom: 10px; /* Add some space between restaurant name and options for small screens */
+            margin-bottom: 10px;
         }
         }
     </style>
@@ -196,25 +196,22 @@
         }
 
         function submitOrder() {
-        // Fetch order data from the server as HTML
         fetch('/toorder/submit-order', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded', // Set content type to form data
+                'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: 'submit=true', // You can include additional data here if needed
+            body: 'submit=true',
         })
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
             }
-            return response.text(); // Use text() instead of json()
+            return response.text();
         })
         .then(responseHTML => {
-            // Process the responseHTML (if any)
             console.log(responseHTML);
             
-            // Assuming you want to display the HTML content in the current page
             document.body.innerHTML = responseHTML;
         })
         .catch(error => {
@@ -223,10 +220,8 @@
     }
 
         function duplicateToKitchenView(orderList) {
-            // Prepare the data for the fetch request
             const data = { orders: orderList };
 
-            // Make a POST request to duplicate data
             fetch('/menu/duplicate-to-kitchenview', {
             method: 'POST',
             headers: {
@@ -244,7 +239,6 @@
         }
 
         function clearOrdersCollection() {
-            // Make a DELETE request to clear data from orders collection
             fetch('/menu/clear-orders', {
             method: 'DELETE',
             })
@@ -252,38 +246,36 @@
             .then(result => {
                 console.log('Order data cleared from orders collection:', result);
 
-                // Fetch and display updated order data
                 fetchOrderData();
             })
             .catch(error => {
                 console.error('Error clearing order data:', error);
             });
         }
-
-        function callWaiter() {
-            console.log('Calling waiter...');
-        }
-
+        
         function deleteOrder(orderId) {
             fetch(`/menu/delete-order/${orderId}`, {
                 method: 'DELETE',
             })
-                .then(response => {
+            .then(response => {
                 if (!response.ok) {
                     throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
                 }
                 console.log('Item Deleted From Order.');
-                // After deletion, reload the page to fetch and display updated order data
                 location.reload();
-                })
-                .catch(error => {
+            })
+            .catch(error => {
                 console.error('Error Deleting Order.', error);
-                });
-            }
+            });
+        }
         
         function backtoMenu() {
-          window.location.href = '/menu';
+            window.location.href = '/menu';
         }
+
+        // function callWaiter() {
+        //     console.log('Calling waiter...');
+        // }
     </script>
 </body>
 </html>

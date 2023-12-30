@@ -62,27 +62,27 @@
       width: 100%;
       border-collapse: collapse;
       margin-top: 20px;
-      color: #fff; /* White text for table */
+      color: #fff;
     }
 
     th, td {
-      border: 1px solid orange; /* Orange borders */
+      border: 1px solid orange;
       padding: 8px;
       text-align: left;
     }
 
     th {
-      background-color: orange; /* Orange background for header */
-      color: #fff; /* White text for header */
+      background-color: orange;
+      color: #fff;
     }
 
     tbody tr:nth-child(even) {
-      background-color: black; /* Dark background for even rows */
+      background-color: black;
     }
 
     input[type="number"] {
       width: 50px;
-      color: #000; /* Black text for number input */
+      color: #000;
     }
 
     button {
@@ -110,20 +110,20 @@
 
     @media only screen and (max-width: 600px) {
       .options-dropdown a {
-        display: block; /* Display options for small screens */
+        display: block;
       }
 
       .options-dropdown.active {
-        display: flex; /* Display options when active class is applied */
+        display: flex;
       }
 
       .options-dropdown {
-        display: none; /* Hide options for small screens by default */
+        display: none;
         width: 100%;
       }
 
       .restaurant-name {
-        margin-bottom: 10px; /* Add some space between restaurant name and options for small screens */
+        margin-bottom: 10px;
       }
     }
   </style>
@@ -171,7 +171,6 @@
                   <option value="snacks">Snacks</option>
                   <option value="desserts">Desserts</option>
                   <option value="drinks">Drinks</option>
-                  <!-- Add other categories as needed -->
                 </select>
               </td>
               <td><button style="border-radius: 5px;" type="submit">Add Item</button></td>
