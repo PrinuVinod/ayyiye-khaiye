@@ -133,7 +133,7 @@
         <nav>
             <div class="restaurant-name">Tasty</div>
             <div style="display: flex;">
-            <button style="margin-right: 10px; border-radius: 5px;" onclick="callWaiter()">Call Waiter</button>
+            <!-- <button style="margin-right: 10px; border-radius: 5px;" onclick="callWaiter()">Call Waiter</button> -->
             <button style="border-radius: 5px;" onclick="backtoMenu()">Menu</button>
             </div>
         </nav>
@@ -143,14 +143,29 @@
         <table>
             <thead>
                 <tr>
-                    <th>Item Name</th>
-                    <th>Quantity</th>
-                    <th>Action</th>
+                    <th colspan="4" style="border-color: #000; border-radius: 10px;">
+                        <div style="text-align: center; margin-bottom: 10px;">
+                            <label for="table-number-dropdown">Select Table Number: </label>
+                            <select style="background-color: white; color: black; border-color: orange; border-radius: 5px;" id="table-number-dropdown" onchange="filterOrders()">
+                                <option value="all">All</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="border-color: black;">Item Name</th>
+                    <th style="border-color: black;">Quantity</th>
+                    <th style="border-color: black;">Action</th>
                 </tr>
             </thead>
             <tbody>
                 <% orderList.forEach(order => { %>
-                    <tr>
+                    <tr data-table-number="<%= order.tableNumber %>">
                         <td><%= order.itemName %></td>
                         <td><%= order.quantity %></td>
                         <td>
@@ -166,6 +181,20 @@
         </div>
     </main>
     <script>
+        function filterOrders() {
+            const selectedTableNumber = document.getElementById('table-number-dropdown').value;
+            const tableRows = document.querySelectorAll('tbody tr');
+
+            tableRows.forEach(row => {
+                const rowTableNumber = row.getAttribute('data-table-number');
+                if (selectedTableNumber === 'all' || rowTableNumber === selectedTableNumber) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
         function submitOrder() {
         // Fetch order data from the server as HTML
         fetch('/toorder/submit-order', {
