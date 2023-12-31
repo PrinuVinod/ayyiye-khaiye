@@ -172,7 +172,7 @@
           <th colspan="4" style="border-color: #000; border-radius: 10px;">
             <div style="text-align: center; margin-bottom: 10px; font-size: 25px;">
               <label for="table-number-dropdown">Selected Table Number: </label>
-              <select style="font-size: 25px; background-color: black; color: white; border-color: orange; border-radius: 5px; -webkit-appearance: none; width: 50px; text-align: center;" id="table-number-dropdown" data-table-number="<%= tableNumbers[0] %>">
+              <select disabled style="font-size: 25px; background-color: black; color: white; border-color: orange; border-radius: 5px; -webkit-appearance: none; width: 50px; text-align: center;" id="table-number-dropdown" data-table-number="<%= tableNumbers[0] %>">
                 <% tableNumbers.forEach(number => { %>
                   <option value="<%= number %>"><%= number %></option>
                 <% }); %>
