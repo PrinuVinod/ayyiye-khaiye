@@ -144,9 +144,9 @@
       <div style="display: flex;">
         <div class="options-dropdown">
           <div style="height: auto;">
-            <label style="margin-right: 2px;" for="category-dropdown">Select Category: </label>
-            <select style="margin-right: 10px; background-color: white; color: black; border-color: orange; border-radius: 5px;" id="category-dropdown" onchange="filterMenu(this.value)">
-              <option value="all">All</option>
+            <!-- <label style="margin-right: 2px;" for="category-dropdown">Select Category: </label> -->
+            <select style="margin-right: 10px; background-color: white; color: black; border-color: orange; border-radius: 5px; height: 35px;" id="category-dropdown" onchange="filterMenu(this.value)">
+              <option value="all">Select Category</option>
               <option value="soups">Soups</option>
               <option value="starters">Starters</option>
               <option value="breads">Breads</option>
@@ -156,7 +156,6 @@
               <option value="drinks">Drinks</option>
             </select>
           </div>
-          <a href="#" onclick="toggleOptions()" class="hamburger-menu">&#9776;</a>
         </div>
         <!-- <label for="search-input">Search by Item Name:</label> -->
         <input style="border-color: orange; margin-right: 10px; border-radius: 5px;" type="text" id="search-input" oninput="searchMenu()" placeholder="Search Item">
