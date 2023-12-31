@@ -171,9 +171,9 @@
       <thead>
         <tr>
           <th colspan="4" style="border-color: #000; border-radius: 10px;">
-            <div style="text-align: center; margin-bottom: 10px;">
-              <label for="table-number-dropdown">Select Table Number: </label>
-              <select style="background-color: white; color: black; border-color: orange; border-radius: 5px;" id="table-number-dropdown" data-table-number="<%= tableNumbers[0] %>">
+            <div style="text-align: center; margin-bottom: 10px; font-size: 25px;">
+              <label for="table-number-dropdown">Selected Table Number: </label>
+              <select style="font-size: 25px; background-color: black; color: white; border-color: orange; border-radius: 5px; -webkit-appearance: none; width: 50px; text-align: center;" id="table-number-dropdown" data-table-number="<%= tableNumbers[0] %>">
                 <% tableNumbers.forEach(number => { %>
                   <option value="<%= number %>"><%= number %></option>
                 <% }); %>
@@ -201,6 +201,39 @@
     </table>
   </main>
   <script>
+    var menu = [];
+    var tableNumbers = [1, 2, 3, 4, 5];
+    var selectedTableNumber;
+
+    // Function to prompt for the table number
+    function getTableNumberFromPrompt() {
+      const tableNumber = prompt('Please enter your table number:');
+      return tableNumber;
+    }
+
+    // Function to set the initial table number
+    function setInitialTableNumber() {
+      selectedTableNumber = getTableNumberFromPrompt();
+      if (
+        selectedTableNumber === null ||
+        selectedTableNumber.trim() === '' ||
+        !tableNumbers.includes(parseInt(selectedTableNumber))
+      ) {
+        // Redirect to home or handle invalid input
+        window.location.href = '/'; // You can change this to your home page
+      } else {
+        // Set the initial table number in the dropdown
+        const tableNumberDropdown = document.getElementById('table-number-dropdown');
+        tableNumberDropdown.value = selectedTableNumber;
+
+        // Filter menu based on the selected category
+        filterMenu('all');
+      }
+    }
+
+    // Event listener for window load
+    window.addEventListener('load', setInitialTableNumber);
+
     // Function to add an item to the order
     function addToOrder(itemName) {
       const item = menu.find(item => item.name === itemName);
