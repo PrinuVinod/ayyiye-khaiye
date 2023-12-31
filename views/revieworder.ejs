@@ -139,24 +139,9 @@
         </nav>
     </header>
     <main>
-        <h1>Review Order</h1>
+        <h1 style="text-align: center;"></h1>
         <table>
             <thead>
-                <tr>
-                    <th colspan="4" style="border-color: #000; border-radius: 10px;">
-                        <div style="text-align: center; margin-bottom: 10px;">
-                            <label for="table-number-dropdown">Select Table Number: </label>
-                            <select style="background-color: white; color: black; border-color: orange; border-radius: 5px;" id="table-number-dropdown" onchange="filterOrders()">
-                                <option value="all">All</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                    </th>
-                </tr>
                 <tr>
                     <th style="border-color: black;">Item Name</th>
                     <th style="border-color: black;">Quantity</th>
@@ -183,10 +168,20 @@
         </div>
     </main>
     <script>
-        function filterOrders() {
-            const selectedTableNumber = document.getElementById('table-number-dropdown').value;
-            const tableRows = document.querySelectorAll('tbody tr');
+        function getTableNumberFromConsole() {
+            const tableNumber = prompt('Please enter your table number:');
+            return tableNumber;
+        }
+        const selectedTableNumber = getTableNumberFromConsole();
+        if (selectedTableNumber === null || selectedTableNumber.trim() === '' || selectedTableNumber > 5 || selectedTableNumber < 1) {
+            window.location.href = '/menu';
+        } else {
+            filterOrders(selectedTableNumber);
+        }
 
+        function filterOrders(selectedTableNumber) {
+            document.querySelector('h1').innerText = `Review Order for Table ${selectedTableNumber}`;
+            const tableRows = document.querySelectorAll('tbody tr');
             tableRows.forEach(row => {
                 const rowTableNumber = row.getAttribute('data-table-number');
                 if (selectedTableNumber === 'all' || rowTableNumber === selectedTableNumber) {
