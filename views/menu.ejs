@@ -205,13 +205,11 @@
     var tableNumbers = [1, 2, 3, 4, 5];
     var selectedTableNumber;
 
-    // Function to prompt for the table number
     function getTableNumberFromPrompt() {
-      const tableNumber = prompt('Please enter your table number:');
+      const tableNumber = prompt('Welcome This is the Menu Page. Please enter your table number:');
       return tableNumber;
     }
 
-    // Function to set the initial table number
     function setInitialTableNumber() {
       selectedTableNumber = getTableNumberFromPrompt();
       if (
@@ -219,22 +217,17 @@
         selectedTableNumber.trim() === '' ||
         !tableNumbers.includes(parseInt(selectedTableNumber))
       ) {
-        // Redirect to home or handle invalid input
-        window.location.href = '/'; // You can change this to your home page
+        window.location.href = '/menu';
       } else {
-        // Set the initial table number in the dropdown
         const tableNumberDropdown = document.getElementById('table-number-dropdown');
         tableNumberDropdown.value = selectedTableNumber;
 
-        // Filter menu based on the selected category
         filterMenu('all');
       }
     }
 
-    // Event listener for window load
     window.addEventListener('load', setInitialTableNumber);
 
-    // Function to add an item to the order
     function addToOrder(itemName) {
       const item = menu.find(item => item.name === itemName);
 
@@ -272,13 +265,11 @@
         });
     }
 
-    // Function to toggle options for small screens
     function toggleOptions() {
       const optionsDropdown = document.querySelector('.options-dropdown');
       optionsDropdown.classList.toggle('active');
     }
 
-    // Function to filter the menu
     function filterMenu(category) {
       const tableRows = document.querySelectorAll('tbody tr');
       
@@ -292,7 +283,6 @@
       });
     }
 
-    // Function to search an item
     function searchMenu() {
       const searchInput = document.getElementById('search-input');
       const searchTerm = searchInput.value.toLowerCase();
@@ -309,12 +299,10 @@
       });
     }
 
-    // Function to call the waiter
     function callWaiter() {
         console.log('Calling waiter...');
       }
 
-    // Function to review the order
     function reviewOrder() {
       window.location.href = '/menu/get-orders';
     }
