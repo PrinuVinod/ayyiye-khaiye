@@ -4,6 +4,28 @@ const express = require('express');
 const router = express.Router();
 const Order = require('../models/Order');
 const KitchenView = require('../models/KitchenView');
+const MenuItem = require('../models/MenuItem');
+
+// Route to get the total amount for a specific table number
+router.get('/get-total-amount/:tableNumber', async (req, res) => {
+  try {
+    const { tableNumber } = req.params;
+
+    const orders = await Order.find({ tableNumber });
+    let totalAmount = 0;
+
+    for (const order of orders) {
+      const menuItem = await MenuItem.findOne({ itemName: order.itemName });
+      if (menuItem) {
+        totalAmount += menuItem.price * order.quantity;
+      }
+    }
+
+    res.json({ totalAmount });
+  } catch (error) {
+    res.status(500).json({ error: 'Error calculating total amount' });
+  }
+});
 
 // Route to get orders as HTML
 router.get('/get-orders', async (req, res) => {
