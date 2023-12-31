@@ -14,17 +14,14 @@ Key Features:
    - Customers can easily add items to their orders, specifying quantities for each menu item.
    - The application calculates the total amount for each item and maintains a real-time order list.
 
-3. **Waiter Communication:**
-   - A "Call Waiter" button enables customers to request assistance from restaurant staff.
-
-4. **Order Review:**
+3. **Order Review:**
    - Customers can review their order before submission, providing a summary of selected items and quantities.
 
-5. **Persistence:**
+4. **Persistence:**
    - Order data is temporarily stored locally, ensuring a seamless user experience during the ordering process.
 
-6. **Scalability:**
-   - The application is designed to scale with additional features, such as user authentication, real-time updates, and integration with a backend database for persistent storage of menu items and orders.
+5. **Scalability:**
+   - The application is designed to scale with additional features, such as real-time updates, and integration with a backend database for persistent storage of menu items and orders.
 
 The restaurant menu application enhances the overall dining experience by combining a user-friendly interface with dynamic menu updates and efficient order management, contributing to increased customer satisfaction and operational efficiency for the restaurant.
 
