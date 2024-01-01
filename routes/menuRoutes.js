@@ -4,8 +4,6 @@ const multer = require('multer');
 const router = express.Router();
 const MenuItem = require('../models/MenuItem');
 const Order = require('../models/Order');
-
-// Set up multer
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
