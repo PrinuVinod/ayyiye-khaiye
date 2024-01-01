@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
     if (req.xhr || req.headers.accept.indexOf('json') > -1) {
       res.json({ menu });
     } else {
-      const tableNumbers = [1, 2, 3, 4, 5];  // Add this line to define tableNumbers
+      const tableNumbers = [1, 2, 3, 4, 5];
       res.render('menu', { menu, selectedCategory: category, order: [], tableNumbers });
     }
   } catch (error) {
@@ -72,7 +72,6 @@ router.post('/add-to-order', upload.none(), async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error', details: error.message });
   }
 });
-
 
 router.delete('/delete-order/:orderId', async (req, res) => {
   try {
