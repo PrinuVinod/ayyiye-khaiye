@@ -6,7 +6,6 @@ const Order = require('../models/Order');
 const KitchenView = require('../models/KitchenView');
 const MenuItem = require('../models/MenuItem');
 
-// Route to get the total amount for a specific table number
 router.get('/get-total-amount/:tableNumber', async (req, res) => {
   try {
     const { tableNumber } = req.params;
@@ -27,37 +26,29 @@ router.get('/get-total-amount/:tableNumber', async (req, res) => {
   }
 });
 
-// Route to get orders as HTML
 router.get('/get-orders', async (req, res) => {
   try {
     const orderList = await Order.find();
-    // Render an HTML page with the orderList
     res.render('order-list', { orderList });
   } catch (error) {
     res.status(500).send('Error fetching order data');
   }
 });
 
-// Route to submit orders to the kitchen view
 router.post('/submit-order', async (req, res) => {
     try {
-        // Get orders from the Order collection
         const orders = await Order.find();
 
-        // Duplicate orders to KitchenView
         await KitchenView.insertMany(orders);
 
-        // Clear orders after duplication
         await Order.deleteMany();
 
-        // Redirect to the review order page or send a success message
         res.send('Order submitted successfully!');
     } catch (error) {
         res.status(500).send('Error submitting order');
     }
 });
 
-// Route to delete a specific order
 router.delete('/delete-order/:orderId', async (req, res) => {
   try {
     const { orderId } = req.params;

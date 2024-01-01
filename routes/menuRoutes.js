@@ -13,7 +13,6 @@ router.get('/', async (req, res) => {
     const query = category ? { category } : {};
     let menu = await MenuItem.find(query);
     
-    // Sort the menu items by category and name
     menu = menu.sort((a, b) => {
       if (a.category === b.category) {
         return a.name.localeCompare(b.name);
@@ -37,11 +36,9 @@ router.get('/get-orders', async (req, res) => {
   try {
     const orderList = await Order.find();
     
-    // Check if it's an AJAX request
     if (req.xhr || req.headers.accept.indexOf('json') > -1) {
       res.json({ orderList });
     } else {
-      // If not an AJAX request, render the HTML template
       res.render('revieworder', { orderList });
     }
   } catch (error) {
@@ -54,11 +51,8 @@ router.post('/add-to-order', upload.none(), async (req, res) => {
   try {
     const itemName = req.body.itemName;
     const quantity = req.body.quantity;
-    const tableNumber = parseInt(req.body.tableNumber, 10); // Parse as number
-    
-    // Validate data if needed
-    
-    // Save the order in the database, including the table number
+    const tableNumber = parseInt(req.body.tableNumber, 10);
+
     const order = new Order({
       itemName,
       quantity,
@@ -77,7 +71,6 @@ router.delete('/delete-order/:orderId', async (req, res) => {
   try {
     const { orderId } = req.params;
 
-    // Find and delete the order with the specified ID
     const deletedOrder = await Order.findByIdAndDelete(orderId);
 
     if (!deletedOrder) {

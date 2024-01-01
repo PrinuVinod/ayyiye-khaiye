@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const menuRoutes = require('./routes/menuRoutes');
 const additemRoutes = require('./routes/additemRoutes');
 const toorderRoutes = require('./routes/toorderRoutes');
-const MenuItem = require('./models/MenuItem'); // Import your MenuItem model
+const MenuItem = require('./models/MenuItem');
 
 require('dotenv').config();
 
