@@ -12,7 +12,8 @@ router.get('/', async (req, res) => {
     const { category } = req.query;
     const query = category ? { category } : {};
     let menu = await MenuItem.find(query);
-    
+
+    // Sort the menu
     menu = menu.sort((a, b) => {
       if (a.category === b.category) {
         return a.name.localeCompare(b.name);
@@ -24,6 +25,8 @@ router.get('/', async (req, res) => {
       res.json({ menu });
     } else {
       const tableNumbers = [1, 2, 3, 4, 5];
+
+      // Pass the 'menu' data to the view
       res.render('menu', { menu, selectedCategory: category, order: [], tableNumbers });
     }
   } catch (error) {
@@ -47,14 +50,21 @@ router.get('/get-orders', async (req, res) => {
   }
 });
 
+// Update the /add-to-order route in menuRoutes.js
 router.post('/add-to-order', upload.none(), async (req, res) => {
   try {
     const itemName = req.body.itemName;
+    
+    // Fetch the price from the MenuItem collection based on the itemName
+    const menuItem = await MenuItem.findOne({ name: itemName });
+    const price = menuItem ? menuItem.price : 0;
+
     const quantity = req.body.quantity;
     const tableNumber = parseInt(req.body.tableNumber, 10);
 
     const order = new Order({
       itemName,
+      price,
       quantity,
       tableNumber,
     });
