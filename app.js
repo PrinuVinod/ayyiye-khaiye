@@ -26,13 +26,10 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Route to render the homepage with menu items
 app.get('/', async (req, res) => {
   try {
-    // Fetch menu items from the MenuItem collection
     const menuItems = await MenuItem.find();
 
-    // Render the homepage.ejs file with the menu items
     res.render('homepage', { menu: menuItems });
   } catch (error) {
     console.error('Error fetching menu items:', error);
