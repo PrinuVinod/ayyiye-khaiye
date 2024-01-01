@@ -1,20 +1,15 @@
-// app.js
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const menuRoutes = require('./routes/menuRoutes');
 const additemRoutes = require('./routes/additemRoutes');
 const toorderRoutes = require('./routes/toorderRoutes');
+const MenuItem = require('./models/MenuItem'); // Import your MenuItem model
 
 require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3000;
-
-// mongoose.connect(process.env.MONGODB_CONNECT_URI, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
 
 mongoose.connect('mongodb+srv://prinuvinod:blahblah123@cluster0.398ttkq.mongodb.net/cluster0?retryWrites=true&w=majority', {
   useNewUrlParser: true,
@@ -31,13 +26,23 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-  res.send('Hello, this is the root path!');
+// Route to render the homepage with menu items
+app.get('/', async (req, res) => {
+  try {
+    // Fetch menu items from the MenuItem collection
+    const menuItems = await MenuItem.find();
+
+    // Render the homepage.ejs file with the menu items
+    res.render('homepage', { menu: menuItems });
+  } catch (error) {
+    console.error('Error fetching menu items:', error);
+    res.status(500).send('Internal Server Error');
+  }
 });
 
 app.use('/menu', menuRoutes);
 app.use('/additem', additemRoutes);
-app.use('/toorder', toorderRoutes)
+app.use('/toorder', toorderRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port http://localhost:${port}/`);
