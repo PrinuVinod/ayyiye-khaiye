@@ -14,7 +14,7 @@ router.get('/get-total-amount/:tableNumber', async (req, res) => {
     let totalAmount = 0;
 
     for (const order of orders) {
-      const menuItem = await MenuItem.findOne({ itemName: order.itemName });
+      const menuItem = await MenuItem.findOne({ name: order.itemName });
       if (menuItem) {
         totalAmount += menuItem.price * order.quantity;
       }
@@ -23,15 +23,6 @@ router.get('/get-total-amount/:tableNumber', async (req, res) => {
     res.json({ totalAmount });
   } catch (error) {
     res.status(500).json({ error: 'Error calculating total amount' });
-  }
-});
-
-router.get('/get-orders', async (req, res) => {
-  try {
-    const orderList = await Order.find();
-    res.render('order-list', { orderList });
-  } catch (error) {
-    res.status(500).send('Error fetching order data');
   }
 });
 
