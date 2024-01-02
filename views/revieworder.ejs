@@ -161,7 +161,7 @@
             </tbody>
         </table>
         <div style="text-align: center; margin-top: 20px;">
-            <h2>Total Amount: <span id="total-amount">0</span></h2>
+            <h2>Total Amount: INR <span id="total-amount">0.00</span></h2>
         </div>
         <div style="text-align: center; margin-top: 20px;">
             <button style="border-radius: 5px;" onclick="submitOrder()">Submit Order</button>
@@ -177,6 +177,25 @@
             window.location.href = '/menu';
         } else {
             filterOrders(selectedTableNumber);
+            fetchTotalAmount(selectedTableNumber);
+        }
+
+        function fetchTotalAmount(tableNumber) {
+            fetch(`/toorder/get-total-amount/${tableNumber}`)
+            .then(response => response.json())
+            .then(data => {
+            console.log('Total Amount Data:', data);
+
+            if (typeof data.totalAmount === 'number') {
+                const totalAmountElement = document.getElementById('total-amount');
+                totalAmountElement.textContent = data.totalAmount.toFixed(2);
+            } else {
+                console.error('Invalid total amount:', data.totalAmount);
+            }
+            })
+            .catch(error => {
+            console.error('Error fetching total amount:', error);
+            });
         }
 
         function filterOrders(selectedTableNumber) {
