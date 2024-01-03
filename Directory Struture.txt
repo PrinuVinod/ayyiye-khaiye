@@ -1,0 +1,23 @@
+/Restaurant App
+├── models/
+│   └── KitchenView.js
+│   └── MenuItem.js
+│   └── Order.js
+│   └── SubmittedOrder.js
+├── public/
+│   └── styles.css
+├── routes/
+│   └── additemRoutes.js
+│   └── kitchenRoutes.js
+│   └── menuRoutes.js
+│   └── toorderRoutes.js
+├── views/
+│   └── additem.ejs
+│   └── disclaimer.ejs
+│   └── homepage.ejs
+│   └── kitchenview.ejs
+│   └── menu.ejs
+│   └── revieworder.ejs
+└── app.js
+
+this is my root directory structure
