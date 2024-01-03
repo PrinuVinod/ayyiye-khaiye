@@ -30,12 +30,12 @@ The restaurant menu application enhances the overall dining experience by combin
 npm install express mongoose body-parser dotenv ejs multer
 ```
 
-## Paths
+## Routes
 1. Home Screen.
 ```
 /
 ```
-3. To check out the Menu.
+2. To check out the Menu.
 ```
 /menu
 ```
@@ -50,4 +50,8 @@ npm install express mongoose body-parser dotenv ejs multer
 5. To get the Kitchen View.
 ```
 /kitchenview
+```
+6. Disclaimer
+```
+/disclaimer
 ```
