@@ -30,20 +30,16 @@ router.post('/submit-order/:tableNumber', async (req, res) => {
   try {
     const { tableNumber } = req.params;
 
-    console.log('Received tableNumber:', tableNumber); // Add this line
-
-    // Fetch orders for the specific table
+    console.log('Received tableNumber:', tableNumber);
     const orders = await Order.find({ tableNumber });
 
-    // Create KitchenView documents from orders and save to the KitchenView collection
     const kitchenViewDocs = orders.map(order => ({
       itemName: order.itemName,
       quantity: order.quantity,
-      tableNumber: order.tableNumber, // Include the table number
+      tableNumber: order.tableNumber,
     }));
     await KitchenView.create(kitchenViewDocs);
 
-    // Delete orders from the Order collection
     await Order.deleteMany({ tableNumber });
 
     res.json({ success: true });
