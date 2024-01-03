@@ -24,6 +24,7 @@ Key Features:
    - The application is designed to scale with additional features, such as real-time updates, and integration with a backend database for persistent storage of menu items and orders.
 
 The restaurant menu application enhances the overall dining experience by combining a user-friendly interface with dynamic menu updates and efficient order management, contributing to increased customer satisfaction and operational efficiency for the restaurant.
+
 <br>
 
 ## Installation
