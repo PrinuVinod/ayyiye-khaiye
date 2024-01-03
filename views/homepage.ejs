@@ -7,108 +7,133 @@
   <title>Menu | Cum 'n Eat</title>
   <style>
         body {
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #080808;
-        color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #080808;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         header {
-        background-color: #000;
-        color: #fff;
-        padding: 10px 20px;
-        text-align: center;
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
         }
 
         nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
         .restaurant-name {
-        font-size: 1.5em;
-        font-weight: bold;
+            font-size: 1.5em;
+            font-weight: bold;
         }
 
         .options-dropdown {
-        display: flex;
-        align-items: center;
+            display: flex;
+            align-items: center;
         }
 
         .options-dropdown a {
-        color: #fff;
-        text-decoration: none;
-        padding: 10px;
-        margin: 0 10px;
-        display: none;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            display: none;
         }
 
         .hamburger-menu {
-        font-size: 1.5em;
-        cursor: pointer;
+            font-size: 1.5em;
+            cursor: pointer;
         }
 
-        .main-container {
-        max-width: 800px;
-        margin: 20px auto;
-        background-color: black;
-        padding: 10px;
+        main {
+            flex: 1;
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: black;
+            padding: 10px;
         }
 
         table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-        color: #fff;
+            width: 1000px;
+            border-collapse: collapse;
+            margin-top: 20px;
+            color: #fff;
         }
 
         th, td {
-        border: 1px solid orange;
-        padding: 8px;
-        text-align: left;
+            border: 1px solid orange;
+            padding: 8px;
+            text-align: left;
         }
 
         th {
-        background-color: orange;
-        color: #fff;
+            background-color: orange;
+            color: #fff;
         }
 
         tbody tr:nth-child(even) {
-        background-color: black;
+            background-color: black;
         }
 
         input[type="number"] {
-        width: 50px;
-        color: #000;
+            width: 50px;
+            color: #000;
         }
 
         button {
-        background-color: orange;
-        color: #fff;
-        border: none;
-        padding: 8px 16px;
-        cursor: pointer;
+            background-color: orange;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
         }
 
         button:hover {
-        background-color: white;
-        color: black;
+            background-color: white;
+            color: black;
         }
 
         form {
-        text-align: center;
-        margin-top: 20px;
+            text-align: center;
+            margin-top: 20px;
         }
-        
+
         select {
-        background-color: black;
-        color: #fff;
+            background-color: black;
+            color: #fff;
         }
 
         @media only screen and (max-width: 600px) {
+          main {
+            padding: 5px;
+            margin: 0px;
+            margin-right: 1px;
+          }
+
+          table {
+            width: 100%;
+            overflow-x: auto;
+            font-size: 12px;
+          }
+
+          th, td {
+            min-width: 80px;
+          }
+
+          .strt {
+            margin-left: 90px;
+          }
+        }
+
         .options-dropdown a {
             display: block;
         }
@@ -125,6 +150,13 @@
         .restaurant-name {
             margin-bottom: 10px;
         }
+
+        footer {
+            background-color: orange;
+            margin-top: 20px;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
         }
     </style>
 </head>
@@ -149,7 +181,7 @@
           </div>
         </div>
         <input style="border-color: orange; margin-right: 10px; border-radius: 5px;" type="text" id="search-input" oninput="searchMenu()" placeholder="Search Item">
-        <button style="border-radius: 5px;" onclick="startOrdering()">Start Ordering</button>
+        <button class="strt" style="border-radius: 5px;" onclick="startOrdering()">Start Ordering</button>
     </nav>
   </header>
 
@@ -172,10 +204,10 @@
     </table>
   </main>
 
-  <footer style="background-color: orange; color: black; padding: 10px; text-align: center; margin-top: 10px;">
-    <p>&copy; 2024 Cum 'n Eat. All rights reserved.</p>
-    <p>Kollam | Kottayam, Kerala, India</p>
-    <p><a style="color: #fff;" href="mailto:cumneat.com">cumneat.com</a></p>
+  <footer>
+        <p>&copy; 2024 Cum 'n Eat. All rights reserved.</p>
+        <p>Kollam | Kottayam, Kerala, India</p>
+        <p><a style="color: #fff;" href="mailto:cumneat@gmail.com">cumneat@gmail.com</a></p>
   </footer>
   
   <script>

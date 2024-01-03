@@ -5,105 +5,109 @@
   <title>Kitchen View | Cum 'n Eat</title>
   <style>
         body {
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #080808;
-        color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #080808;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         header {
-        background-color: #000;
-        color: #fff;
-        padding: 10px 20px;
-        text-align: center;
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
         }
 
         nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
         .restaurant-name {
-        font-size: 1.5em;
-        font-weight: bold;
+            font-size: 1.5em;
+            font-weight: bold;
         }
 
         .options-dropdown {
-        display: flex;
-        align-items: center;
+            display: flex;
+            align-items: center;
         }
 
         .options-dropdown a {
-        color: #fff;
-        text-decoration: none;
-        padding: 10px;
-        margin: 0 10px;
-        display: none;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            display: none;
         }
 
         .hamburger-menu {
-        font-size: 1.5em;
-        cursor: pointer;
+            font-size: 1.5em;
+            cursor: pointer;
         }
 
-        .main-container {
-        max-width: 800px;
-        margin: 20px auto;
-        background-color: black;
-        padding: 10px;
+        main {
+            flex: 1;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: black;
+            padding: 10px;
         }
 
         table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-        color: #fff;
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            color: #fff;
         }
 
         th, td {
-        border: 1px solid orange;
-        padding: 8px;
-        text-align: left;
+            border: 1px solid orange;
+            padding: 8px;
+            text-align: left;
         }
 
         th {
-        background-color: orange;
-        color: #fff;
+            background-color: orange;
+            color: #fff;
         }
 
         tbody tr:nth-child(even) {
-        background-color: black;
+            background-color: black;
         }
 
         input[type="number"] {
-        width: 50px;
-        color: #000;
+            width: 50px;
+            color: #000;
         }
 
         button {
-        background-color: orange;
-        color: #fff;
-        border: none;
-        padding: 8px 16px;
-        cursor: pointer;
+            background-color: orange;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
         }
 
         button:hover {
-        background-color: white;
-        color: black;
+            background-color: white;
+            color: black;
         }
 
         form {
-        text-align: center;
-        margin-top: 20px;
+            text-align: center;
+            margin-top: 20px;
         }
-        
+
         select {
-        background-color: black;
-        color: #fff;
+            background-color: black;
+            color: #fff;
         }
 
         @media only screen and (max-width: 600px) {
@@ -124,7 +128,15 @@
             margin-bottom: 10px;
         }
         }
-  </style>
+
+        footer {
+            background-color: orange;
+            margin-top: 20px;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
   <header>
@@ -161,28 +173,28 @@
       </tbody>
     </table>
     <div style="margin-top: 20px; display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
-      <div style="margin: 10px; text-align: center; background-color: orange; width: 150px; padding: 10px;">
+      <div style="margin: 10px; text-align: center; background-color: orange; width: 100px; padding: 10px;">
         <h3 onclick="table1()">Order Ready for Table 1.</h3>
       </div>
-      <div style="margin: 10px; text-align: center; background-color: orange; width: 150px; padding: 10px;">
+      <div style="margin: 10px; text-align: center; background-color: orange; width: 100px; padding: 10px;">
         <h3 onclick="table2()">Order Ready for Table 2.</h3>
       </div>
-      <div style="margin: 10px; text-align: center; background-color: orange; width: 150px; padding: 10px;">
+      <div style="margin: 10px; text-align: center; background-color: orange; width: 100px; padding: 10px;">
         <h3 onclick="table3()">Order Ready for Table 3.</h3>
       </div>
-      <div style="margin: 10px; text-align: center; background-color: orange; width: 150px; padding: 10px;">
+      <div style="margin: 10px; text-align: center; background-color: orange; width: 100px; padding: 10px;">
         <h3 onclick="table4()">Order Ready for Table 4.</h3>
       </div>
-      <div style="margin: 10px; text-align: center; background-color: orange; width: 150px; padding: 10px;">
+      <div style="margin: 10px; text-align: center; background-color: orange; width: 100px; padding: 10px;">
         <h3 onclick="table5()">Order Ready for Table 5.</h3>
       </div>
     </div>
   </main>
 
-  <footer style="background-color: orange; color: black; padding: 10px; text-align: center; margin-top: 10px;">
-    <p>&copy; 2024 Cum 'n Eat. All rights reserved.</p>
-    <p>Kollam | Kottayam, Kerala, India</p>
-    <p><a style="color: #fff;" href="mailto:cumneat.com">cumneat.com</a></p>
+  <footer>
+        <p>&copy; 2024 Cum 'n Eat. All rights reserved.</p>
+        <p>Kollam | Kottayam, Kerala, India</p>
+        <p><a style="color: #fff;" href="mailto:cumneat@gmail.com">cumneat@gmail.com</a></p>
   </footer>
   
   <script>

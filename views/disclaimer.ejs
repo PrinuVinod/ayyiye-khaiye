@@ -77,6 +77,32 @@
         a:hover {
             text-decoration: underline;
         }
+
+        @media only screen and (max-width: 600px) {
+      .options-dropdown a {
+        display: block;
+      }
+
+      .options-dropdown.active {
+        display: flex;
+      }
+
+      .options-dropdown {
+        display: none;
+        width: 100%;
+      }
+
+      .restaurant-name {
+        margin-bottom: 10px;
+      }
+    }
+
+    footer {
+      background-color: orange;
+      color: black;
+      padding: 10px;
+      text-align: center;
+    }
     </style>
 </head>
 <body>
@@ -132,10 +158,10 @@
         </p>
     </main>
 
-    <footer style="background-color: orange; color: black; padding: 10px; text-align: center; margin-top: 10px;">
+    <footer>
         <p>&copy; 2024 Cum 'n Eat. All rights reserved.</p>
-        <p>Kollam | Kottayam, Kerala, India</p>
-        <p><a style="color: #fff;" href="mailto:cumneat.com">cumneat.com</a></p>
+        <p>Address: 123 Main Street, Cityville</p>
+        <p>Contact: <a style="color: #fff;" href="mailto:info@cumn-eat.com">info@cumn-eat.com</a></p>
     </footer>
 
     <script>
