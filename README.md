@@ -1,8 +1,8 @@
-# Restaurant-App
+# Cum 'n Eat
 
 **Abstract:**
 
-The restaurant menu application is a web-based platform designed to streamline the ordering process for customers and facilitate efficient management for restaurant staff. The application provides an intuitive user interface, allowing customers to browse through an extensive menu categorized into soups, starters, main courses, snacks, desserts, and drinks.
+Cum 'n Eat menu application is a web-based platform designed to streamline the ordering process for customers and facilitate efficient management for staff. The application provides an intuitive user interface, allowing customers to browse through an extensive menu categorized into soups, starters, main courses, snacks, desserts, and drinks.
 
 Key Features:
 
@@ -24,11 +24,13 @@ Key Features:
    - The application is designed to scale with additional features, such as real-time updates, and integration with a backend database for persistent storage of menu items and orders.
 
 The restaurant menu application enhances the overall dining experience by combining a user-friendly interface with dynamic menu updates and efficient order management, contributing to increased customer satisfaction and operational efficiency for the restaurant.
+<br>
 
 ## Installation
 ```
 npm install express mongoose body-parser dotenv ejs multer
 ```
+<br>
 
 ## Routes
 1. Home Screen.
