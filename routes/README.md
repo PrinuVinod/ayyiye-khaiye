@@ -1,2 +1,2 @@
 # Routes
-This is the ROutes Folder that shows all the Routes.
+This is the Routes Folder that shows all the Routes.
