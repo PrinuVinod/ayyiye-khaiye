@@ -26,18 +26,31 @@ router.get('/get-total-amount/:tableNumber', async (req, res) => {
   }
 });
 
-router.post('/submit-order', async (req, res) => {
-    try {
-        const orders = await Order.find();
+router.post('/submit-order/:tableNumber', async (req, res) => {
+  try {
+    const { tableNumber } = req.params;
 
-        await KitchenView.insertMany(orders);
+    console.log('Received tableNumber:', tableNumber); // Add this line
 
-        await Order.deleteMany();
+    // Fetch orders for the specific table
+    const orders = await Order.find({ tableNumber });
 
-        res.send('Order submitted successfully!');
-    } catch (error) {
-        res.status(500).send('Error submitting order');
-    }
+    // Create KitchenView documents from orders and save to the KitchenView collection
+    const kitchenViewDocs = orders.map(order => ({
+      itemName: order.itemName,
+      quantity: order.quantity,
+      tableNumber: order.tableNumber, // Include the table number
+    }));
+    await KitchenView.create(kitchenViewDocs);
+
+    // Delete orders from the Order collection
+    await Order.deleteMany({ tableNumber });
+
+    res.json({ success: true });
+  } catch (error) {
+    console.error('Error submitting order:', error);
+    res.status(500).json({ error: 'Error submitting order' });
+  }
 });
 
 router.delete('/delete-order/:orderId', async (req, res) => {

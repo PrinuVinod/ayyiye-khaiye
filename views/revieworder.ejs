@@ -180,6 +180,25 @@
             fetchTotalAmount(selectedTableNumber);
         }
 
+        function submitOrder() {
+            const tableNumber = prompt('Please Review your Order by Entering your Table Number:');
+            console.log('Submitting order for table:', tableNumber);
+
+            fetch(`/toorder/submit-order/${tableNumber}`, {
+            method: 'POST',
+            })
+            .then(response => {
+                if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
+                }
+                console.log('Order submitted successfully.');
+                window.location.href = '/kitchenview';
+            })
+            .catch(error => {
+                console.error('Error submitting order.', error);
+            });
+        }
+
         function fetchTotalAmount(tableNumber) {
             fetch(`/toorder/get-total-amount/${tableNumber}`)
             .then(response => response.json())
@@ -208,64 +227,6 @@
                 } else {
                     row.style.display = 'none';
                 }
-            });
-        }
-
-        function submitOrder() {
-        fetch('/toorder/submit-order', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: 'submit=true',
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
-            }
-            return response.text();
-        })
-        .then(responseHTML => {
-            console.log(responseHTML);
-            
-            document.body.innerHTML = responseHTML;
-        })
-        .catch(error => {
-            console.error('Error submitting order:', error);
-        });
-    }
-
-        function duplicateToKitchenView(orderList) {
-            const data = { orders: orderList };
-
-            fetch('/menu/duplicate-to-kitchenview', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-            })
-            .then(response => response.json())
-            .then(result => {
-                console.log('Order data duplicated to kitchenview collection:', result);
-            })
-            .catch(error => {
-                console.error('Error duplicating order data:', error);
-            });
-        }
-
-        function clearOrdersCollection() {
-            fetch('/menu/clear-orders', {
-            method: 'DELETE',
-            })
-            .then(response => response.json())
-            .then(result => {
-                console.log('Order data cleared from orders collection:', result);
-
-                fetchOrderData();
-            })
-            .catch(error => {
-                console.error('Error clearing order data:', error);
             });
         }
         
