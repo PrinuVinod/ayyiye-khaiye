@@ -47,6 +47,10 @@ app.get('/disclaimer', (req, res) => {
   res.render('disclaimer');
 });
 
+app.get('/admin-console', (req, res) => {
+  res.render('admin');
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port http://localhost:${port}/`);
 });

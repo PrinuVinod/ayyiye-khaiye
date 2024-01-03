@@ -13,6 +13,7 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            font-size: ;
         }
 
         header {
@@ -132,11 +133,15 @@
         footer {
             background-color: orange;
             margin-top: 20px;
-            color: #fff;
+            color: black;
             padding: 10px;
             text-align: center;
         }
-    </style>
+
+        .strt {
+            margin-bottom: 50px;
+        }
+  </style>
 </head>
 <body>
   <header>
@@ -162,9 +167,9 @@
           <td><%= item.tableNumber %></td>
           <td><%= item.itemName %></td>
           <td><%= item.quantity %></td>
-          <td>
+          <td style="width: 50px; height: 20px; padding-bottom: 25px; padding-top: 0px;">
             <form action="/deleteItem" method="post">
-              <input type="hidden" name="itemId" value="<%= item._id %>">
+              <input style="margin-top: 0;" hidden="" name="itemId" value="65955c06435ecfbc069fe8ba">
               <button type="submit">Delete</button>
             </form>
           </td>

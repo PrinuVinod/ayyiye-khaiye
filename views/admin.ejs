@@ -1,0 +1,237 @@
+<!-- views/admin.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Console | Cum 'n Eat</title>
+  <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #080808;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .restaurant-name {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .options-dropdown {
+            display: flex;
+            align-items: center;
+        }
+
+        .options-dropdown a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            display: none;
+        }
+
+        .hamburger-menu {
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        main {
+            flex: 1;
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: black;
+            padding: 10px;
+        }
+
+        table {
+            width: 1000px;
+            border-collapse: collapse;
+            margin-top: 20px;
+            color: #fff;
+        }
+
+        th, td {
+            border: 1px solid orange;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: orange;
+            color: #fff;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: black;
+        }
+
+        input[type="number"] {
+            width: 50px;
+            color: #000;
+        }
+
+        button {
+            background-color: orange;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: white;
+            color: black;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        select {
+            background-color: black;
+            color: #fff;
+        }
+
+        @media only screen and (max-width: 600px) {
+          main {
+            padding: 5px;
+            margin: 0px;
+            margin-right: 1px;
+          }
+
+          table {
+            width: 100%;
+            overflow-x: auto;
+            font-size: 12px;
+          }
+
+          th, td {
+            min-width: 80px;
+          }
+
+          .strt {
+            margin-left: 90px;
+          }
+        }
+
+        .options-dropdown a {
+            display: block;
+        }
+
+        .options-dropdown.active {
+            display: flex;
+        }
+
+        .options-dropdown {
+            display: none;
+            width: 100%;
+        }
+
+        .restaurant-name {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: orange;
+            margin-top: 20px;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="restaurant-name">Cum 'n Eat</div>
+        <input style="border-color: orange; margin-right: 10px; border-radius: 5px;" type="text" id="search-input" oninput="searchMenu()" placeholder="Search Item">
+        <button class="strt" style="border-radius: 5px;" onclick="startOrdering()">Start Ordering</button>
+    </nav>
+  </header>
+
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th style="border-color: black;">Item Name</th>
+          <th style="border-color: black;">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% menu.forEach(item => { %>
+          <tr data-category="<%= item.category %>">
+            <td><%= item.name %></td>
+            <td>INR <%= item.price.toFixed(2) %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+        <p>&copy; 2024 Cum 'n Eat. All rights reserved.</p>
+        <p>Kollam | Kottayam, Kerala, India</p>
+        <p><a style="color: #fff;" href="mailto:cumneat@gmail.com">cumneat@gmail.com</a></p>
+  </footer>
+  
+  <script>
+    function toggleOptions() {
+      const optionsDropdown = document.querySelector('.options-dropdown');
+      optionsDropdown.classList.toggle('active');
+    }
+
+    function filterMenu(category) {
+      const tableRows = document.querySelectorAll('tbody tr');
+      
+      tableRows.forEach(row => {
+        const itemCategory = row.getAttribute('data-category');
+        if (category === 'all' || itemCategory === category) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    function searchMenu() {
+      const searchInput = document.getElementById('search-input');
+      const searchTerm = searchInput.value.toLowerCase();
+
+      const tableRows = document.querySelectorAll('tbody tr');
+
+      tableRows.forEach(row => {
+        const itemName = row.querySelector('td:first-child').textContent.toLowerCase();
+        if (itemName.includes(searchTerm)) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    function startOrdering() {
+      window.location.href = '/menu';
+    }
+</script>
+</body>
+</html>
