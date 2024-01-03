@@ -5,7 +5,10 @@
 │   └── Order.js
 │   └── SubmittedOrder.js
 ├── public/
-│   └── styles.css
+│    └── images/
+│       └── logo.png
+│   └── styles/
+│       └── styles.css
 ├── routes/
 │   └── additemRoutes.js
 │   └── kitchenRoutes.js
@@ -13,6 +16,7 @@
 │   └── toorderRoutes.js
 ├── views/
 │   └── additem.ejs
+│   └── admin.ejs
 │   └── disclaimer.ejs
 │   └── homepage.ejs
 │   └── kitchenview.ejs
