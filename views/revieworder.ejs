@@ -181,15 +181,14 @@
         }
 
         function submitOrder() {
-            const tableNumber = prompt('Please Review your Order by Entering your Table Number:');
-            console.log('Submitting order for table:', tableNumber);
+            console.log('Submitting order for table:', selectedTableNumber);
 
-            fetch(`/toorder/submit-order/${tableNumber}`, {
-            method: 'POST',
+            fetch(`/toorder/submit-order/${selectedTableNumber}`, {
+                method: 'POST',
             })
             .then(response => {
                 if (!response.ok) {
-                throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
+                    throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
                 }
                 console.log('Order submitted successfully.');
                 window.location.href = '/kitchenview';
