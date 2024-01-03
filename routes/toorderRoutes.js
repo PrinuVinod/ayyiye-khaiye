@@ -5,6 +5,7 @@ const router = express.Router();
 const Order = require('../models/Order');
 const KitchenView = require('../models/KitchenView');
 const MenuItem = require('../models/MenuItem');
+const SubmittedOrder = require('../models/SubmittedOrder');
 
 router.get('/get-total-amount/:tableNumber', async (req, res) => {
   try {
