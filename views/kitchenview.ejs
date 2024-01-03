@@ -1,0 +1,197 @@
+<!-- views/kitchenview.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Kitchen View | Cum 'n Eat</title>
+  <style>
+        body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #080808;
+        color: #fff;
+        }
+
+        header {
+        background-color: #000;
+        color: #fff;
+        padding: 10px 20px;
+        text-align: center;
+        }
+
+        nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        }
+
+        .restaurant-name {
+        font-size: 1.5em;
+        font-weight: bold;
+        }
+
+        .options-dropdown {
+        display: flex;
+        align-items: center;
+        }
+
+        .options-dropdown a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px;
+        margin: 0 10px;
+        display: none;
+        }
+
+        .hamburger-menu {
+        font-size: 1.5em;
+        cursor: pointer;
+        }
+
+        .main-container {
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: black;
+        padding: 10px;
+        }
+
+        table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        color: #fff;
+        }
+
+        th, td {
+        border: 1px solid orange;
+        padding: 8px;
+        text-align: left;
+        }
+
+        th {
+        background-color: orange;
+        color: #fff;
+        }
+
+        tbody tr:nth-child(even) {
+        background-color: black;
+        }
+
+        input[type="number"] {
+        width: 50px;
+        color: #000;
+        }
+
+        button {
+        background-color: orange;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        cursor: pointer;
+        }
+
+        button:hover {
+        background-color: white;
+        color: black;
+        }
+
+        form {
+        text-align: center;
+        margin-top: 20px;
+        }
+        
+        select {
+        background-color: black;
+        color: #fff;
+        }
+
+        @media only screen and (max-width: 600px) {
+        .options-dropdown a {
+            display: block;
+        }
+
+        .options-dropdown.active {
+            display: flex;
+        }
+
+        .options-dropdown {
+            display: none;
+            width: 100%;
+        }
+
+        .restaurant-name {
+            margin-bottom: 10px;
+        }
+        }
+    </style>
+</head><body>
+  <header>
+    <nav>
+      <div class="restaurant-name">Cum 'n Eat</div>
+    </nav>
+  </header>
+  <main>
+    <h1 style="text-align: center;">Kitchen View</h1>
+    <table>
+      <thead>
+        <tr>
+          <th style="border-color: black;">Table Number</th>
+          <th style="border-color: black;">Item Name</th>
+          <th style="border-color: black;">Quantity</th>
+          <th style="border-color: black;">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% kitchenData.forEach(item => { %>
+        <tr>
+          <td><%= item.tableNumber %></td>
+          <td><%= item.itemName %></td>
+          <td><%= item.quantity %></td>
+          <td>
+            <form action="/deleteItem" method="post">
+              <input type="hidden" name="itemId" value="<%= item._id %>">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <div style="margin-top: 20px; display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+      <div style="margin: 10px; text-align: center; background-color: orange; width: 150px; padding: 10px;">
+        <h3 onclick="table1()">Order Ready for Table 1.</h3>
+      </div>
+      <div style="margin: 10px; text-align: center; background-color: orange; width: 150px; padding: 10px;">
+        <h3 onclick="table2()">Order Ready for Table 2.</h3>
+      </div>
+      <div style="margin: 10px; text-align: center; background-color: orange; width: 150px; padding: 10px;">
+        <h3 onclick="table3()">Order Ready for Table 3.</h3>
+      </div>
+      <div style="margin: 10px; text-align: center; background-color: orange; width: 150px; padding: 10px;">
+        <h3 onclick="table4()">Order Ready for Table 4.</h3>
+      </div>
+      <div style="margin: 10px; text-align: center; background-color: orange; width: 150px; padding: 10px;">
+        <h3 onclick="table5()">Order Ready for Table 5.</h3>
+      </div>
+    </div>
+  </main>
+  <script>
+    function table1() {
+      alert("Order Ready for Table 1.");
+    }
+    function table2() {
+      alert("Order Ready for Table 2.");
+    }
+    function table3() {
+      alert("Order Ready for Table 3.");
+    }
+    function table4() {
+      alert("Order Ready for Table 4.");
+    }
+    function table5() {
+      alert("Order Ready for Table 5.");
+    }
+  </script>
+</body>
+</html>
