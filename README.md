@@ -31,19 +31,23 @@ npm install express mongoose body-parser dotenv ejs multer
 ```
 
 ## Paths
-1. Home Screen
+1. Home Screen.
 ```
 /
 ```
-3. To check out the Menu
+3. To check out the Menu.
 ```
 /menu
 ```
-3. To get Ordered List
+3. To Review the Items you added to the list.
 ```
 /menu/get-orders
 ```
-4. To add new Item to the Menu
+4. To add new Item to the Menu.
 ```
 /additem
+```
+5. To get the Kitchen View.
+```
+/kitchenview
 ```
