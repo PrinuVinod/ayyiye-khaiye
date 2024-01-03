@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const menuRoutes = require('./routes/menuRoutes');
 const additemRoutes = require('./routes/additemRoutes');
 const toorderRoutes = require('./routes/toorderRoutes');
+const kitchenRoutes = require('./routes/kitchenRoutes');
 const MenuItem = require('./models/MenuItem');
 
 require('dotenv').config();
@@ -40,6 +41,11 @@ app.get('/', async (req, res) => {
 app.use('/menu', menuRoutes);
 app.use('/additem', additemRoutes);
 app.use('/toorder', toorderRoutes);
+app.use('/', kitchenRoutes);
+
+app.get('/disclaimer', (req, res) => {
+  res.render('disclaimer');
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port http://localhost:${port}/`);

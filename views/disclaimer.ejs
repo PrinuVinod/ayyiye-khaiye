@@ -1,0 +1,142 @@
+<!-- views/disclaimer.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disclaimer | Cum 'n Eat</title>
+   <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #080808;
+            color: #fff;
+        }
+
+        strong {
+            color: orange;
+        }
+
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .restaurant-name {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: orange;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: white;
+            color: black;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: orange;
+        }
+
+        p {
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        a {
+            color: orange;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="restaurant-name">Cum 'n Eat</div>
+            <div style="display: flex;">
+                <button onclick="menu()">Menu</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h2>Disclaimer</h2>
+        <p>
+            <strong>Table Selection Disclaimer</strong>
+            <br>
+            By using this web application and selecting a table number for placing orders, you agree to the following:
+            <br><br>
+            1. The table number you choose for ordering is assumed to be the table where you are physically seated.
+            <br><br>
+            2. Deliberately selecting a table number different from your actual location may lead to confusion in the order delivery process.
+            <br><br>
+            3. Any misuse or intentional misrepresentation of your table number for amusement or other purposes may result in service delays and inconvenience for both staff and other customers.
+            <br><br>
+            4. Cum 'n Eat holds no responsibility for any penalties or consequences resulting from the intentional misrepresentation of your table number.
+            <br><br>
+            5. We encourage users to use the table selection feature responsibly and ensure accurate representation of their actual seating location.
+            <br><br>
+            By using this service, you acknowledge and accept the terms outlined in this Table Selection Disclaimer. Cum 'n Eat reserves the right to refuse service or take appropriate action against users found intentionally misrepresenting their table numbers.
+            <br><br>
+
+            <strong>Service Availability:</strong>
+            <br>
+            Cum 'n Eat strives to provide a reliable service. However, the service may be subject to interruptions. We are not responsible for any loss caused by service unavailability.
+            <br><br>
+
+            <strong>Content Accuracy:</strong>
+            <br>
+            The information provided on this website may not be exhaustive, and there could be inaccuracies. Cum 'n Eat is not liable for any reliance on such information.
+            <br><br>
+
+            <strong>User Responsibilities:</strong>
+            <br>
+            Users are responsible for providing accurate information, refraining from misuse of the service, and complying with all applicable laws and regulations while using Cum 'n Eat.
+            <br><br>
+
+            <strong>Intellectual Property:</strong>
+            <br>
+            All intellectual property associated with the content on this website, including trademarks and copyrights, is protected. Unauthorized use is strictly prohibited.
+            <br><br>
+
+            If you have any questions or concerns regarding this disclaimer, please contact us at <a href="mailto:cumneat@gmail.com">cumneat@gmail.com</a>.
+        </p>
+    </main>
+    <footer>
+    </footer>
+    <script>
+        function menu() {
+            window.location.href = '/menu';
+        }
+    </script>
+</body>
+</html>
