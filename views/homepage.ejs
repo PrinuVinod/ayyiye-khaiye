@@ -164,7 +164,7 @@
 <body>
   <header>
     <nav>
-      <div class="restaurant-name">Cum 'n Eat</div>
+      <div class="restaurant-name" onclick="menu()">Cum 'n Eat</div>
       <div style="display: flex;">
         <div class="options-dropdown">
           <div style="height: auto;">
@@ -181,6 +181,7 @@
             </select>
           </div>
         </div>
+        <button style="border-radius: 5px; margin-right: 10px;" onclick="navigation()">Navigation</button>
         <input style="border-color: orange; margin-right: 10px; border-radius: 5px;" type="text" id="search-input" oninput="searchMenu()" placeholder="Search Item">
         <button class="strt" style="border-radius: 5px;" onclick="startOrdering()">Start Ordering</button>
     </nav>
@@ -248,6 +249,14 @@
 
     function startOrdering() {
       window.location.href = '/menu';
+    }
+
+    function menu() {
+      window.location.href = "/";
+    }
+
+    function navigation() {
+      window.location.href = "/navigation";
     }
 </script>
 </body>

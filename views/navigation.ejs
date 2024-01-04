@@ -1,0 +1,101 @@
+<!-- views/navigation.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation | Cum 'n Eat</title>
+  <link rel="icon" href="/Images/logo.png" type="image/png">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #080808;
+      color: #fff;
+    }
+
+    main {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: orange;
+      border-radius: 10px;
+    }
+
+    h1 {
+      color: black;
+      text-align: center;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      text-align: center;
+    }
+
+    li {
+      margin: 10px 0;
+    }
+
+    a {
+      color: orange;
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: black;
+    }
+
+    a:hover {
+      background-color: white;
+      color: black;
+    }
+
+    header {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .restaurant-name {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+  </style>
+</head>
+<body>
+  <header>
+        <nav>
+            <div class="restaurant-name" onclick="menu()">Cum 'n Eat</div>
+        </nav>
+    </header>
+  <main>
+    <h1>Navigation</h1>
+    <ul>
+      <li><a href="/">Home Screen</a></li>
+      <li><a href="/menu">Check out the Menu</a></li>
+      <li><a href="/menu/get-orders">Review Items</a></li>
+      <li><a href="/additem">Add New Item</a></li>
+      <li><a href="/kitchenview">Kitchen View</a></li>
+      <li><a href="/disclaimer">Disclaimer</a></li>
+      <li><a href="/admin-console">Admin</a></li>
+      <li><a href="/navigation">Navigation</a></li>
+    </ul>
+  </main>
+  <script>
+    function menu() {
+      window.location.href = "/";
+    }
+  </script>
+</body>
+</html>

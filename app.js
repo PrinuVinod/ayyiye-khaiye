@@ -51,6 +51,10 @@ app.get('/admin-console', (req, res) => {
   res.render('admin');
 });
 
+app.get('/navigation', (req, res) => {
+  res.render('navigation');
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port http://localhost:${port}/`);
 });
