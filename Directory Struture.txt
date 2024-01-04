@@ -21,6 +21,7 @@
 │   └── homepage.ejs
 │   └── kitchenview.ejs
 │   └── menu.ejs
+│   └── navigation.ejs
 │   └── revieworder.ejs
 └── app.js
 
