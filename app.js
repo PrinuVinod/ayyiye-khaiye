@@ -10,7 +10,7 @@ const MenuItem = require('./models/MenuItem');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 3000;
 
 mongoose.connect(process.env.MONGODB_CONNECT_URI, {
   useNewUrlParser: true,
