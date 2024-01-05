@@ -1,11 +1,16 @@
+// app.js
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 const menuRoutes = require('./routes/menuRoutes');
 const additemRoutes = require('./routes/additemRoutes');
 const toorderRoutes = require('./routes/toorderRoutes');
 const kitchenRoutes = require('./routes/kitchenRoutes');
+const adminRoutes = require('./routes/adminRoutes');
+const middleware = require('./middleware/middleware'); // Import the middleware
 const MenuItem = require('./models/MenuItem');
+const User = require('./models/User');
 
 require('dotenv').config();
 
@@ -17,11 +22,6 @@ mongoose.connect(process.env.MONGODB_CONNECT_URI, {
   useUnifiedTopology: true,
 });
 
-// mongoose.connect('mongodb+srv://prinuvinod:blahblah123@cluster0.398ttkq.mongodb.net/cluster0?retryWrites=true&w=majority', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
-
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => {
@@ -31,11 +31,11 @@ db.once('open', () => {
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({ secret: 'your-secret-key', resave: true, saveUninitialized: true }));
 
 app.get('/', async (req, res) => {
   try {
     const menuItems = await MenuItem.find();
-
     res.render('homepage', { menu: menuItems });
   } catch (error) {
     console.error('Error fetching menu items:', error);
@@ -43,17 +43,15 @@ app.get('/', async (req, res) => {
   }
 });
 
+app.use('/additem', middleware.redirectToAdminIfNotAuthenticated, additemRoutes);
 app.use('/menu', menuRoutes);
-app.use('/additem', additemRoutes);
+// app.use('/additem', additemRoutes);
 app.use('/toorder', toorderRoutes);
 app.use('/', kitchenRoutes);
+app.use('/', adminRoutes);
 
 app.get('/disclaimer', (req, res) => {
   res.render('disclaimer');
-});
-
-app.get('/admin-console', (req, res) => {
-  res.render('admin');
 });
 
 app.get('/navigation', (req, res) => {

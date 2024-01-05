@@ -1,9 +1,12 @@
 /Restaurant App
+├── middleware/
+│   └── middleware.js
 ├── models/
 │   └── KitchenView.js
 │   └── MenuItem.js
 │   └── Order.js
 │   └── SubmittedOrder.js
+│   └── User.js
 ├── public/
 │    └── images/
 │       └── logo.png
@@ -11,6 +14,7 @@
 │       └── styles.css
 ├── routes/
 │   └── additemRoutes.js
+│   └── adminRoutes.js
 │   └── kitchenRoutes.js
 │   └── menuRoutes.js
 │   └── toorderRoutes.js
