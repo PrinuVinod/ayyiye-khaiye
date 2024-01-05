@@ -10,12 +10,17 @@ const MenuItem = require('./models/MenuItem');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3002;
 
-mongoose.connect('mongodb+srv://prinuvinod:blahblah123@cluster0.398ttkq.mongodb.net/cluster0?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGODB_CONNECT_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+// mongoose.connect('mongodb+srv://prinuvinod:blahblah123@cluster0.398ttkq.mongodb.net/cluster0?retryWrites=true&w=majority', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
