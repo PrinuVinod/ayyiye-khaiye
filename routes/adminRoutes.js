@@ -10,10 +10,8 @@ router.post('/admin/login', async (req, res) => {
   const { name, password } = req.body;
 
   try {
-    console.log('Received login request:', { name, password }); // Debug log
-
     const user = await User.findOne({ name, password });
-    console.log('User:', user); // Log user object
+    console.log('User:', user);
 
     if (user) {
       res.render('admin', { isAdminLoggedIn: true });

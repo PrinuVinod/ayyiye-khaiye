@@ -37,12 +37,11 @@ app.use(express.static('views/cum n eat'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({ secret: 'your-secret-key', resave: true, saveUninitialized: true }));
 
-// Render different views based on the route
 app.get('/', async (req, res) => {
   res.render('cum n eat/index.html');
 });
 app.use('/menu', menuRoutes);
-app.use('/additem', middleware.redirectToAdminIfNotAuthenticated, additemRoutes);
+app.use('/additem', additemRoutes);
 app.use('/toorder', toorderRoutes);
 app.use('/', kitchenRoutes);
 app.use('/', adminRoutes);
