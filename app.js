@@ -8,9 +8,10 @@ const additemRoutes = require('./routes/additemRoutes');
 const toorderRoutes = require('./routes/toorderRoutes');
 const kitchenRoutes = require('./routes/kitchenRoutes');
 const adminRoutes = require('./routes/adminRoutes');
-const middleware = require('./middleware/middleware'); // Import the middleware
+const middleware = require('./middleware/middleware');
 const MenuItem = require('./models/MenuItem');
 const User = require('./models/User');
+const path = require('path');
 
 require('dotenv').config();
 
@@ -29,23 +30,19 @@ db.once('open', () => {
 });
 
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
 app.use(express.static('public'));
+app.use(express.static('views/cum n eat'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({ secret: 'your-secret-key', resave: true, saveUninitialized: true }));
 
+// Render different views based on the route
 app.get('/', async (req, res) => {
-  try {
-    const menuItems = await MenuItem.find();
-    res.render('homepage', { menu: menuItems });
-  } catch (error) {
-    console.error('Error fetching menu items:', error);
-    res.status(500).send('Internal Server Error');
-  }
+  res.render('cum n eat/index.html');
 });
-
-app.use('/additem', middleware.redirectToAdminIfNotAuthenticated, additemRoutes);
 app.use('/menu', menuRoutes);
-// app.use('/additem', additemRoutes);
+app.use('/additem', middleware.redirectToAdminIfNotAuthenticated, additemRoutes);
 app.use('/toorder', toorderRoutes);
 app.use('/', kitchenRoutes);
 app.use('/', adminRoutes);
