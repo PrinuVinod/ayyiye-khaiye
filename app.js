@@ -34,6 +34,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static('public'));
 app.use(express.static('views/cum n eat'));
+app.use(express.static('views/cum n eat/css'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({ secret: 'your-secret-key', resave: true, saveUninitialized: true }));
 
