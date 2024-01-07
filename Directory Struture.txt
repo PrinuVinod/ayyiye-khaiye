@@ -22,11 +22,11 @@
 ├── views/
 │   └── Cum n Eat/
 │       └── css/
-│       └── index.html
 │       └── contact.html
 │   └── additem.ejs
 │   └── admin.ejs
 │   └── disclaimer.ejs
+│   └── index.ejs
 │   └── homepage.ejs
 │   └── kitchenview.ejs
 │   └── menu.ejs
