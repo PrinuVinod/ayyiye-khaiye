@@ -1,0 +1,23 @@
+{
+  // These tasks will run in order when initializing your CodeSandbox project.
+  "setupTasks": [
+    {
+      "command": "npm install express mongoose body-parser dotenv ejs multer express-session",
+      "name": "npm install express mongoose body-parser dotenv ejs multer express-session"
+    }
+  ],
+
+  // These tasks can be run from CodeSandbox. Running one will open a log in the app.
+  "tasks": {
+    "test": {
+      "name": "test",
+      "command": "npm run test",
+      "runAtStart": false
+    },
+    "node app.js": {
+      "name": "node app.js",
+      "command": "node app.js",
+      "runAtStart": true
+    }
+  }
+}
