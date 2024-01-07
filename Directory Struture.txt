@@ -8,10 +8,11 @@
 │   └── SubmittedOrder.js
 │   └── User.js
 ├── public/
-│    └── images/
-│       └── logo.png
-│   └── styles/
+│   └── css/
 │       └── styles.css
+│   └── images/
+│       └── logo.png
+│   └── scss/
 ├── routes/
 │   └── additemRoutes.js
 │   └── adminRoutes.js
@@ -19,7 +20,8 @@
 │   └── menuRoutes.js
 │   └── toorderRoutes.js
 ├── views/
-│   └── cum n eat/
+│   └── Cum n Eat/
+│       └── css/
 │       └── index.html
 │       └── contact.html
 │   └── additem.ejs
