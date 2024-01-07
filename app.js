@@ -30,16 +30,16 @@ db.once('open', () => {
 });
 
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('viewss', path.join(__dirname, 'viewss'));
 
 app.use(express.static('public'));
-app.use(express.static('views/cum n eat'));
-app.use(express.static('views/cum n eat/css'));
+app.use(express.static('viewss/cum n eat'));
+app.use(express.static('viewss/cum n eat/css'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({ secret: 'your-secret-key', resave: true, saveUninitialized: true }));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'cum n eat', 'index.html'));
+  res.sendFile(path.join(__dirname, 'viewss', 'cum n eat', 'index.html'));
 });
 
 app.use('/menu', menuRoutes);
