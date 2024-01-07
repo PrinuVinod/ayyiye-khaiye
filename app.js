@@ -38,9 +38,10 @@ app.use(express.static('views/cum n eat/css'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({ secret: 'your-secret-key', resave: true, saveUninitialized: true }));
 
-app.get('/', async (req, res) => {
-  res.render('cum n eat/index.html');
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'cum n eat', 'index.html'));
 });
+
 app.use('/menu', menuRoutes);
 app.use('/additem', additemRoutes);
 app.use('/toorder', toorderRoutes);
