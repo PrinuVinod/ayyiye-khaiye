@@ -39,8 +39,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({ secret: 'your-secret-key', resave: true, saveUninitialized: true }));
 
 app.get('/', async (req, res) => {
-  res.render('index');
+  res.render('cum n eat/index');
 });
+
 app.use('/menu', menuRoutes);
 app.use('/additem', additemRoutes);
 app.use('/toorder', toorderRoutes);
