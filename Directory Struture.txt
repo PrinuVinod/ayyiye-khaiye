@@ -9,9 +9,9 @@
 │   └── User.js
 ├── public/
 │   └── css/
-│       └── styles.css
 │   └── images/
-│       └── logo.png
+│   └── js/
+│   └── lib/
 │   └── scss/
 ├── routes/
 │   └── additemRoutes.js
@@ -20,18 +20,17 @@
 │   └── menuRoutes.js
 │   └── toorderRoutes.js
 ├── views/
-│   └── Cum n Eat/
-│       └── css/
-│       └── contact.html
 │   └── additem.ejs
 │   └── admin.ejs
+│   └── contact.ejs
 │   └── disclaimer.ejs
 │   └── index.ejs
-│   └── homepage.ejs
 │   └── kitchenview.ejs
 │   └── menu.ejs
 │   └── navigation.ejs
 │   └── revieworder.ejs
+├── .env
+├── Directory Structure.txt
 └── app.js
 
 this is my root directory structure
