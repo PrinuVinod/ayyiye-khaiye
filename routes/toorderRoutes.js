@@ -33,6 +33,26 @@ router.post('/submit-order/:tableNumber', async (req, res) => {
     console.log('Received tableNumber:', tableNumber);
     const orders = await Order.find({ tableNumber });
 
+    const submittedOrderArray = [];
+
+    for (const order of orders) {
+      const menuItem = await MenuItem.findOne({ name: order.itemName });
+      if (menuItem) {
+        const submittedOrderItem = {
+          itemName: order.itemName,
+          quantity: order.quantity,
+          price: menuItem.price,
+          tableNumber: order.tableNumber,
+          totalAmount: menuItem.price * order.quantity,
+        };
+        submittedOrderArray.push(submittedOrderItem);
+      }
+    }
+
+    // Add the submitted orders to the SubmittedOrder collection
+    await SubmittedOrder.create(submittedOrderArray);
+
+    // Add the orders to the KitchenView collection
     const kitchenViewDocs = orders.map(order => ({
       itemName: order.itemName,
       quantity: order.quantity,
@@ -40,6 +60,7 @@ router.post('/submit-order/:tableNumber', async (req, res) => {
     }));
     await KitchenView.create(kitchenViewDocs);
 
+    // Delete the orders from the Order collection
     await Order.deleteMany({ tableNumber });
 
     res.json({ success: true });

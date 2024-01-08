@@ -48,6 +48,8 @@
         </nav>
     </header>
     
+  <div id="notification-area" class="notification-area"></div>
+
     <main>
         <h1 class="tableno" style="text-align: center; color: white;"></h1>
         <div style="margin-top: 20px; text-align: center; background-color: #FF6347; padding: 10px; width: 80%; margin-left: auto; margin-right: auto; border-radius: 10px;">
@@ -154,10 +156,20 @@
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
     <script>
+        function showNotification(message, type) {
+                const notificationArea = document.getElementById('notification-area');
+                notificationArea.innerHTML = `<div class="notification ${type}">${message}</div>`;
+
+                setTimeout(() => {
+                    notificationArea.innerHTML = '';
+                }, 2000);
+            }
+
         function getTableNumberFromConsole() {
             const tableNumber = prompt('Please Review your Order by Entering your Table Number:');
             return tableNumber;
         }
+
         const selectedTableNumber = getTableNumberFromConsole();
         if (selectedTableNumber === null || selectedTableNumber.trim() === '' || selectedTableNumber > 5 || selectedTableNumber < 1) {
             window.location.href = '/menu';
@@ -177,10 +189,12 @@
                     throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
                 }
                 console.log('Order submitted successfully.');
-                window.location.href = '/menu';
+                showNotification('Order Submitted successfully!', 'success');
+                // window.location.href = '/menu';
             })
             .catch(error => {
                 console.error('Error submitting order.', error);
+                showNotification('Error Submitting Order. Please try again.', 'error');
             });
         }
 
@@ -224,10 +238,12 @@
                     throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
                 }
                 console.log('Item Deleted From Order.');
+                showNotification('Item Deleted From Order!', 'success');
                 location.reload();
             })
             .catch(error => {
                 console.error('Error Deleting Order.', error);
+                showNotification('Error Deleting Item From Order!', 'success');
             });
         }
         
