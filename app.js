@@ -10,6 +10,7 @@ const kitchenRoutes = require('./routes/kitchenRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const tableRoutes = require('./routes/tableRoutes');
 const tableavailRoutes = require('./routes/tableavailRoutes');
+const submittedOrderRoutes = require('./routes/submittedOrderRoutes');
 const middleware = require('./middleware/middleware');
 const MenuItem = require('./models/MenuItem');
 const User = require('./models/User');
@@ -49,6 +50,7 @@ app.use('/', kitchenRoutes);
 app.use('/', adminRoutes);
 app.use('/', tableRoutes);
 app.use('/', tableavailRoutes);
+app.use('/submitted-orders', submittedOrderRoutes);
 
 app.get('/disclaimer', (req, res) => {
   res.render('disclaimer');

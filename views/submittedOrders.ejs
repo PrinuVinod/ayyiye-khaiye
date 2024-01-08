@@ -1,0 +1,22 @@
+<!-- views/submittedOrders.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submitted Orders</title>
+</head>
+<body>
+  <h1>Submitted Orders</h1>
+
+  <% Object.entries(aggregatedOrders).forEach(([itemName, data]) => { %>
+    <div>
+      <h2><%= itemName %></h2>
+      <p>Total Quantity: <%= data.totalQuantity %></p>
+      <p>Total Amount: <%= data.totalAmount %></p>
+      <hr>
+    </div>
+  <% }); %>
+
+</body>
+</html>
