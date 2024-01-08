@@ -17,10 +17,9 @@ router.post('/deleteItem', async (req, res) => {
   try {
     const itemId = req.body.itemId;
 
-    // Assuming KitchenItem is your Mongoose model for the kitchen items
     await KitchenView.findByIdAndDelete(itemId);
 
-    res.redirect('/kitchenview'); // Redirect back to the kitchen view page after deletion
+    res.redirect('/kitchenview');
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal Server Error');
