@@ -482,3 +482,33 @@ html {
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
+
+.notification-area {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  z-index: 999;
+  width: 25%;
+}
+
+.notification {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.notification.success {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.notification.error {
+  background-color: #f44336;
+  color: #fff;
+}

@@ -36,6 +36,8 @@
     </nav>
   </header>
 
+  <div id="notification-area" class="notification-area"></div>
+
   <main>
     <h1 style="text-align: center; color: white;">Kitchen View</h1>
     <table>
@@ -153,6 +155,15 @@
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
   
   <script>
+    function showNotification(message, type) {
+                const notificationArea = document.getElementById('notification-area');
+                notificationArea.innerHTML = `<div class="notification ${type}">${message}</div>`;
+
+                setTimeout(() => {
+                    notificationArea.innerHTML = '';
+                }, 2000);
+            }
+            
     function menu() {
       window.location.href = "/menu";
     }
