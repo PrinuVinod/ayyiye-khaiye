@@ -24,6 +24,18 @@
         body {
             background-color: black;
         }
+        .availability-form button {
+            margin-right: 5px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
     </style>
 </head>
 
@@ -51,26 +63,31 @@
 
         <main>
             <div class="container">
-                <h1 style="color: white;">Table Availability</h1>
+                <h1 style="color: white;">Table Availability and Payment Status</h1>
                 <table class="table">
                     <thead>
                         <tr>
                             <th>Table Number</th>
                             <th>Availability</th>
+                            <th>Payment Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <% tables.forEach(table => { %>
                             <tr>
-                                <td style="color: white;"><%= table.tableNumber %></td>
+                                <td style="color: white; padding-top: 10px;"><%= table.tableNumber %></td>
                                 <td style="color: white;"><%= table.isAvailable ? 'Available' : 'Not Available' %></td>
-                                <td>
+                                <td style="color: white;"><%= table.paymentStatus ? 'Paid' : 'Unpaid' %></td>
+                                <td style="width: 230px; height: 50px; align-items: center;">
                                     <form method="POST" action="/tables/<%= table._id %>?_method=PUT" class="availability-form" data-table-id="<%= table._id %>">
-                                        <button type="submit" class="btn btn-sm <%= table.isAvailable ? 'btn-danger' : 'btn-success' %>">
+                                        <button style="margin-top: 0%;" type="submit" class="btn btn-sm <%= table.isAvailable ? 'btn-danger' : 'btn-success' %>">
                                             <%= table.isAvailable ? 'Make Unavailable' : 'Make Available' %>
                                         </button>
                                     </form>
+                                    <button type="button" class="btn btn-sm btn-primary" onclick="changePaymentStatus('<%= table._id %>')">
+                                        Change Payment Status
+                                    </button>
                                 </td>
                             </tr>
                         <% }); %>
@@ -151,6 +168,25 @@
     </div>
 
     <script>
+        // Function to change payment status
+        async function changePaymentStatus(tableId) {
+            try {
+                const response = await fetch(`/tables/${tableId}/payment`, {
+                    method: 'PUT',
+                });
+
+                // Check if the response status is OK (status code 200)
+                if (response.ok) {
+                    // Assuming you want to reload the page after making changes
+                    window.location.reload();
+                } else {
+                    console.error('Failed to update payment status:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error updating payment status:', error);
+            }
+        }
+
         function menu() {
             window.location.href = "/menu";
         }
