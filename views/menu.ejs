@@ -60,6 +60,8 @@
     </nav>
   </header>
 
+  <div id="notification-area" class="notification-area"></div>
+
   <main>
     <div style="margin-top: 20px; text-align: center; background-color: #FF6347; padding: 10px; width: 80%; margin-left: auto; margin-right: auto; border-radius: 10px;">
     <p style="color: #fff; font-size: 16px; font-weight: bold; margin: 0;">
@@ -176,6 +178,15 @@
     var tableNumbers = [1, 2, 3, 4, 5];
     var selectedTableNumber;
 
+    function showNotification(message, type) {
+        const notificationArea = document.getElementById('notification-area');
+        notificationArea.innerHTML = `<div class="notification ${type}">${message}</div>`;
+
+        setTimeout(() => {
+          notificationArea.innerHTML = '';
+        }, 2000);
+      }
+
     if (typeof serverMenu !== 'undefined') {
       menu = serverMenu;
     }
@@ -220,7 +231,7 @@
 
     const formData = new FormData();
     formData.append('itemName', itemName);
-    formData.append('itemPrice', itemPrice); // Include the itemPrice in the form data
+    formData.append('itemPrice', itemPrice);
     formData.append('quantity', quantity);
     formData.append('tableNumber', selectedTableNumber);
 
@@ -229,17 +240,20 @@
       body: formData,
     })
       .then(response => response.json())
-      .then(data => {
-        if (data.error) {
-          console.error('Error adding item to order:', data.error);
-        } else {
-          console.log('Item added to order:', data);
-        }
-      })
-      .catch(error => {
-        console.error('Error adding item to order:', error);
-      });
-  }
+        .then(data => {
+          if (data.error) {
+            console.error('Error adding item to order:', data.error);
+            showNotification('Failed to add item to order. Please try again.', 'error');
+          } else {
+            console.log('Item added to order:', data);
+            showNotification('Item added to order successfully!', 'success');
+          }
+        })
+        .catch(error => {
+          console.error('Error adding item to order:', error);
+          showNotification('Failed to add item to order. Please try again.', 'error');
+        });
+    }
 
     function toggleOptions() {
       const optionsDropdown = document.querySelector('.options-dropdown');
