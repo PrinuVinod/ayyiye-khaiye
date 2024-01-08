@@ -99,7 +99,7 @@
         <h1>Welcome to Admin Console</h1>
         <p>You are logged in as admin.</p>
         <button onclick="kitchen()"><a style="color: black;" href="/kitchenview">Kitchen View</a></button>
-        <button onclick="check()" style="margin-top: 10px;"><a style="color: black;" href="/checktables">Check Tables</a></button>
+        <button onclick="check()" style="margin-top: 10px;"><a style="color: black;" href="/tables">Check Tables</a></button>
         <button onclick="addnewitems()" style="margin-top: 10px;"><a style="color: black;" href="/additem">Add New Item</a></button>
       <% } %>
   </main>
@@ -110,6 +110,7 @@
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Cum 'n Eat</h4>
+                        <a class="btn btn-link" href="/">Home</a>
                         <a class="btn btn-link" href="/#about">About Us</a>
                         <a class="btn btn-link" href="/contact">Contact Us</a>
                         <!-- <a class="btn btn-link" href="">Reservation</a> -->
@@ -136,9 +137,10 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Navigation</h4>
+                        <a class="btn btn-link" href="/tableavail">Table Availability</a>
                         <a class="btn btn-link" href="/menu">Menu</a>
-                        <a class="btn btn-link" href="/admin">Admin Console</a>
                         <a class="btn btn-link" href="/navigation">Navigation Page</a>
+                        <a class="btn btn-link" href="/admin">Admin Console</a>
                         <!-- <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Newsletter</h4>
                         <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
                         <div class="position-relative mx-auto" style="max-width: 400px;">
@@ -152,7 +154,8 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Cum 'n Eat</a>, All Right Reserved.
+                            &copy; <a class="border-bottom" href="/">Cum 'n Eat</a>, All Right Reserved. 
+							<!-- Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> -->
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
@@ -175,7 +178,7 @@
             window.location.href = "/kitchenview";
           }
           function check(){
-            window.location.href = "/checktables";
+            window.location.href = "/tables";
           }
           function addnewitems(){
             window.location.href = "/additem";
