@@ -63,8 +63,8 @@
                     <tbody>
                         <% tables.forEach(table => { %>
                             <tr>
-                                <td><%= table.tableNumber %></td>
-                                <td><%= table.isAvailable ? 'Available' : 'Not Available' %></td>
+                                <td style="color: white;"><%= table.tableNumber %></td>
+                                <td style="color: white;"><%= table.isAvailable ? 'Available' : 'Not Available' %></td>
                                 <td>
                                     <form method="POST" action="/tables/<%= table._id %>?_method=PUT" class="availability-form" data-table-id="<%= table._id %>">
                                         <button type="submit" class="btn btn-sm <%= table.isAvailable ? 'btn-danger' : 'btn-success' %>">
