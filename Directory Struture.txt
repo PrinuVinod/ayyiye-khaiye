@@ -6,6 +6,7 @@
 │   └── MenuItem.js
 │   └── Order.js
 │   └── SubmittedOrder.js
+│   └── Table.js
 │   └── User.js
 ├── public/
 │   └── css/
@@ -18,6 +19,8 @@
 │   └── adminRoutes.js
 │   └── kitchenRoutes.js
 │   └── menuRoutes.js
+│   └── tableavailRoutes.js
+│   └── tableRoutes.js
 │   └── toorderRoutes.js
 ├── views/
 │   └── additem.ejs
@@ -29,6 +32,8 @@
 │   └── menu.ejs
 │   └── navigation.ejs
 │   └── revieworder.ejs
+│   └── tableavail.ejs
+│   └── tables.ejs
 ├── .env
 ├── Directory Structure.txt
 └── app.js
