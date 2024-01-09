@@ -1,8 +1,16 @@
-# [<img src="pics/logo.png" width="100" title="Cum-'n-Eat">](https://lrmq3y-3000.csb.app/) Cum 'n Eat
+# [<img src="pics/logo.png" width="50" title="Cum-'n-Eat">](https://lrmq3y-3000.csb.app/) Cum 'n Eat
 
-**Abstract:**
+## **Abstract:**
 
 Cum 'n Eat menu application is a web-based platform designed to streamline the ordering process for customers and facilitate efficient management for staff. The application provides an intuitive user interface, allowing customers to browse through an extensive menu categorized into soups, starters, main courses, snacks, desserts, and drinks.
+
+## Waiterless Dine-in Experience:
+
+Cum 'n Eat aims to provide a seamless and waiterless dine-in experience for customers. By leveraging the application's features, customers can:
+   - **Self-Order:** Browse the menu, place orders, and customize preferences without assistance.
+   - **Real-Time Updates:** Receive real-time updates on order status, eliminating the need for constant waiter interaction.
+   - **Order Customization:** Easily modify orders, add special instructions, and personalize their dining experience.
+   - **Efficient Service:** Enjoy quicker service with instant order submissions and reduced wait times.
 
 ## Key Features:
 
@@ -32,20 +40,24 @@ Cum 'n Eat menu application is a web-based platform designed to streamline the o
 8. **Interactive User Interface:**
    - An interactive and visually appealing UI enhances user engagement, making the ordering process enjoyable and straightforward.
 
-## Waiterless Dine-in Experience:
-
-Cum 'n Eat aims to provide a seamless and waiterless dine-in experience for customers. By leveraging the application's features, customers can:
-   - **Self-Order:** Browse the menu, place orders, and customize preferences without assistance.
-   - **Real-Time Updates:** Receive real-time updates on order status, eliminating the need for constant waiter interaction.
-   - **Order Customization:** Easily modify orders, add special instructions, and personalize their dining experience.
-   - **Efficient Service:** Enjoy quicker service with instant order submissions and reduced wait times.
-
-Routes
+## Routes
 For Routes, check out
 ```
 /navigation
 ```
-The restaurant menu application enhances the overall dining experience by combining a user-friendly interface with dynamic menu updates and efficient order management, contributing to increased customer satisfaction and operational efficiency for the restaurant.
+
+<br>
+
+Screenshots
+[<img src="pics/homescreen.png" title="Cum-'n-Eat">]
+[<img src="pics/menu.png" title="Cum-'n-Eat">]
+[<img src="pics/tableavail.png" title="Cum-'n-Eat">]
+[<img src="pics/disclaimer.png" title="Cum-'n-Eat">]
+
+<br>
+
+## Contributing
+We welcome contributions! If you have suggestions, bug reports, or would like to add new features, feel free to open an issue or submit a pull request.
 
 <br>
 
