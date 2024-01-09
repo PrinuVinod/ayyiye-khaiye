@@ -78,6 +78,28 @@
           finalAmountElement.innerText = calculateFinalAmount() + ' INR';
           console.log('Calculated final amount:', calculateFinalAmount());
         }
+
+        const deleteButton = document.getElementById('delete-button');
+        if (deleteButton) {
+          deleteButton.addEventListener('click', async () => {
+            if (confirm('Are you sure you want to delete all orders for this table?')) {
+              try {
+                const response = await fetch(`/adminsuborders/delete?tableNumber=${tableNumber}`, {
+                  method: 'DELETE',
+                });
+
+                if (response.ok) {
+                  alert('Orders deleted successfully!');
+                } else {
+                  alert('Failed to delete orders.');
+                }
+              } catch (error) {
+                console.error('Error deleting orders:', error);
+                alert('Error deleting orders. Please try again.');
+              }
+            }
+          });
+        }
       });
 
       function menu() {
@@ -86,6 +108,34 @@
     </script>
 
     <h1 id="table-number-heading" style="color: white;" class="text-center mb-4">Submitted Orders</h1>
+
+    <div class="text-start" style="color: white; margin-bottom: 20px;">
+      <button id="delete-button" class="btn btn-danger">Delete Orders</button>
+      <script>
+        async function deleteSubmittedOrders() {
+          const urlSearchParams = new URLSearchParams(window.location.search);
+          const params = Object.fromEntries(urlSearchParams.entries());
+          const tableNumber = params.tableNumber;
+
+          if (!tableNumber) {
+            console.error('Table number not found in the URL.');
+            return;
+          }
+
+          const deleteUrl = `/adminsuborders/delete?tableNumber=${tableNumber}`;
+
+          const response = await fetch(deleteURL, {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+
+          const result = await response.json();
+          console.log(result);
+        }
+      </script>
+    </div>
 
     <table class="table">
       <thead>
