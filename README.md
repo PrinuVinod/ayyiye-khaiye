@@ -31,14 +31,11 @@ Cum 'n Eat aims to provide a seamless and waiterless dine-in experience for cust
 5. **Scalability:**
    - The application is designed to scale with additional features, such as real-time updates, and integration with a backend database for persistent storage of menu items and orders.
 
-6. **User Authentication:**
-   - Secure user authentication ensures that only authorized users can place orders, enhancing the security of the platform.
+6. **Interactive User Interface:**
+   - An interactive and visually appealing UI enhances user engagement, making the ordering process enjoyable and straightforward.
 
 7. **Mobile Responsiveness:**
    - The application is optimized for various devices, providing a consistent and user-friendly experience across desktops, tablets, and smartphones.
-
-8. **Interactive User Interface:**
-   - An interactive and visually appealing UI enhances user engagement, making the ordering process enjoyable and straightforward.
 
 ## Routes
 For Routes, check out
@@ -48,16 +45,21 @@ For Routes, check out
 
 <br>
 
-Screenshots
-[<img src="pics/homescreen.png" title="Cum-'n-Eat">]
-[<img src="pics/menu.png" title="Cum-'n-Eat">]
-[<img src="pics/tableavail.png" title="Cum-'n-Eat">]
-[<img src="pics/disclaimer.png" title="Cum-'n-Eat">]
+## Screen Shots
+<img src="pics/homescreen.png" title="Cum-'n-Eat">
+<img src="pics/menu.png" title="Cum-'n-Eat">
+<img src="pics/tableavail.png" title="Cum-'n-Eat">
+<img src="pics/disclaimer.png" title="Cum-'n-Eat">
 
 <br>
 
 ## Contributing
 We welcome contributions! If you have suggestions, bug reports, or would like to add new features, feel free to open an issue or submit a pull request.
+
+<br>
+
+## License
+This project is licensed under the MIT License.
 
 <br>
 
