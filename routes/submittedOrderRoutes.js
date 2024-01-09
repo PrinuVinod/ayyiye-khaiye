@@ -5,13 +5,10 @@ const SubmittedOrder = require('../models/SubmittedOrder');
 
 router.get('/', async (req, res) => {
   try {
-    // Extract tableNumber from the query parameters
     const { tableNumber } = req.query;
 
-    // Fetch submitted orders based on the provided table number
     const submittedOrders = await SubmittedOrder.find({ tableNumber });
 
-    // Calculate total quantity and amount for each item
     const aggregatedOrders = {};
     submittedOrders.forEach(order => {
       const { itemName, quantity, totalAmount } = order;
