@@ -56,6 +56,7 @@
       <thead>
         <tr style="font-size: x-large;">
           <th scope="col">Item Name</th>
+          <th scope="col">Price</th>
           <th scope="col">Total Quantity</th>
           <th scope="col">Total Amount</th>
         </tr>
@@ -64,6 +65,7 @@
         <% Object.entries(aggregatedOrders).forEach(([itemName, data]) => { %>
           <tr style="color: white;">
             <td><%= itemName %></td>
+            <td><%= data.price %> INR</td>
             <td><%= data.totalQuantity %></td>
             <td class="total-amount"><%= data.totalAmount %> INR</td>
           </tr>
@@ -145,17 +147,17 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const tablePromptShown = sessionStorage.getItem('tablePromptShown');
+      // const tablePromptShown = sessionStorage.getItem('tablePromptShown');
 
-      if (!tablePromptShown) {
-        const tableNumber = prompt('Please enter your table number:');
+      // if (!tablePromptShown) {
+      //   const tableNumber = prompt('Please enter your table number:');
 
-        if (tableNumber) {
-          window.location.href = `/submitted-orders?tableNumber=${tableNumber}`;
-        }
+      //   if (tableNumber) {
+      //     window.location.href = `/submitted-orders?tableNumber=${tableNumber}`;
+      //   }
 
-        sessionStorage.setItem('tablePromptShown', 'true');
-      }
+      //   sessionStorage.setItem('tablePromptShown', 'true');
+      // }
 
       function calculateFinalAmount() {
         const totalAmountElements = document.querySelectorAll('tbody .total-amount');
