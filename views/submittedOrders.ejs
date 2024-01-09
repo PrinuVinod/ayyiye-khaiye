@@ -50,7 +50,45 @@
   </header>
 
   <main class="container mt-5">
-    <h1 style="color: white;" class="text-center mb-4">Submitted Orders</h1>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Extracting table number from URL parameters
+        const urlSearchParams = new URLSearchParams(window.location.search);
+        const params = Object.fromEntries(urlSearchParams.entries());
+        const tableNumber = params.tableNumber;
+
+        // Display the table number dynamically in the h1 tag
+        const h1Element = document.getElementById('table-number-heading');
+        if (h1Element) {
+          h1Element.textContent = `Submitted Orders for Table ${tableNumber || 'Unknown'}`;
+        }
+
+        function calculateFinalAmount() {
+          const totalAmountElements = document.querySelectorAll('tbody .total-amount');
+          let finalAmount = 0;
+
+          totalAmountElements.forEach(element => {
+            const amountString = element.innerText.replace(' INR', '');
+            finalAmount += parseFloat(amountString);
+          });
+
+          return finalAmount.toFixed(2);
+        }
+
+        const finalAmountElement = document.getElementById('final-amount');
+        if (finalAmountElement) {
+          finalAmountElement.innerText = calculateFinalAmount() + ' INR';
+          console.log('Calculated final amount:', calculateFinalAmount());
+        }
+      });
+
+      function menu() {
+        window.location.href = "/menu";
+      }
+    </script>
+
+    <!-- Display the table number dynamically in the h1 tag -->
+    <h1 id="table-number-heading" style="color: white;" class="text-center mb-4">Submitted Orders</h1>
 
     <table class="table">
       <thead>
@@ -76,7 +114,7 @@
     <div class="text-end" style="color: white;">
       <h3 style="color: white;">Total Amount: <span id="final-amount">Calculating...</span></h3>
     </div>
-    </main>
+  </main>
   
   <!-- Footer Start -->
   <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -145,7 +183,7 @@
   </div>
   <!-- Footer End -->
 
-  <script>
+  <!-- <script>
     document.addEventListener('DOMContentLoaded', function () {
       // const tablePromptShown = sessionStorage.getItem('tablePromptShown');
 
@@ -181,7 +219,7 @@
     function menu() {
       window.location.href = "/menu";
     }
-  </script>
+  </script> -->
 
 </body>
 </html>
