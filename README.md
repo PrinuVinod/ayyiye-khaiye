@@ -40,6 +40,15 @@ Cum 'n Eat aims to provide a seamless and waiterless dine-in experience for cust
    - **Order Customization:** Easily modify orders, add special instructions, and personalize their dining experience.
    - **Efficient Service:** Enjoy quicker service with instant order submissions and reduced wait times.
 
+Routes
+For Routes, check out
+```
+/navigation
+```
+The restaurant menu application enhances the overall dining experience by combining a user-friendly interface with dynamic menu updates and efficient order management, contributing to increased customer satisfaction and operational efficiency for the restaurant.
+
+<br>
+
 ## Installation
 ```bash
 npm install express mongoose body-parser dotenv ejs multer express-session
