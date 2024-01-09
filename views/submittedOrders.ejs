@@ -144,33 +144,42 @@
   <!-- Footer End -->
 
   <script>
-  // Function to calculate the final amount by adding all the total amounts
-  function calculateFinalAmount() {
-    const totalAmountElements = document.querySelectorAll('tbody .total-amount');
-    let finalAmount = 0;
+    document.addEventListener('DOMContentLoaded', function () {
+      const tablePromptShown = sessionStorage.getItem('tablePromptShown');
 
-    totalAmountElements.forEach(element => {
-      const amountString = element.innerText.replace(' INR', ''); // Remove ' INR'
-      finalAmount += parseFloat(amountString);
+      if (!tablePromptShown) {
+        const tableNumber = prompt('Please enter your table number:');
+
+        if (tableNumber) {
+          window.location.href = `/submitted-orders?tableNumber=${tableNumber}`;
+        }
+
+        sessionStorage.setItem('tablePromptShown', 'true');
+      }
+
+      function calculateFinalAmount() {
+        const totalAmountElements = document.querySelectorAll('tbody .total-amount');
+        let finalAmount = 0;
+
+        totalAmountElements.forEach(element => {
+          const amountString = element.innerText.replace(' INR', '');
+          finalAmount += parseFloat(amountString);
+        });
+
+        return finalAmount.toFixed(2);
+      }
+
+      const finalAmountElement = document.getElementById('final-amount');
+      if (finalAmountElement) {
+        finalAmountElement.innerText = calculateFinalAmount() + ' INR';
+        console.log('Calculated final amount:', calculateFinalAmount());
+      }
     });
 
-    return finalAmount.toFixed(2); // Assuming you want to round to 2 decimal places
-  }
-
-  // Update the total amount in the footer
-  document.addEventListener('DOMContentLoaded', function () {
-    const finalAmountElement = document.getElementById('final-amount');
-
-    if (finalAmountElement) {
-      finalAmountElement.innerText = calculateFinalAmount() + ' INR';
-      console.log('Calculated final amount:', calculateFinalAmount());
+    function menu() {
+      window.location.href = "/menu";
     }
-  });
-
-  function menu() {
-    window.location.href = "/menu";
-  }
-</script>
+  </script>
 
 </body>
 </html>
