@@ -1,5 +1,4 @@
-[<img src="logo.png" width="100" title="Cum-'n-Eat">](https://lrmq3y-3000.csb.app/)
-# Cum 'n Eat
+# [<img src="logo.png" width="100" title="Cum-'n-Eat">](https://lrmq3y-3000.csb.app/) Cum 'n Eat
 
 **Abstract:**
 
