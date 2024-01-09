@@ -17,8 +17,11 @@
 ├── routes/
 │   └── additemRoutes.js
 │   └── adminRoutes.js
+│   └── adminsuborderscheckRoutes.js
+│   └── adminsubordersRoutes.js
 │   └── kitchenRoutes.js
 │   └── menuRoutes.js
+│   └── submittedOrdercheckRoutes.js
 │   └── submittedOrderRoutes.js
 │   └── tableavailRoutes.js
 │   └── tableRoutes.js
@@ -26,6 +29,8 @@
 ├── views/
 │   └── additem.ejs
 │   └── admin.ejs
+│   └── adminsuborders.ejs
+│   └── adminsuborderscheck.ejs
 │   └── contact.ejs
 │   └── disclaimer.ejs
 │   └── index.ejs
@@ -33,8 +38,8 @@
 │   └── menu.ejs
 │   └── navigation.ejs
 │   └── revieworder.ejs
-│   └── menuRoutes.js
-│   └── submittedOrders.js
+│   └── submittedOrdercheck.ejs
+│   └── submittedOrders.ejs
 │   └── tableavail.ejs
 │   └── tables.ejs
 ├── .env
