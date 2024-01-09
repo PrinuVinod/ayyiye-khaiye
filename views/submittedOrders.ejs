@@ -52,12 +52,10 @@
   <main class="container mt-5">
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        // Extracting table number from URL parameters
         const urlSearchParams = new URLSearchParams(window.location.search);
         const params = Object.fromEntries(urlSearchParams.entries());
         const tableNumber = params.tableNumber;
 
-        // Display the table number dynamically in the h1 tag
         const h1Element = document.getElementById('table-number-heading');
         if (h1Element) {
           h1Element.textContent = `Submitted Orders for Table ${tableNumber || 'Unknown'}`;
@@ -87,7 +85,6 @@
       }
     </script>
 
-    <!-- Display the table number dynamically in the h1 tag -->
     <h1 id="table-number-heading" style="color: white;" class="text-center mb-4">Submitted Orders</h1>
 
     <table class="table">
