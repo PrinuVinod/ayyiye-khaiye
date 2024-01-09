@@ -11,6 +11,8 @@ const adminRoutes = require('./routes/adminRoutes');
 const tableRoutes = require('./routes/tableRoutes');
 const tableavailRoutes = require('./routes/tableavailRoutes');
 const submittedOrderRoutes = require('./routes/submittedOrderRoutes');
+const adminsuborderscheck = require('./routes/adminsuborderscheckRoutes');
+const adminsuborders = require('./routes/adminsubordersRoutes');
 const middleware = require('./middleware/middleware');
 const MenuItem = require('./models/MenuItem');
 const User = require('./models/User');
@@ -51,6 +53,8 @@ app.use('/', adminRoutes);
 app.use('/', tableRoutes);
 app.use('/', tableavailRoutes);
 app.use('/submitted-orders', submittedOrderRoutes);
+app.use('/adminsuborderscheck', adminsuborderscheck);
+app.use('/adminsuborders', adminsuborders);
 
 app.get('/disclaimer', (req, res) => {
   res.render('disclaimer');

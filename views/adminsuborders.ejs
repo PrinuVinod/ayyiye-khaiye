@@ -1,15 +1,16 @@
-<!-- views/admin.ejs -->
+<!-- views/adminsuborders.ejs -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Console | Cum 'n Eat</title>
+  <title>Submitted Order | Cum 'n Eat</title>
   <link rel="icon" href="/Images/logo.png" type="image/png">
+  <link rel="stylesheet" href="/css/styles.css">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
+  <link href="img/logo.png" rel="icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
@@ -20,58 +21,20 @@
   <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
   <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link href="/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/styles1.css">
-
+  <link href="/css/styles.css" rel="stylesheet">
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #080808;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-
-    main {
-      padding: 20px;
-      background-color: #333;
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    h1 {
-      color: orange;
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      box-sizing: border-box;
-      border: 1px solid #000;
-      border-radius: 5px;
-    }
-
-    button {
-      width: 100%;
-      padding: 10px;
-      background-color: orange;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: white;
-      color: black;
-    }
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #080808;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
   </style>
 </head>
-
 <body>
   <header>
         <nav>
@@ -79,34 +42,42 @@
                 <!-- <img src="img/logo.png" alt="Logo" class="ml-2 mr-2" style="max-height: 60px;"> -->
                 <h1 class="text-primary m-0">Cum 'n Eat</h1>
             </a>
-            <button onclick="menu()" style="width: fit-content; margin-left: 50px;">Menu</button>
+            <div style="display: flex;">
+            <!-- <button style="margin-right: 10px; border-radius: 5px;" onclick="callWaiter()">Call Waiter</button> -->
+            <button style="border-radius: 5px;" onclick="menu()">Menu</button>
+            </div>
         </nav>
-    </header>
+  </header>
 
-      <main>
-    <% if (!isAdminLoggedIn) { %>
-      <h1>Login to Access Admin Console</h1>
-      <form action="/admin/login" method="post">
-        <label for="name">Username:</label>
-        <input type="text" id="name" name="name" placeholder="Enter Name" required>
+  <main class="container mt-5">
+    <h1 style="color: white;" class="text-center mb-4">Submitted Orders</h1>
 
-        <label style="margin-top: 10px;" for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter Password" required>
+    <table class="table">
+      <thead>
+        <tr style="font-size: x-large;">
+          <th scope="col">Item Name</th>
+          <th scope="col">Total Quantity</th>
+          <th scope="col">Total Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% Object.entries(aggregatedOrders).forEach(([itemName, data]) => { %>
+          <tr style="color: white;">
+            <td><%= itemName %></td>
+            <td><%= data.totalQuantity %></td>
+            <td class="total-amount"><%= data.totalAmount %> INR</td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
 
-        <button style="margin-top: 20px;" type="submit">Login</button>
-      </form>
-      <% } else { %>
-        <h1>Welcome to Admin Console</h1>
-        <p>You are logged in as admin.</p>
-        <button onclick="kitchen()"><a style="color: black;" href="/kitchenview">Kitchen View</a></button>
-        <button onclick="check()" style="margin-top: 10px;"><a style="color: black;" href="/tables">Check Tables</a></button>
-        <button onclick="addnewitems()" style="margin-top: 10px;"><a style="color: black;" href="/additem">Add New Item</a></button>
-        <button onclick="suborders()" style="margin-top: 10px;"><a style="color: black;" href="/adminsuborderscheck">Check Submitted Order.</a></button>
-      <% } %>
-  </main>
-
-    <!-- Footer Start -->
-        <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="text-end" style="color: white;">
+      <h3 style="color: white;">Total Amount: <span id="final-amount">Calculating...</span></h3>
+    </div>
+    </main>
+  
+  <!-- Footer Start -->
+  <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
@@ -169,25 +140,46 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Footer End -->
-        <script>
-          function menu(){
-            window.location.href = "/menu";
-          }
-          function kitchen(){
-            window.location.href = "/kitchenview";
-          }
-          function check(){
-            window.location.href = "/tables";
-          }
-          function addnewitems(){
-            window.location.href = "/additem";
-          }
-          function suborders(){
-            window.location.href = "/adminsuborderscheck";
-          }
-        </script>
-</body>
+  </div>
+  <!-- Footer End -->
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const tablePromptShown = sessionStorage.getItem('tablePromptShown');
+
+      if (!tablePromptShown) {
+        const tableNumber = prompt('Please enter your table number:');
+
+        if (tableNumber) {
+          window.location.href = `/adminsuborders?tableNumber=${tableNumber}`;
+        }
+
+        sessionStorage.setItem('tablePromptShown', 'true');
+      }
+
+      function calculateFinalAmount() {
+        const totalAmountElements = document.querySelectorAll('tbody .total-amount');
+        let finalAmount = 0;
+
+        totalAmountElements.forEach(element => {
+          const amountString = element.innerText.replace(' INR', '');
+          finalAmount += parseFloat(amountString);
+        });
+
+        return finalAmount.toFixed(2);
+      }
+
+      const finalAmountElement = document.getElementById('final-amount');
+      if (finalAmountElement) {
+        finalAmountElement.innerText = calculateFinalAmount() + ' INR';
+        console.log('Calculated final amount:', calculateFinalAmount());
+      }
+    });
+
+    function menu() {
+      window.location.href = "/menu";
+    }
+  </script>
+
+</body>
 </html>
