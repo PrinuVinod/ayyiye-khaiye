@@ -49,10 +49,8 @@ router.post('/submit-order/:tableNumber', async (req, res) => {
       }
     }
 
-    // Add the submitted orders to the SubmittedOrder collection
     await SubmittedOrder.create(submittedOrderArray);
 
-    // Add the orders to the KitchenView collection
     const kitchenViewDocs = orders.map(order => ({
       itemName: order.itemName,
       quantity: order.quantity,
@@ -60,7 +58,6 @@ router.post('/submit-order/:tableNumber', async (req, res) => {
     }));
     await KitchenView.create(kitchenViewDocs);
 
-    // Delete the orders from the Order collection
     await Order.deleteMany({ tableNumber });
 
     res.json({ success: true });
@@ -70,14 +67,34 @@ router.post('/submit-order/:tableNumber', async (req, res) => {
   }
 });
 
-router.delete('/delete-order/:orderId', async (req, res) => {
-  try {
-    const { orderId } = req.params;
-    await Order.findByIdAndDelete(orderId);
-    res.json({ success: true });
-  } catch (error) {
-    res.status(500).json({ error: 'Error deleting order' });
-  }
+// router.delete('/delete-order/:orderId', async (req, res) => {
+//   try {
+//     const { orderId } = req.params;
+//     await Order.findByIdAndDelete(orderId);
+//     res.json({ success: true });
+//   } catch (error) {
+//     res.status(500).json({ error: 'Error deleting order' });
+//   }
+// });
+
+// Assuming you have a route set up for deleting orders
+router.delete('/menu/delete-order/:orderId', async (req, res) => {
+    const orderId = req.params.orderId;
+
+    try {
+        // Assuming you have a mongoose model for orders
+        const deletedOrder = await Order.findByIdAndDelete(orderId);
+
+        if (!deletedOrder) {
+            return res.status(404).json({ error: 'Order not found' });
+        }
+
+        // Send a success response
+        res.status(200).json({ message: 'Order deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting order:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
 });
 
 module.exports = router;
