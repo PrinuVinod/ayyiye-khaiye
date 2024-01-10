@@ -134,15 +134,15 @@ th {
 
 tbody tr:nth-child(even) {
     background-color: var(--dark);
-    /* Change even row background color to dark */
     color: var(--light);
-    /* Change even row text color to light */
+    input[type="number"] {
+        background-color: var(--light);
+        color: var(--dark);
+    }
 }
 
 tbody tr:nth-child(odd) {
-    /* Change even row background color to dark */
     color: var(--dark);
-    /* Change even row text color to light */
 }
 
 input[type="number"] {
