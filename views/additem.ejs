@@ -56,7 +56,7 @@
       </div>
     </nav>
   </header>
-  <h1 style="text-align: center; color: white;">Add New Item</h1>
+  <h1 style="text-align: center;">Add New Item</h1>
 
   <main>
     <form action="/additem" method="post" style="margin-left: 10px;">
@@ -78,7 +78,7 @@
         <option value="drinks">Drinks</option>
       </select>
       <br>
-      <button style="margin-top: 10px;" type="submit">Add Item</button>
+      <button style="margin-top: 10px;" type="submit" onclick="noti()">Add Item</button>
     </form>
   </main>
 
@@ -151,8 +151,21 @@
         <!-- Footer End -->
   
   <script>
+    function showNotification(message, type) {
+      const notificationArea = document.getElementById('notification-area');
+      notificationArea.innerHTML = `<div class="notification ${type}">${message}</div>`;
+
+      setTimeout(() => {
+        notificationArea.innerHTML = '';
+      }, 2000);
+    }
+
     function backtoMenu() {
       window.location.href = '/menu';
+    }
+
+    function noti() {
+      showNotification('Item Added Successfully', 'success');
     }
   </script>
 </body>
