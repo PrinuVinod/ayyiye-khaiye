@@ -19,57 +19,9 @@
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
   <link href="/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/css/style.css" rel="stylesheet">
+  <!-- <link href="/css/style.css" rel="stylesheet">-->
   <link rel="stylesheet" href="/css/styles1.css">
-
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #080808;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-
-    main {
-      padding: 20px;
-      background-color: #333;
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    h1 {
-      color: orange;
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      box-sizing: border-box;
-      border: 1px solid #000;
-      border-radius: 5px;
-    }
-
-    button {
-      width: 100%;
-      padding: 10px;
-      background-color: orange;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: white;
-      color: black;
-    }
-  </style>
+  <!-- <link rel="stylesheet" href="/css/unified.css"> -->
 </head>
 
 <body>
@@ -96,12 +48,12 @@
         <button style="margin-top: 20px;" type="submit">Login</button>
       </form>
       <% } else { %>
-        <h1>Welcome to Admin Console</h1>
-        <p>You are logged in as admin.</p>
-        <button onclick="kitchen()"><a style="color: black;" href="/kitchenview">Kitchen View</a></button>
-        <button onclick="check()" style="margin-top: 10px;"><a style="color: black;" href="/tables">Check Tables</a></button>
-        <button onclick="addnewitems()" style="margin-top: 10px;"><a style="color: black;" href="/additem">Add New Item</a></button>
-        <button onclick="suborders()" style="margin-top: 10px;"><a style="color: black;" href="/adminsuborderscheck">Check Submitted Order.</a></button>
+        <h1 style="text-align: center;">Welcome to Admin Console</h1>
+        <p style="text-align: center;">You are logged in as admin.</p>
+        <button class="bruh" onclick="kitchen()"><a style="color: black;" href="/kitchenview">Kitchen View</a></button>
+        <button class="bruh" onclick="check()" style="margin-top: 10px;"><a style="color: black;" href="/tables">Check Tables</a></button>
+        <button class="bruh" onclick="addnewitems()" style="margin-top: 10px;"><a style="color: black;" href="/additem">Add New Item</a></button>
+        <button class="bruh" onclick="suborders()" style="margin-top: 10px;"><a style="color: black;" href="/adminsuborderscheck">Check Submitted Order.</a></button>
       <% } %>
   </main>
 

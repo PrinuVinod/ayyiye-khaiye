@@ -18,37 +18,13 @@
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: black;
-        }
-        .availability-form button {
-            margin-right: 5px;
-        }
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
-
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
-        }
-    </style>
+    <!-- <link href="css/style.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="/css/unified.css">
 </head>
 
 <body>
-    <div class="container-xxl bg-black p-0">
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
-        
+    <div class="container-xxl bg-black p-0">        
         <!-- Navbar & Hero Start -->
         <header>
             <nav style="border-bottom: 1px; border-color: white;">
@@ -63,7 +39,7 @@
 
         <main>
             <div class="container">
-                <h1 style="color: white;">Table Availability and Payment Status</h1>
+                <h1 style="text-align: center;">Table Availability and Payment Status</h1>
                 <table class="table">
                     <thead>
                         <tr>
@@ -76,9 +52,9 @@
                     <tbody>
                         <% tables.forEach(table => { %>
                             <tr>
-                                <td style="color: white; padding-top: 10px;"><%= table.tableNumber %></td>
-                                <td style="color: white;"><%= table.isAvailable ? 'Available' : 'Not Available' %></td>
-                                <td style="color: white;"><%= table.paymentStatus ? 'Paid' : 'Unpaid' %></td>
+                                <td style="padding-top: 10px;"><%= table.tableNumber %></td>
+                                <td><%= table.isAvailable ? 'Available' : 'Not Available' %></td>
+                                <td><%= table.paymentStatus ? 'Paid' : 'Unpaid' %></td>
                                 <td style="width: 230px; height: 50px; align-items: center;">
                                     <form method="POST" action="/tables/<%= table._id %>?_method=PUT" class="availability-form" data-table-id="<%= table._id %>">
                                         <button style="margin-top: 0%;" type="submit" class="btn btn-sm <%= table.isAvailable ? 'btn-danger' : 'btn-success' %>">

@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Submitted Order | Cum 'n Eat</title>
   <link rel="icon" href="/Images/logo.png" type="image/png">
-  <link rel="stylesheet" href="/css/styles.css">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -20,20 +19,9 @@
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
   <link href="/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/css/style.css" rel="stylesheet">
-  <link href="/css/styles.css" rel="stylesheet">
-  <style>
-    body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #080808;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-  </style>
+  <!-- <link href="/css/style.css" rel="stylesheet">
+  <link href="/css/styles.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/unified.css">
 </head>
 <body>
   <header>
@@ -107,7 +95,7 @@
       }
     </script>
 
-    <h1 id="table-number-heading" style="color: white;" class="text-center mb-4">Submitted Orders</h1>
+    <h1 id="table-number-heading" class="text-center mb-4">Submitted Orders</h1>
 
     <div class="text-start" style="color: white; margin-bottom: 20px;">
       <button id="delete-button" class="btn btn-danger">Delete Orders</button>
@@ -148,7 +136,7 @@
       </thead>
       <tbody>
         <% Object.entries(aggregatedOrders).forEach(([itemName, data]) => { %>
-          <tr style="color: white;">
+          <tr>
             <td><%= itemName %></td>
             <td><%= data.price %> INR</td>
             <td><%= data.totalQuantity %></td>
@@ -158,8 +146,8 @@
       </tbody>
     </table>
 
-    <div class="text-end" style="color: white;">
-      <h3 style="color: white;">Total Amount: <span id="final-amount">Calculating...</span></h3>
+    <div class="text-end">
+      <h3>Total Amount: <span id="final-amount">Calculating...</span></h3>
     </div>
   </main>
   

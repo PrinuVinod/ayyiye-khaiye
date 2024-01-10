@@ -1,62 +1,74 @@
+:root {
+  --primary: #EB5E28;
+  --light: #FFFCF2;
+  --dark: #403D39;
+}
+
 body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #080808;
-      color: #fff;
-    }
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--light);
+  color: var(--dark);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-    main {
-      max-width: 600px;
-      margin: 50px auto;
-      padding: 20px;
-      background-color: orange;
-      border-radius: 10px;
-    }
+main {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: var(--primary);
+  border-radius: 10px;
+}
 
-    h1 {
-      color: black;
-      text-align: center;
-    }
+h1 {
+  color: var(--dark);
+  text-align: center;
+}
 
-    ul {
-      list-style-type: none;
-      padding: 0;
-      text-align: center;
-    }
+ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
 
-    li {
-      margin: 10px 0;
-    }
+li {
+  margin: 10px 0;
+  padding: 15px;
+  border: 2px solid var(--dark);
+  background-color: var(--light);
+  border-radius: 8px;
+}
 
-    a {
-      color: orange;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 10px;
-      border-radius: 5px;
-    }
+a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
 
-    a:hover {
-      background-color: white;
-      color: black;
-    }
+a:hover {
+  background-color: var(--light);
+  color: var(--dark);
+}
 
-    header {
-            background-color: #000;
-            color: #fff;
-            padding: 10px 20px;
-            text-align: center;
-        }
+header {
+  background-color: var(--dark);
+  color: var(--light);
+  padding: 10px 20px;
+  text-align: center;
+}
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
-        .restaurant-name {
-            font-size: 1.5em;
-            font-weight: bold;
-        }
+.restaurant-name {
+  font-size: 1.5em;
+  font-weight: bold;
+}
