@@ -1,6 +1,7 @@
 <!-- views/menu.ejs -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,9 @@
   <link rel="icon" href="/Images/logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap"
+    rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
   <link href="lib/animate/animate.min.css" rel="stylesheet">
@@ -18,10 +21,31 @@
   <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- <link href="css/style.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet"> -->
   <link rel="stylesheet" href="/css/unified.css">
-  <title>Menu | Cum 'n Eat</title>
+  <link href="css/styles.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/unified.css" id="themeStylesheet">
+  <% var currentMode='light' ; %>
+    <script>
+      function toggleTheme() {
+        const themeStylesheet = document.getElementById('themeStylesheet');
+        if (themeStylesheet.getAttribute('href') === '/css/unified.css') {
+          themeStylesheet.setAttribute('href', '/css/unifieddark.css');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          themeStylesheet.setAttribute('href', '/css/unified.css');
+          localStorage.setItem('theme', 'light');
+        }
+      }
+      document.addEventListener('DOMContentLoaded', function () {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme && savedTheme === 'dark') {
+          toggleTheme();
+        }
+      });
+    </script>
+    <title>Menu | Cum 'n Eat</title>
 </head>
+
 <body>
   <script>
     var menu = [];
@@ -42,7 +66,9 @@
         <div class="options-dropdown">
           <div style="height: auto;">
             <!-- <label style="margin-right: 2px;" for="category-dropdown">Select Category: </label> -->
-            <select style="margin-right: 10px; background-color: white; color: black; border-color: orange; border-radius: 5px; height: 35px;" id="category-dropdown" onchange="filterMenu(this.value)">
+            <select
+              style="margin-right: 10px; background-color: white; color: black; border-color: orange; border-radius: 5px; height: 35px;"
+              id="category-dropdown" onchange="filterMenu(this.value)">
               <option value="all">Select Category</option>
               <option value="soups">Soups</option>
               <option value="starters">Starters</option>
@@ -54,7 +80,8 @@
             </select>
           </div>
         </div>
-        <input style="border-color: orange; margin-right: 10px; border-radius: 5px;" type="text" id="search-input" oninput="searchMenu()" placeholder="Search Item">
+        <input style="border-color: orange; margin-right: 10px; border-radius: 5px;" type="text" id="search-input"
+          oninput="searchMenu()" placeholder="Search Item">
         <!-- <button style="margin-right: 10px; border-radius: 5px;" onclick="callWaiter()">Call Waiter</button> -->
         <button class="strt" style="border-radius: 5px;" onclick="reviewOrder()">Review Order</button>
       </div>
@@ -65,11 +92,13 @@
 
   <main>
     <h1 style="text-align: center;">Menu</h1>
-    <div style="margin-top: 20px; text-align: center; background-color: #FF6347; padding: 10px; width: 80%; margin-left: auto; margin-right: auto; border-radius: 10px;">
-    <p style="color: #fff; font-size: 16px; font-weight: bold; margin: 0;">
-      Ordering for a table other than your assigned table will incur a significant penalty. For more details
-      <a style="text-decoration: none; color: #000000;" href="/disclaimer"><strong> Check out our Disclaimer Page.</strong></a>
-    </p>
+    <div
+      style="margin-top: 20px; text-align: center; background-color: #FF6347; padding: 10px; width: 80%; margin-left: auto; margin-right: auto; border-radius: 10px;">
+      <p style="color: #fff; font-size: 16px; font-weight: bold; margin: 0;">
+        Ordering for a table other than your assigned table will incur a significant penalty. For more details
+        <a style="text-decoration: none; color: #000000;" href="/disclaimer"><strong> Check out our Disclaimer
+            Page.</strong></a>
+      </p>
     </div>
     <table>
       <thead>
@@ -77,10 +106,14 @@
           <th colspan="4" style="border-color: #000;">
             <div style="text-align: center; margin-bottom: 10px; font-size: 25px;">
               <label for="table-number-dropdown">Selected Table Number: </label>
-              <select disabled style="font-size: 25px; background-color: black; color: white; border-color: orange; border-radius: 5px; -webkit-appearance: none; width: 50px; text-align: center;" id="table-number-dropdown" data-table-number="<%= tableNumbers[0] %>">
-                <% tableNumbers.forEach(number => { %>
-                  <option value="<%= number %>"><%= number %></option>
-                <% }); %>
+              <select disabled
+                style="font-size: 25px; background-color: black; color: white; border-color: orange; border-radius: 5px; -webkit-appearance: none; width: 50px; text-align: center;"
+                id="table-number-dropdown" data-table-number="<%= tableNumbers[0] %>">
+                <% tableNumbers.forEach(number=> { %>
+                  <option value="<%= number %>">
+                    <%= number %>
+                  </option>
+                  <% }); %>
               </select>
             </div>
           </th>
@@ -93,87 +126,92 @@
         </tr>
       </thead>
       <tbody>
-        <% menu.forEach(item => { %>
+        <% menu.forEach(item=> { %>
           <tr data-category="<%= item.category %>">
-            <td><%= item.name %></td>
-            <td>INR <%= item.price.toFixed(2) %></td>
-            <td><input style="border-radius: 5px;" type="number" min="1" value="1" data-item="<%= item.name %>" data-price="<%= item.price %>"></td>
-            <td><button style="border-radius: 5px;" onclick="addToOrder('<%= item.name %>', '<%= item.price %>')">Add</button></td>
+            <td>
+              <%= item.name %>
+            </td>
+            <td>INR <%= item.price.toFixed(2) %>
+            </td>
+            <td><input style="border-radius: 5px;" type="number" min="1" value="1" data-item="<%= item.name %>"
+                data-price="<%= item.price %>"></td>
+            <td><button style="border-radius: 5px;"
+                onclick="addToOrder('<%= item.name %>', '<%= item.price %>')">Add</button></td>
           </tr>
-        <% }); %>
+          <% }); %>
       </tbody>
     </table>
   </main>
 
   <!-- Footer Start -->
-        <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-            <div class="container py-5">
-                <div class="row g-5">
-                    <div class="col-lg-3 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Cum 'n Eat</h4>
-                        <a class="btn btn-link" href="/">Home</a>
-                        <a class="btn btn-link" href="/#about">About Us</a>
-                        <a class="btn btn-link" href="/contact">Contact Us</a>
-                        <!-- <a class="btn btn-link" href="">Reservation</a> -->
-                        <a class="btn btn-link" href="/disclaimer">Terms & Condition</a>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
-                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Kollam | Kottayam, Kerala</p>
-                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 123456789</p>
-                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>cumneat@gmail.com</p>
-                        <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href="/contact"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="/contact"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="/contact"><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="/contact"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Open on</h4>
-                        <h5 class="text-light fw-normal">Monday - Saturday</h5>
-                        <p>09AM - 09PM</p>
-                        <h5 class="text-light fw-normal">Sunday</h5>
-                        <p>10AM - 08PM</p>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Navigation</h4>
-                        <a class="btn btn-link" href="/tableavail">Table Availability</a>
-                        <a class="btn btn-link" href="/menu">Menu</a>
-                        <a class="btn btn-link" href="/navigation">Navigation Page</a>
-                        <a class="btn btn-link" href="/admin">Admin Console</a>
-                        <!-- <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Newsletter</h4>
+  <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-5">
+      <div class="row g-5">
+        <div class="col-lg-3 col-md-6">
+          <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Cum 'n Eat</h4>
+          <a class="btn btn-link" href="/">Home</a>
+          <a class="btn btn-link" href="/#about">About Us</a>
+          <a class="btn btn-link" href="/contact">Contact Us</a>
+          <a class="btn btn-link" href="/disclaimer">Terms & Condition</a>
+          <a class="btn btn-link" onclick="toggleTheme()">Toggle Theme</a>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
+          <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Kollam | Kottayam, Kerala</p>
+          <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 123456789</p>
+          <p class="mb-2"><i class="fa fa-envelope me-3"></i>cumneat@gmail.com</p>
+          <div class="d-flex pt-2">
+            <a class="btn btn-outline-light btn-social" href="/contact"><i class="fab fa-twitter"></i></a>
+            <a class="btn btn-outline-light btn-social" href="/contact"><i class="fab fa-facebook-f"></i></a>
+            <a class="btn btn-outline-light btn-social" href="/contact"><i class="fab fa-youtube"></i></a>
+            <a class="btn btn-outline-light btn-social" href="/contact"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Open on</h4>
+          <h5 class="text-light fw-normal">Monday - Saturday</h5>
+          <p>09AM - 09PM</p>
+          <h5 class="text-light fw-normal">Sunday</h5>
+          <p>10AM - 08PM</p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Navigation</h4>
+          <a class="btn btn-link" href="/tableavail">Table Availability</a>
+          <a class="btn btn-link" href="/menu">Menu</a>
+          <a class="btn btn-link" href="/navigation">Navigation Page</a>
+          <a class="btn btn-link" href="/admin">Admin Console</a>
+          <!-- <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Newsletter</h4>
                         <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
                         <div class="position-relative mx-auto" style="max-width: 400px;">
                             <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                             <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
                         </div> -->
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="copyright">
-                    <div class="row">
-                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="/">Cum 'n Eat</a>, All Right Reserved. 
-							<!-- Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> -->
-                        </div>
-                        <div class="col-md-6 text-center text-md-end">
-                            <div class="footer-menu">
-                                <a href="/#index">Home</a>
-                                <!-- <a href="">Cookies</a> -->
-                                <a href="/disclaimer">Help</a>
-                                <!-- <a href="">FQAs</a> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-        <!-- Footer End -->
+      </div>
+    </div>
+    <div class="container">
+      <div class="copyright">
+        <div class="row">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            &copy; <a class="border-bottom" href="/">Cum 'n Eat</a>, All Right Reserved.
+            <!-- Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> -->
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <div class="footer-menu">
+              <a href="/#index">Home</a>
+              <!-- <a href="">Cookies</a> -->
+              <a href="/disclaimer">Help</a>
+              <!-- <a href="">FQAs</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer End -->
 
-    <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
   <script>
     var menu = [];
@@ -181,13 +219,13 @@
     var selectedTableNumber;
 
     function showNotification(message, type) {
-        const notificationArea = document.getElementById('notification-area');
-        notificationArea.innerHTML = `<div class="notification ${type}">${message}</div>`;
+      const notificationArea = document.getElementById('notification-area');
+      notificationArea.innerHTML = `<div class="notification ${type}">${message}</div>`;
 
-        setTimeout(() => {
-          notificationArea.innerHTML = '';
-        }, 2000);
-      }
+      setTimeout(() => {
+        notificationArea.innerHTML = '';
+      }, 2000);
+    }
 
     if (typeof serverMenu !== 'undefined') {
       menu = serverMenu;
@@ -217,31 +255,31 @@
     window.addEventListener('load', setInitialTableNumber);
 
     function addToOrder(itemName, itemPrice) {
-    const item = menu.find(item => item.name === itemName);
+      const item = menu.find(item => item.name === itemName);
 
-    const quantityInput = document.querySelector(`input[data-item="${itemName}"]`);
-    const quantity = parseInt(quantityInput.value, 10);
-    if (isNaN(quantity) || quantity < 1) {
-      console.error('Invalid quantity');
-      return;
-    }
+      const quantityInput = document.querySelector(`input[data-item="${itemName}"]`);
+      const quantity = parseInt(quantityInput.value, 10);
+      if (isNaN(quantity) || quantity < 1) {
+        console.error('Invalid quantity');
+        return;
+      }
 
-    const tableNumberDropdown = document.getElementById('table-number-dropdown');
-    const selectedTableNumber = parseInt(tableNumberDropdown.value, 10);
+      const tableNumberDropdown = document.getElementById('table-number-dropdown');
+      const selectedTableNumber = parseInt(tableNumberDropdown.value, 10);
 
-    console.log('Data to be sent:', { itemName, itemPrice, quantity, tableNumber: selectedTableNumber });
+      console.log('Data to be sent:', { itemName, itemPrice, quantity, tableNumber: selectedTableNumber });
 
-    const formData = new FormData();
-    formData.append('itemName', itemName);
-    formData.append('itemPrice', itemPrice);
-    formData.append('quantity', quantity);
-    formData.append('tableNumber', selectedTableNumber);
+      const formData = new FormData();
+      formData.append('itemName', itemName);
+      formData.append('itemPrice', itemPrice);
+      formData.append('quantity', quantity);
+      formData.append('tableNumber', selectedTableNumber);
 
-    fetch('/menu/add-to-order', {
-      method: 'POST',
-      body: formData,
-    })
-      .then(response => response.json())
+      fetch('/menu/add-to-order', {
+        method: 'POST',
+        body: formData,
+      })
+        .then(response => response.json())
         .then(data => {
           if (data.error) {
             console.error('Error adding item to order:', data.error);
@@ -264,7 +302,7 @@
 
     function filterMenu(category) {
       const tableRows = document.querySelectorAll('tbody tr');
-      
+
       tableRows.forEach(row => {
         const itemCategory = row.getAttribute('data-category');
         if (category === 'all' || itemCategory === category) {
@@ -292,12 +330,13 @@
     }
 
     function callWaiter() {
-        console.log('Calling waiter...');
-      }
+      console.log('Calling waiter...');
+    }
 
     function reviewOrder() {
       window.location.href = '/menu/get-orders';
     }
   </script>
 </body>
+
 </html>

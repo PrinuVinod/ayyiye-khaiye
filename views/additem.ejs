@@ -22,128 +22,26 @@
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
   <link href="/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/unified.css">
-  <link href="/css/style.css" rel="stylesheet">
-  <style>
-
-        header {
-            background-color: #000;
-            color: #fff;
-            padding: 10px 20px;
-            text-align: center;
+  <link rel="stylesheet" href="/css/admin.css" id="themeStylesheet">
+  <% var currentMode='light' ; %>
+    <script>
+      function toggleTheme() {
+        const themeStylesheet = document.getElementById('themeStylesheet');
+        if (themeStylesheet.getAttribute('href') === '/css/admin.css') {
+          themeStylesheet.setAttribute('href', '/css/admindark.css');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          themeStylesheet.setAttribute('href', '/css/admin.css');
+          localStorage.setItem('theme', 'light');
         }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .restaurant-name {
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-
-        .options-dropdown {
-            display: flex;
-            align-items: center;
-        }
-
-        .options-dropdown a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px;
-            margin: 0 10px;
-            display: none;
-        }
-
-        main {
-          flex: 1;
-          margin-left: 180px;
-          max-width: 1000px;
-          background-color: black;
-          padding: 20px;
-          border-radius: 10px;
-        }
-
-        form {
-          max-width: 1000px;
-          margin: 0 auto;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-
-        label {
-          margin-bottom: 10px;
-          color: orange;
-        }
-
-        input,
-        select {
-          margin-bottom: 20px;
-          width: 100%;
-          padding: 12px;
-          border: 1px solid white;
-          border-radius: 5px;
-          box-sizing: border-box;
-        }
-
-        button {
-          width: 100%;
-          padding: 12px;
-          background-color: orange;
-          color: #fff;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-        }
-
-        button:hover {
-          background-color: white;
-          color: black;
-        }
-        
-        select {
-                background-color: black;
-                color: #fff;
-        }
-
-        @media only screen and (max-width: 600px) {
-          main {
-        margin-left: 0;
       }
-
-      form {
-        padding: 10px;
-        margin-right: 10px;
-      }
-
-      label,
-      input,
-      select,
-      button {
-        width: 100%;
-      }
-
-      select {
-        margin-bottom: 10px;
-      }
-
-      footer {
-        padding: 10px 0;
-      }
-    }
-
-        footer {
-            background-color: orange;
-            margin-top: 20px;
-            color: black;
-            padding: 10px;
-            text-align: center;
+      document.addEventListener('DOMContentLoaded', function () {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme && savedTheme === 'dark') {
+          toggleTheme();
         }
-  </style>
+      });
+    </script>
 </head>
 
 <body>
@@ -166,7 +64,7 @@
       <input type="text" id="name" name="name" placeholder="Enter Name" required>
 
       <label for="price">Price:</label>
-      <input type="number" id="price" name="price" step="0.01" placeholder="Enter Price" required>
+      <input style="width: auto;" type="number" id="price" name="price" step="0.01" placeholder="Enter Price" required>
 
       <label for="category">Category:</label>
       <select style="background-color: white; color: black;" id="category" name="category" required>
@@ -179,8 +77,8 @@
         <option value="desserts">Desserts</option>
         <option value="drinks">Drinks</option>
       </select>
-
-      <button type="submit">Add Item</button>
+      <br>
+      <button style="margin-top: 10px;" type="submit">Add Item</button>
     </form>
   </main>
 
@@ -195,6 +93,7 @@
                         <a class="btn btn-link" href="/contact">Contact Us</a>
                         <!-- <a class="btn btn-link" href="">Reservation</a> -->
                         <a class="btn btn-link" href="/disclaimer">Terms & Condition</a>
+                        <a class="btn btn-link" onclick="toggleTheme()">Toggle Theme</a>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>

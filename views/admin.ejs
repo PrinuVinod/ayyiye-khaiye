@@ -19,9 +19,26 @@
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
   <link href="/css/bootstrap.min.css" rel="stylesheet">
-  <!-- <link href="/css/style.css" rel="stylesheet">-->
-  <link rel="stylesheet" href="/css/styles1.css">
-  <!-- <link rel="stylesheet" href="/css/unified.css"> -->
+  <link rel="stylesheet" href="/css/admin.css" id="themeStylesheet">
+  <% var currentMode='light' ; %>
+    <script>
+      function toggleTheme() {
+        const themeStylesheet = document.getElementById('themeStylesheet');
+        if (themeStylesheet.getAttribute('href') === '/css/admin.css') {
+          themeStylesheet.setAttribute('href', '/css/admindark.css');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          themeStylesheet.setAttribute('href', '/css/admin.css');
+          localStorage.setItem('theme', 'light');
+        }
+      }
+      document.addEventListener('DOMContentLoaded', function () {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme && savedTheme === 'dark') {
+          toggleTheme();
+        }
+      });
+    </script>
 </head>
 
 <body>
@@ -68,6 +85,7 @@
                         <a class="btn btn-link" href="/contact">Contact Us</a>
                         <!-- <a class="btn btn-link" href="">Reservation</a> -->
                         <a class="btn btn-link" href="/disclaimer">Terms & Condition</a>
+                        <a class="btn btn-link" onclick="toggleTheme()">Toggle Theme</a>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>

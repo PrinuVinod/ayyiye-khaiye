@@ -2,26 +2,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Navigation | Cum 'n Eat</title>
-  <link rel="icon" href="/Images/logo.png" type="image/png">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta content="" name="description">
-  <link href="img/logo.png" rel="icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-  <link href="/css/bootstrap.min.css" rel="stylesheet">
-  <!-- <link href="/css/style.css" rel="stylesheet">-->
-  <link rel="stylesheet" href="/css/navi.css">
-  <link rel="stylesheet" href="/css/unified.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation | Cum 'n Eat</title>
+    <link rel="icon" href="/Images/logo.png" type="image/png">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link href="img/logo.png" rel="icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/unified.css" id="themeStylesheet">
+    <% var currentMode='light' ; %>
+        <script>
+            function toggleTheme() {
+                const themeStylesheet = document.getElementById('themeStylesheet');
+                if (themeStylesheet.getAttribute('href') === '/css/unified.css') {
+                    themeStylesheet.setAttribute('href', '/css/unifieddark.css');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    themeStylesheet.setAttribute('href', '/css/unified.css');
+                    localStorage.setItem('theme', 'light');
+                }
+            }
+            document.addEventListener('DOMContentLoaded', function () {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme && savedTheme === 'dark') {
+                    toggleTheme();
+                }
+            });
+        </script>
+    <link rel="stylesheet" href="/css/navi.css">
+
 </head>
 <body>
   <header>
@@ -54,6 +73,7 @@
                         <a class="btn btn-link" href="/contact">Contact Us</a>
                         <!-- <a class="btn btn-link" href="">Reservation</a> -->
                         <a class="btn btn-link" href="/disclaimer">Terms & Condition</a>
+                        <a class="btn btn-link" onclick="toggleTheme()">Toggle Theme</a>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
