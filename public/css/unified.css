@@ -8,16 +8,16 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--light);
-    color: var(--dark);
+    background-color: #ffffff;
+    color: #000000;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
 header {
-    background-color: var(--dark);
-    color: var(--light);
+    background-color: #14213d;
+    color: #ffffff;
     padding: 20px;
     text-align: center;
 }
@@ -32,7 +32,7 @@ nav {
 .restaurant-name {
     font-size: 1.8em;
     font-weight: bold;
-    color: var(--primary);
+    color: #fca311;
 }
 
 .options-dropdown {
@@ -41,7 +41,7 @@ nav {
 }
 
 .options-dropdown a {
-    color: var(--dark);
+    color: #14213d;
     text-decoration: none;
     padding: 10px;
     margin: 0 10px;
@@ -49,18 +49,18 @@ nav {
 }
 
 .options-dropdown a:hover {
-    color: var(--primary);
+    color: #fca311;
 }
 
 .hamburger-menu {
     font-size: 1.8em;
     cursor: pointer;
-    color: var(--dark);
+    color: #14213d;
     transition: color 0.3s;
 }
 
 .hamburger-menu:hover {
-    color: var(--primary);
+    color: #fca311;
 }
 
 main {
@@ -71,6 +71,11 @@ main {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+main:hover {
+    box-shadow: 0 0 20px orange;
 }
 
 @media only screen and (max-width: 600px) {

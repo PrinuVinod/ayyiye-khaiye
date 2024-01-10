@@ -1,7 +1,7 @@
 :root {
-    --primary: #EB5E28;
-    --light: #FFFCF2;
-    --dark: #403D39;
+    --primary: #0F172B;
+    --light: #14213d;
+    --dark: #FFFCF2;
 }
 
 body {
@@ -35,43 +35,21 @@ nav {
     color: var(--primary);
 }
 
-header {
-    background-color: var(--dark);
+.options-dropdown a {
     color: var(--light);
-    padding: 20px;
-    text-align: center;
+    transition: color 0.3s;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.restaurant-name {
-    font-size: 1.8em;
-    font-weight: bold;
+.options-dropdown a:hover {
     color: var(--primary);
 }
 
-header {
-    background-color: var(--dark);
+.hamburger-menu {
     color: var(--light);
-    padding: 20px;
-    text-align: center;
+    transition: color 0.3s;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.restaurant-name {
-    font-size: 1.8em;
-    font-weight: bold;
+.hamburger-menu:hover {
     color: var(--primary);
 }
 
@@ -80,6 +58,7 @@ main {
     max-width: 1000px;
     margin: 20px auto;
     background-color: var(--light);
+    color: var(--dark);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -87,7 +66,7 @@ main {
 }
 
 main:hover {
-    box-shadow: 0 0 20px orange;
+    box-shadow: 0 0 10px orange;
 }
 
 @media only screen and (max-width: 600px) {
@@ -113,53 +92,37 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    color: var(--light);
-    /* Change text color to light */
+    color: #14213d;
 }
 
 th,
 td {
-    border: 1px solid var(--dark);
-    /* Change border color to dark */
+    border: 1px solid #403D39;
     padding: 12px;
     text-align: left;
 }
 
 th {
-    background-color: var(--dark);
-    /* Change header background color to dark */
-    color: var(--light);
-    /* Change header text color to light */
+    background-color: #e5e5e5;
+    color: #000000;
 }
 
 tbody tr:nth-child(even) {
-    background-color: var(--dark);
-    /* Change even row background color to dark */
-    color: var(--light);
-    /* Change even row text color to light */
-}
-
-tbody tr:nth-child(odd) {
-    /* Change even row background color to dark */
-    color: var(--dark);
-    /* Change even row text color to light */
+    background-color: #ffffff;
 }
 
 input[type="number"] {
     width: 50px;
-    color: var(--light);
-    /* Change input text color to light */
+    color: #14213d;
     padding: 8px;
-    border: 1px solid var(--primary);
-    /* Change input border color to primary color */
+    border: 1px solid #fca311;
     border-radius: 4px;
-    background-color: var(--dark);
-    /* Change input background color to dark */
+    background-color: #e5e5e5;
 }
 
 button {
-    background-color: var(--primary);
-    color: var(--light);
+    background-color: #fca311;
+    color: #ffffff;
     border: none;
     padding: 10px 16px;
     cursor: pointer;
@@ -171,13 +134,15 @@ button:hover {
     background-color: #d35400;
 }
 
+form {
+    text-align: center;
+    margin-top: 20px;
+}
+
 select {
-    background-color: var(--dark);
-    /* Change select background color to dark */
-    color: var(--light);
-    /* Change select text color to light */
-    border: 1px solid var(--primary);
-    /* Change select border color to primary color */
+    background-color: #14213d;
+    color: #ffffff;
+    border: 1px solid #fca311;
     padding: 8px;
     border-radius: 4px;
 }
@@ -254,7 +219,7 @@ footer {
     margin-left: 25px;
     padding: 35px 0;
     font-size: 15px;
-    color: var(--light) !important;
+    color: var(--dark) !important;
     text-transform: uppercase;
     font-weight: 500;
     outline: none;
@@ -644,6 +609,49 @@ html {
     color: #fff;
 }
 
-.blah {
+form {
+    max-width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.bruh-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bruh {
+    margin-top: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.bruh a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
     color: black;
+    transition: background-color 0.3s, color 0.3s;
 }

@@ -68,9 +68,15 @@ main {
     max-width: 1000px;
     margin: 20px auto;
     background-color: var(--light);
+    color: var(--dark);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+main:hover {
+    box-shadow: 0 0 10px orange;
 }
 
 @media only screen and (max-width: 600px) {
