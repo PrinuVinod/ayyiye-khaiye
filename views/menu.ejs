@@ -255,6 +255,8 @@
     window.addEventListener('load', setInitialTableNumber);
 
     function addToOrder(itemName, itemPrice) {
+      showNotification('Loading...', 'loading');
+
       const item = menu.find(item => item.name === itemName);
 
       const quantityInput = document.querySelector(`input[data-item="${itemName}"]`);

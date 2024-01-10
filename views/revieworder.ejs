@@ -75,9 +75,13 @@
             </thead>
             <tbody>
                 <% orderList.forEach(order => { %>
-                    <tr data-table-number="<%= order.tableNumber %>">
-                        <td><%= order.itemName %></td>
-                        <td><%= order.quantity %></td>
+                    <tr data-table-number="<%= order.tableNumber %>" data-order-id="<%= order._id %>">
+                        <td>
+                            <%= order.itemName %>
+                        </td>
+                        <td>
+                            <%= order.quantity %>
+                        </td>
                         <td>
                             <button style="border-radius: 5px;" onclick="deleteOrder('<%= order._id %>')">Delete</button>
                         </td>
@@ -188,6 +192,7 @@
         }
 
         function submitOrder() {
+            showNotification('Loading...', 'loading');
             console.log('Submitting order for table:', selectedTableNumber);
 
             fetch(`/toorder/submit-order/${selectedTableNumber}`, {
@@ -239,23 +244,41 @@
         }
         
         function deleteOrder(orderId) {
-            fetch(`/menu/delete-order/${orderId}`, {
-                method: 'DELETE',
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
+            showNotification('Loading...', 'loading');
+            const xhr = new XMLHttpRequest();
+            xhr.open('DELETE', `/menu/delete-order/${orderId}`, true);
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    console.log('Item Deleted From Order.');
+                    showNotification('Item Deleted From Order!', 'success');
+
+                    updateTable(orderId);
+                } else {
+                    console.error('Error Deleting Order.', xhr.statusText);
+                    showNotification('Error Deleting Item From Order!', 'error');
                 }
-                console.log('Item Deleted From Order.');
-                showNotification('Item Deleted From Order!', 'success');
-                location.reload();
-            })
-            .catch(error => {
-                console.error('Error Deleting Order.', error);
-                showNotification('Error Deleting Item From Order!', 'success');
-            });
+            };
+
+            xhr.onerror = function () {
+                console.error('Network error while deleting order.');
+                showNotification('Network error. Please try again.', 'error');
+            };
+
+            xhr.send();
         }
-        
+
+        function updateTable(orderId) {
+            const table = document.querySelector('table tbody');
+
+            const rowToDelete = document.querySelector(`tr[data-order-id="${orderId}"]`);
+
+            if (rowToDelete) {
+                table.removeChild(rowToDelete);
+            }
+        }
+
+
         function backtoMenu() {
             window.location.href = '/menu';
         }
