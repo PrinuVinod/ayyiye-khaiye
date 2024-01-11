@@ -28,13 +28,11 @@ router.put('/tables/:id', async (req, res) => {
     }
 });
 
-// New route for updating payment status
 router.put('/tables/:id/payment', async (req, res) => {
     try {
         const table = await Table.findById(req.params.id);
 
         if (table) {
-            // Assuming 'paymentStatus' is a boolean field
             table.paymentStatus = !table.paymentStatus;
             await table.save();
             res.json({ success: true, table });

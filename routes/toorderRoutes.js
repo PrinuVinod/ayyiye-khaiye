@@ -77,19 +77,16 @@ router.post('/submit-order/:tableNumber', async (req, res) => {
 //   }
 // });
 
-// Assuming you have a route set up for deleting orders
 router.delete('/menu/delete-order/:orderId', async (req, res) => {
     const orderId = req.params.orderId;
 
     try {
-        // Assuming you have a mongoose model for orders
         const deletedOrder = await Order.findByIdAndDelete(orderId);
 
         if (!deletedOrder) {
             return res.status(404).json({ error: 'Order not found' });
         }
 
-        // Send a success response
         res.status(200).json({ message: 'Order deleted successfully' });
     } catch (error) {
         console.error('Error deleting order:', error);
