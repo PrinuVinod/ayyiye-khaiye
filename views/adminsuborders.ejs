@@ -19,8 +19,6 @@
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
   <link href="/css/bootstrap.min.css" rel="stylesheet">
-  <!-- <link href="/css/style.css" rel="stylesheet">
-  <link href="/css/styles.css" rel="stylesheet"> -->
   <link rel="stylesheet" href="/css/unified.css" id="themeStylesheet">
   <% var currentMode='light' ; %>
     <script>
@@ -123,9 +121,13 @@
           const urlSearchParams = new URLSearchParams(window.location.search);
           const params = Object.fromEntries(urlSearchParams.entries());
           const tableNumber = params.tableNumber;
+          showNotification('Loading...', 'loading');
+
 
           if (!tableNumber) {
             console.error('Table number not found in the URL.');
+          showNotification('Table Number not Found.', 'error');
+
             return;
           }
 
@@ -139,8 +141,19 @@
           });
 
           const result = await response.json();
+          showNotification('Deleted Order.', 'success');
           console.log(result);
+          window.location.href = '/adminsuborders';
         }
+
+        function showNotification(message, type) {
+            const notificationArea = document.getElementById('notification-area');
+            notificationArea.innerHTML = `<div class="notification ${type}">${message}</div>`;
+
+            setTimeout(() => {
+              notificationArea.innerHTML = '';
+            }, 2000);
+          }
       </script>
     </div>
 
@@ -179,7 +192,6 @@
                         <a class="btn btn-link" href="/">Home</a>
                         <a class="btn btn-link" href="/#about">About Us</a>
                         <a class="btn btn-link" href="/contact">Contact Us</a>
-                        <!-- <a class="btn btn-link" href="">Reservation</a> -->
                         <a class="btn btn-link" href="/disclaimer">Terms & Condition</a>
                         <a class="btn btn-link" onclick="toggleTheme()">Toggle Theme</a>
 
@@ -222,15 +234,12 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="/">Cum 'n Eat</a>, All Right Reserved. 
-							<!-- Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> -->
+                            &copy; <a class="border-bottom" href="/">Cum 'n Eat</a>, All Right Reserved.
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
                                 <a href="/#index">Home</a>
-                                <!-- <a href="">Cookies</a> -->
                                 <a href="/disclaimer">Help</a>
-                                <!-- <a href="">FQAs</a> -->
                             </div>
                         </div>
                     </div>
