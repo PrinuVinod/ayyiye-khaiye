@@ -60,13 +60,13 @@
   <main>
     <form action="/additem" method="post" style="margin-left: 10px;">
       <label for="name">Item Name:</label>
-      <input type="text" id="name" name="name" placeholder="Enter Name" required>
+      <input style="border-color: orange;" type="text" id="name" name="name" placeholder="Enter Name" required>
 
       <label for="price">Price:</label>
       <input style="width: auto;" type="number" id="price" name="price" step="0.01" placeholder="Enter Price" required>
 
       <label for="category">Category:</label>
-      <select style="background-color: white; color: black;" id="category" name="category" required>
+      <select style="background-color: white; color: black; width: auto;" id="category" name="category" required>
         <option value="all">Select Category</option>
         <option value="soups">Soups</option>
         <option value="breads">Breads</option>
