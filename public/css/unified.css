@@ -683,3 +683,26 @@ nav {
 .hamburger-menu:hover {
     color: #fca311;
 }
+
+/* navigation page */
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+li {
+    margin: 10px 0;
+    padding: 15px;
+    border: 2px solid var(--dark);
+    background-color: orange;
+    border-radius: 8px;
+}
+
+.bruh {
+    color: white;
+}
+
+.bruh:hover {
+    color: black;
+}

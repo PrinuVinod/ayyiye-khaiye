@@ -119,22 +119,23 @@ table {
 
 th,
 td {
-    border: 1px solid var(--dark);
-    /* Change border color to dark */
     padding: 12px;
     text-align: left;
+    border: 1px;
 }
 
 th {
     background-color: var(--dark);
-    /* Change header background color to dark */
     color: var(--light);
-    /* Change header text color to light */
+        border: 1px solid var(--light);
 }
 
 tbody tr:nth-child(even) {
     background-color: var(--dark);
     color: var(--light);
+    td {
+        border: 1px solid var(--light);
+    }
     input[type="number"] {
         background-color: var(--light);
         color: var(--dark);
@@ -143,6 +144,9 @@ tbody tr:nth-child(even) {
 
 tbody tr:nth-child(odd) {
     color: var(--dark);
+    td {
+        border: 1px solid var(--dark);
+    }
 }
 
 input[type="number"] {
@@ -651,5 +655,32 @@ html {
 }
 
 .blah {
+    color: black;
+}
+
+th {
+    border: 1px solid var(--dark);
+}
+
+/* navigation page */
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+li {
+    margin: 10px 0;
+    padding: 15px;
+    border: 2px solid var(--dark);
+    background-color: orange;
+    border-radius: 8px;
+}
+
+.bruh {
+    color: white;
+}
+
+.bruh:hover {
     color: black;
 }
