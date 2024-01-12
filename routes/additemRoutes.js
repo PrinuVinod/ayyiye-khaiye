@@ -9,20 +9,15 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    showNotification('Loading...', 'loading');
-
     const { name, price, category } = req.body;
-
     const newItem = new MenuItem({
       name,
       price,
       category,
     });
-
     await newItem.save();
 
     console.log('Item added successfully!');
-    showNotification('Item Added Successfully.', 'success');
     res.redirect('/additem');
   } catch (error) {
     console.error('Error adding item:', error);
