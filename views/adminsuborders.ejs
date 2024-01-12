@@ -143,7 +143,7 @@
           const result = await response.json();
           showNotification('Deleted Order.', 'success');
           console.log(result);
-          window.location.href = '/adminsuborders';
+          window.location.reload();
         }
 
         function showNotification(message, type) {
