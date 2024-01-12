@@ -57,14 +57,16 @@
   </header>
   <h1 class="blah" style="text-align: center;">Add New Item</h1>
 
+  <div id="notification-area" class="notification-area"></div>
+
   <main>
-    <form action="/additem" method="post" style="margin-left: 10px;">
+    <form action="/additem" method="post" style="margin-left: 10px;" onsubmit="showLoadingNotification()">
       <label for="name">Item Name:</label>
       <input style="border-color: orange;" type="text" id="name" name="name" placeholder="Enter Name" required>
-
+  
       <label for="price">Price:</label>
       <input style="width: auto;" type="number" id="price" name="price" step="0.01" placeholder="Enter Price" required>
-
+  
       <label for="category">Category:</label>
       <select style="background-color: white; color: black; width: auto;" id="category" name="category" required>
         <option value="all">Select Category</option>
@@ -77,7 +79,7 @@
         <option value="drinks">Drinks</option>
       </select>
       <br>
-      <button style="margin-top: 10px;" type="submit" onclick="noti()">Add Item</button>
+      <button style="margin-top: 10px;" type="submit">Add Item</button>
     </form>
   </main>
 
@@ -147,21 +149,21 @@
         <!-- Footer End -->
   
   <script>
-    function showNotification(message, type) {
-      const notificationArea = document.getElementById('notification-area');
-      notificationArea.innerHTML = `<div class="notification ${type}">${message}</div>`;
+    function showLoadingNotification() {
+        showNotification('Adding Item...', 'loading');
+      }
 
-      setTimeout(() => {
-        notificationArea.innerHTML = '';
-      }, 2000);
-    }
+      function showNotification(message, type) {
+        const notificationArea = document.getElementById('notification-area');
+        notificationArea.innerHTML = `<div class="notification ${type}">${message}</div>`;
+
+        setTimeout(() => {
+          notificationArea.innerHTML = '';
+        }, 2000);
+      }
 
     function backtoMenu() {
       window.location.href = '/menu';
-    }
-
-    function noti() {
-      showNotification('Item Added Successfully', 'success');
     }
   </script>
 </body>
