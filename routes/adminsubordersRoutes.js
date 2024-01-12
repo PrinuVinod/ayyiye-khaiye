@@ -13,9 +13,9 @@ router.get('/', async (req, res) => {
 
     const submittedOrders = await SubmittedOrder.find({ tableNumber });
 
-    if (!submittedOrders || submittedOrders.length === 0) {
-      return res.status(404).json({ error: 'No submitted orders found for the specified table number.' });
-    }
+    // if (!submittedOrders || submittedOrders.length === 0) {
+    //   return res.status(404).json({ error: 'No submitted orders found for the specified table number.' });
+    // }
 
     const aggregatedOrders = {};
     for (const order of submittedOrders) {
