@@ -176,6 +176,11 @@ footer {
     font-weight: bold;
 }
 
+.notification.loading {
+    background-color: #fca311;
+    color: #ffffff;
+}
+
 .notification.success {
     background-color: #4caf50;
     color: #fff;
