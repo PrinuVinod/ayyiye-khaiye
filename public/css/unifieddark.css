@@ -177,11 +177,8 @@ button:hover {
 
 select {
     background-color: var(--dark);
-    /* Change select background color to dark */
     color: var(--light);
-    /* Change select text color to light */
     border: 1px solid var(--primary);
-    /* Change select border color to primary color */
     padding: 8px;
     border-radius: 4px;
 }
