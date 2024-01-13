@@ -653,6 +653,7 @@ html {
 
 .blah {
     color: black;
+    border-color: black;
 }
 
 /* navigation page */
