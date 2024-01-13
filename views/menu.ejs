@@ -220,26 +220,33 @@
       menu = serverMenu;
     }
 
-    function getTableNumberFromPrompt() {
-      const tableNumber = prompt('Welcome This is the Menu Page. Please enter your table number:');
+    function getTableNumberFromURL() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const tableNumber = urlParams.get('tableNumber');
       return tableNumber;
     }
 
-    function setInitialTableNumber() {
-      selectedTableNumber = getTableNumberFromPrompt();
-      if (
-        selectedTableNumber === null ||
-        selectedTableNumber.trim() === '' ||
-        !tableNumbers.includes(parseInt(selectedTableNumber))
-      ) {
-        window.location.href = '/menu';
-      } else {
-        const tableNumberDropdown = document.getElementById('table-number-dropdown');
-        tableNumberDropdown.value = selectedTableNumber;
-
-        filterMenu('all');
+    function getTableNumberFromPrompt() {
+        const tableNumber = prompt('Welcome! This is the Menu Page. Please enter your table number:');
+        return tableNumber;
       }
-    }
+
+      function setInitialTableNumber() {
+        selectedTableNumber = getTableNumberFromURL() || getTableNumberFromPrompt();
+
+        if (
+          selectedTableNumber === null ||
+          selectedTableNumber.trim() === '' ||
+          !tableNumbers.includes(parseInt(selectedTableNumber))
+        ) {
+          window.location.href = '/menu';
+        } else {
+          const tableNumberDropdown = document.getElementById('table-number-dropdown');
+          tableNumberDropdown.value = selectedTableNumber;
+
+          filterMenu('all');
+        }
+      }
 
     window.addEventListener('load', setInitialTableNumber);
 
@@ -325,7 +332,6 @@
     }
 
     function reviewOrder() {
-      // Use the selectedTableNumber when navigating to the "Review Order" page
       window.location.href = `/menu/get-orders?tableNumber=${selectedTableNumber}`;
     }
   </script>

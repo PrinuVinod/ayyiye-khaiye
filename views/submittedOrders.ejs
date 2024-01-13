@@ -85,8 +85,18 @@
         }
       });
 
+      const urlParams = new URLSearchParams(window.location.search);
+        const selectedTableNumber = urlParams.get('tableNumber');
+
+        if (!selectedTableNumber || selectedTableNumber.trim() === '' || selectedTableNumber > 5 || selectedTableNumber < 1) {
+          window.location.href = '/menu';
+        } else {
+          filterOrders(selectedTableNumber);
+          fetchTotalAmount(selectedTableNumber);
+        }
+
       function menu() {
-        window.location.href = "/menu";
+        window.location.href = `/menu?tableNumber=${selectedTableNumber}`;
       }
     </script>
 
