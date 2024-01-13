@@ -83,7 +83,7 @@ For Routes, check out
 
 ## Installation
 ```
-npm install express mongoose body-parser dotenv ejs multer express-session ws
+npm install express mongoose body-parser dotenv ejs multer express-session
 ```
 
 </div>
