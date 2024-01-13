@@ -684,3 +684,7 @@ li {
 .bruh:hover {
     color: black;
 }
+
+.deletebutt {
+    margin-top: 20px;
+}
