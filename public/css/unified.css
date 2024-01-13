@@ -369,12 +369,12 @@ footer {
     color: var(--light) !important;
 }
 
-/* Food Menu Styles from Style 2 */
+/* Food Menu */
 .nav-pills .nav-item .active {
     border-bottom: 2px solid var(--primary);
 }
 
-/* YouTube Video Styles from Style 2 */
+/* YouTube Video */
 .video {
     position: relative;
     height: 100%;
@@ -462,7 +462,7 @@ footer {
     }
 }
 
-/* Team Styles from Style 2 */
+/* Team */
 .team-item {
     box-shadow: 0 0 45px rgba(0, 0, 0, .08);
     height: calc(100% - 38px);
@@ -485,7 +485,7 @@ footer {
     border-radius: 38px 38px 0 0;
 }
 
-/* Testimonial Styles from Style 2 */
+/* Testimonial */
 .testimonial-carousel .owl-item .testimonial-item,
 .testimonial-carousel .owl-item.center .testimonial-item * {
     transition: .5s;
@@ -523,7 +523,7 @@ footer {
     border-color: var(--primary);
 }
 
-/* Footer Styles from Style 2 */
+/* Footer */
 .footer .btn.btn-social {
     margin-right: 5px;
     width: 35px;
@@ -593,7 +593,7 @@ html {
     overflow-x: hidden;
 }
 
-/* Notification Styles from Style 2 */
+/* Notification Styles */
 .notification-area {
     position: fixed;
     top: 0;
@@ -624,7 +624,6 @@ html {
     color: #fff;
 }
 
-/* Style 1 - Merged with Style 2 */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;

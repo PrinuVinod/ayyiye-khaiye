@@ -201,7 +201,6 @@ footer {
     color: #fff;
 }
 
-/* Additional Styles from Style 2 */
 :root {
     --primary: #FEA116;
     --light: #F1F8FF;
@@ -228,7 +227,6 @@ footer {
     z-index: 99;
 }
 
-/* Navbar Styles from Style 2 */
 .navbar-dark .navbar-nav .nav-link {
     position: relative;
     margin-left: 25px;
@@ -296,7 +294,6 @@ footer {
     }
 }
 
-/* Hero Header Styles from Style 2 */
 .hero-header {
     background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url(/Images/bg-hero.jpg);
     background-position: center center;
@@ -318,7 +315,6 @@ footer {
     color: rgba(255, 255, 255, .5);
 }
 
-/* Section Title Styles from Style 2 */
 .section-title {
     position: relative;
     display: inline-block;
@@ -351,7 +347,6 @@ footer {
     display: none;
 }
 
-/* Service Styles from Style 2 */
 .service-item {
     box-shadow: 0 0 45px rgba(0, 0, 0, .08);
     transition: .5s;
@@ -369,12 +364,10 @@ footer {
     color: var(--light) !important;
 }
 
-/* Food Menu Styles from Style 2 */
 .nav-pills .nav-item .active {
     border-bottom: 2px solid var(--primary);
 }
 
-/* YouTube Video Styles from Style 2 */
 .video {
     position: relative;
     height: 100%;
@@ -462,7 +455,6 @@ footer {
     }
 }
 
-/* Team Styles from Style 2 */
 .team-item {
     box-shadow: 0 0 45px rgba(0, 0, 0, .08);
     height: calc(100% - 38px);
@@ -485,7 +477,6 @@ footer {
     border-radius: 38px 38px 0 0;
 }
 
-/* Testimonial Styles from Style 2 */
 .testimonial-carousel .owl-item .testimonial-item,
 .testimonial-carousel .owl-item.center .testimonial-item * {
     transition: .5s;
@@ -523,7 +514,6 @@ footer {
     border-color: var(--primary);
 }
 
-/* Footer Styles from Style 2 */
 .footer .btn.btn-social {
     margin-right: 5px;
     width: 35px;
@@ -593,7 +583,6 @@ html {
     overflow-x: hidden;
 }
 
-/* Notification Styles from Style 2 */
 .notification-area {
     position: fixed;
     top: 0;
@@ -624,7 +613,6 @@ html {
     color: #fff;
 }
 
-/* Style 1 - Merged with Style 2 */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
