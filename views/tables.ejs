@@ -72,9 +72,9 @@
                                 <td style="padding-top: 10px;"><%= table.tableNumber %></td>
                                 <td><%= table.isAvailable ? 'Available' : 'Not Available' %></td>
                                 <td><%= table.paymentStatus ? 'Paid' : 'Unpaid' %></td>
-                                <td style="width: 230px; height: 50px; align-items: center;">
+                                <td style="width: 230px; height: 50px; text-align: center;">
                                     <form method="POST" action="/tables/<%= table._id %>?_method=PUT" class="availability-form" data-table-id="<%= table._id %>">
-                                        <button style="margin-top: 0%;" type="submit" class="btn btn-sm <%= table.isAvailable ? 'btn-danger' : 'btn-success' %>">
+                                        <button style="margin-top: 0%; align-self: center;" type="submit" class="btn btn-sm <%= table.isAvailable ? 'btn-danger' : 'btn-success' %>">
                                             <%= table.isAvailable ? 'Make Unavailable' : 'Make Available' %>
                                         </button>
                                     </form>

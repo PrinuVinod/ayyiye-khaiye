@@ -658,10 +658,6 @@ html {
     color: black;
 }
 
-th {
-    border: 1px solid var(--dark);
-}
-
 /* navigation page */
 ul {
     list-style-type: none;
