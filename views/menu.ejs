@@ -207,10 +207,6 @@
   <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
   <script>
-    var menu = [];
-    var tableNumbers = [1, 2, 3, 4, 5];
-    var selectedTableNumber;
-
     function showNotification(message, type) {
       const notificationArea = document.getElementById('notification-area');
       notificationArea.innerHTML = `<div class="notification ${type}">${message}</div>`;
@@ -329,9 +325,11 @@
     }
 
     function reviewOrder() {
-      window.location.href = '/menu/get-orders';
+      // Use the selectedTableNumber when navigating to the "Review Order" page
+      window.location.href = `/menu/get-orders?tableNumber=${selectedTableNumber}`;
     }
   </script>
+
 </body>
 
 </html>
