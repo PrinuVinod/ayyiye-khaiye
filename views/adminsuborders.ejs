@@ -55,108 +55,10 @@
   </header>
 
   <main class="container mt-5">
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const urlSearchParams = new URLSearchParams(window.location.search);
-        const params = Object.fromEntries(urlSearchParams.entries());
-        const tableNumber = params.tableNumber;
-
-        const h1Element = document.getElementById('table-number-heading');
-        if (h1Element) {
-          h1Element.textContent = `Submitted Orders for Table ${tableNumber || 'Unknown'}`;
-        }
-
-        function calculateFinalAmount() {
-          const totalAmountElements = document.querySelectorAll('tbody .total-amount');
-          let finalAmount = 0;
-
-          totalAmountElements.forEach(element => {
-            const amountString = element.innerText.replace(' INR', '');
-            finalAmount += parseFloat(amountString);
-          });
-
-          return finalAmount.toFixed(2);
-        }
-
-        const finalAmountElement = document.getElementById('final-amount');
-        if (finalAmountElement) {
-          finalAmountElement.innerText = calculateFinalAmount() + ' INR';
-          console.log('Calculated final amount:', calculateFinalAmount());
-        }
-
-        const deleteButton = document.getElementById('delete-button');
-        if (deleteButton) {
-          deleteButton.addEventListener('click', async () => {
-            if (confirm('Are you sure you want to delete all orders for this table?')) {
-              try {
-                const response = await fetch(`/adminsuborders/delete?tableNumber=${tableNumber}`, {
-                  method: 'DELETE',
-                });
-
-                if (response.ok) {
-                  alert('Orders deleted successfully!');
-                } else {
-                  alert('Failed to delete orders.');
-                }
-              } catch (error) {
-                console.error('Error deleting orders:', error);
-                alert('Error deleting orders. Please try again.');
-              }
-            }
-          });
-        }
-      });
-
-      function menu() {
-        window.location.href = "/menu";
-      }
-    </script>
-
     <h1 id="table-number-heading" class="text-center mb-4">Submitted Orders</h1>
-
     <div class="text-start" style="color: white; margin-bottom: 20px;">
       <button id="delete-button" class="btn btn-danger">Delete Orders</button>
-      <script>
-        async function deleteSubmittedOrders() {
-          const urlSearchParams = new URLSearchParams(window.location.search);
-          const params = Object.fromEntries(urlSearchParams.entries());
-          const tableNumber = params.tableNumber;
-          showNotification('Loading...', 'loading');
-
-
-          if (!tableNumber) {
-            console.error('Table number not found in the URL.');
-          showNotification('Table Number not Found.', 'error');
-
-            return;
-          }
-
-          const deleteUrl = `/adminsuborders/delete?tableNumber=${tableNumber}`;
-
-          const response = await fetch(deleteURL, {
-            method: 'DELETE',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          });
-
-          const result = await response.json();
-          showNotification('Deleted Order.', 'success');
-          console.log(result);
-          window.location.reload();
-        }
-
-        function showNotification(message, type) {
-            const notificationArea = document.getElementById('notification-area');
-            notificationArea.innerHTML = `<div class="notification ${type}">${message}</div>`;
-
-            setTimeout(() => {
-              notificationArea.innerHTML = '';
-            }, 2000);
-          }
-      </script>
     </div>
-
     <table class="table">
       <thead>
         <tr style="font-size: x-large;">
@@ -177,7 +79,6 @@
         <% }); %>
       </tbody>
     </table>
-
     <div class="text-end">
       <h3>Total Amount: <span id="final-amount">Calculating...</span></h3>
     </div>
@@ -247,6 +148,73 @@
             </div>
   </div>
   <!-- Footer End -->
+
+  <script>
+    function showNotification(message, type) {
+        const notificationArea = document.getElementById('notification-area');
+        notificationArea.innerHTML = `<div class="notification ${type}">${message}</div>`;
+
+        setTimeout(() => {
+          notificationArea.innerHTML = '';
+        }, 2000);
+      }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const urlSearchParams = new URLSearchParams(window.location.search);
+      const params = Object.fromEntries(urlSearchParams.entries());
+      const tableNumber = params.tableNumber;
+
+      const h1Element = document.getElementById('table-number-heading');
+      if (h1Element) {
+        h1Element.textContent = `Submitted Orders for Table ${tableNumber || 'Unknown'}`;
+      }
+
+      function calculateFinalAmount() {
+        const totalAmountElements = document.querySelectorAll('tbody .total-amount');
+        let finalAmount = 0;
+
+        totalAmountElements.forEach(element => {
+          const amountString = element.innerText.replace(' INR', '');
+          finalAmount += parseFloat(amountString);
+        });
+
+        return finalAmount.toFixed(2);
+      }
+
+      const finalAmountElement = document.getElementById('final-amount');
+      if (finalAmountElement) {
+        finalAmountElement.innerText = calculateFinalAmount() + ' INR';
+        console.log('Calculated final amount:', calculateFinalAmount());
+      }
+
+      const deleteButton = document.getElementById('delete-button');
+      if (deleteButton) {
+        deleteButton.addEventListener('click', async () => {
+          if (confirm('Are you sure you want to delete all orders for this table?')) {
+            try {
+              const response = await fetch(`/adminsuborders/delete?tableNumber=${tableNumber}`, {
+                method: 'DELETE',
+              });
+
+              if (response.ok) {
+                alert('Orders deleted successfully!');
+                window.location.reload();
+              } else {
+                alert('Failed to delete orders.');
+              }
+            } catch (error) {
+              console.error('Error deleting orders:', error);
+              alert('Error deleting orders. Please try again.');
+            }
+          }
+        });
+      }
+    });
+
+    function menu() {
+      window.location.href = "/menu";
+    }
+  </script>
 
   <!-- <script>
     document.addEventListener('DOMContentLoaded', function () {
