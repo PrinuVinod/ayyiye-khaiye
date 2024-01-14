@@ -1,6 +1,6 @@
 <div align="center">
    
-   [<img src="pics/logo.png" title="Cum 'n Eat">](https://lrmq3y-3000.csb.app/)
+   [<img src="pics/logo.png" title="Cum 'n Eat">](https://t9l8ld-3000.csb.app/)
    
 </div>
 
