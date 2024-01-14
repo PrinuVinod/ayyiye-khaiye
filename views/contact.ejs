@@ -34,9 +34,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="#index" class="nav-item nav-link">Home</a>
-                        <a href="#about" class="nav-item nav-link">About</a>
-                        <a href="#menu" class="nav-item nav-link">Menu</a>
+                        <a href="/#index" class="nav-item nav-link">Home</a>
+                        <a href="#location" class="nav-item nav-link">Location</a>
+                        <a href="#feed" class="nav-item nav-link">Feedback</a>
                         <a href="/tableavail" class="nav-item nav-link">Check Table Availability</a>
                         <!-- <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -66,6 +66,7 @@
         </div>
         <!-- Navbar & Hero End -->
 
+        <div style="height: 100px; top: 150px;" id="notification-area" class="notification-area"></div>
 
         <!-- Contact Start -->
         <div class="container-xxl py-5">
@@ -92,46 +93,52 @@
                         </div>
                     </div>
                     <div class="col-md-6 wow fadeIn" data-wow-delay="0.1s">
-                        <iframe class="position-relative rounded w-100 h-100"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3847.4636905311263!2d76.59978798590917!3d9.081720133639658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06050480d2814f%3A0x79634dcfc4096fe6!2sPatharam%20-%20Thodiyoor%20Rd!5e1!3m2!1sen!2sin!4v1704544308314!5m2!1sen!2sin"
-                            frameborder="0" style="min-height: 350px; border:0;" allowfullscreen="" aria-hidden="false"
-                            tabindex="0"></iframe>
+                        <section id="location"></section>
+                            <iframe class="position-relative rounded w-100 h-100"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3847.4636905311263!2d76.59978798590917!3d9.081720133639658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06050480d2814f%3A0x79634dcfc4096fe6!2sPatharam%20-%20Thodiyoor%20Rd!5e1!3m2!1sen!2sin!4v1704544308314!5m2!1sen!2sin"
+                                frameborder="0" style="min-height: 350px; border:0;" allowfullscreen="" aria-hidden="false"
+                                tabindex="0"></iframe>
+                        </section>
                     </div>
                     <div class="col-md-6">
                         <div class="wow fadeInUp" data-wow-delay="0.2s">
-                            <form>
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                            <label for="name">Your Name</label>
+                                <section id="feed">
+                                    <form id="feedbackform" method="post"
+                                        action="https://script.google.com/macros/s/AKfycbwqCPTX_Gn0_uxEZ7Iizse70qv-ZQpFR__iUYy4xfFmvs7g8s8SpntFZhnFGLULWDDRpw/exec"
+                                        name="feedbackform">
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <input name="name" type="text" class="form-control" id="name" placeholder="Your Name">
+                                                    <label for="name">Your Name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <input name="email" type="email" class="form-control" id="email" placeholder="Your Email">
+                                                    <label for="email">Your Email</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-floating">
+                                                    <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject">
+                                                    <label for="subject">Subject</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-floating">
+                                                    <textarea name="feedback" class="form-control" placeholder="Leave a message here" id="feedback" style="height: 150px"></textarea>
+                                                    <label for="message">Feedback</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                            <label for="email">Your Email</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                            <label for="subject">Subject</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
-                                            <label for="message">Message</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
-                                    </div>
-                                </div>
-                            </form>
+                                    </form>
+                                </section>
+                            </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -206,6 +213,49 @@
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
+    <script>
+        function showNotification(message, type) {
+            const notificationArea = document.getElementById('notification-area');
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            notification.style.position = 'absolute';
+            notificationArea.appendChild(notification);
+            setTimeout(() => {
+                notification.remove();
+            }, 2000);
+        }
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwqCPTX_Gn0_uxEZ7Iizse70qv-ZQpFR__iUYy4xfFmvs7g8s8SpntFZhnFGLULWDDRpw/exec';
+        const form = document.getElementById('feedbackform');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            try {
+                showNotification('Submitting your form...', 'loading');
+                const response = await fetch(scriptURL, {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    showNotification('Thank you! Your form was submitted successfully.', 'success');
+                    resetform();
+                } else {
+                    showNotification('Your form was not Submitted.', 'error');
+                    console.error('Failed to submit the form');
+                }
+            } catch (error) {
+                showNotification('Your form was not Submitted.', 'error');
+                console.error('Error submitting the form:', error);
+            }
+        });
+
+        function resetform() {
+            form.reset();
+        }
+    </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>

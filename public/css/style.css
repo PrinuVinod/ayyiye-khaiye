@@ -485,19 +485,21 @@ html {
 
 .notification-area {
     position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 100%;
     z-index: 999;
     width: 25%;
 }
 
 .notification {
-    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 16px;
@@ -510,6 +512,8 @@ html {
 }
 
 .notification.success {
+    width: auto;
+    /* Allow content to dictate width */
     background-color: #4caf50;
     color: #fff;
 }
