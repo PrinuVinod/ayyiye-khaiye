@@ -1,6 +1,6 @@
 <div align="center">
    
-   [<img src="pics/logo.png" title="Cum 'n Eat">](https://t9l8ld-3000.csb.app/)
+   [<img src="pics/logo.png" title="ayyiye khaiye">](https://t9l8ld-3000.csb.app/)
    
 </div>
 
@@ -10,7 +10,7 @@
    
 ## **Abstract:**
 
-Cum 'n Eat menu application is a web-based platform designed to streamline the ordering process for customers and facilitate efficient management for staff. The application provides an intuitive user interface, allowing customers to browse through an extensive menu categorized into soups, starters, main courses, snacks, desserts, and drinks.
+ayyiye khaiye menu application is a web-based platform designed to streamline the ordering process for customers and facilitate efficient management for staff. The application provides an intuitive user interface, allowing customers to browse through an extensive menu categorized into soups, starters, main courses, snacks, desserts, and drinks.
 
 </div>
 
@@ -18,7 +18,7 @@ Cum 'n Eat menu application is a web-based platform designed to streamline the o
 
 ## Waiterless Dine-in Experience:
 
-Cum 'n Eat aims to provide a seamless and waiterless dine-in experience for customers. By leveraging the application's features, customers can:
+ayyiye khaiye aims to provide a seamless and waiterless dine-in experience for customers. By leveraging the application's features, customers can:
    - **Self-Order:** Browse the menu, place orders, and customize preferences without assistance.
    - **Real-Time Updates:** Receive real-time updates on order status, eliminating the need for constant waiter interaction.
    - **Order Customization:** Easily modify orders, add special instructions, and personalize their dining experience.
