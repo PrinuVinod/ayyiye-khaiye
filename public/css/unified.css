@@ -66,8 +66,7 @@ nav {
 
 main {
     flex: 1;
-    max-width: 1000px;
-    margin: 20px auto;
+    margin: 30px;
     background-color: var(--light);
     padding: 20px;
     border-radius: 8px;
@@ -81,15 +80,28 @@ main:hover {
 
 @media only screen and (max-width: 600px) {
     body {
-        width: 600px;
+        width: 450px;
     }
     
     header {
-        width: 600px;
+        width: 450px;
     }
 
     footer {
-        width: 600px;
+        width: 450px;
+    }
+
+    main {
+        width: 400px;
+    }
+
+    table {
+        width: 450px;
+    }
+
+    .pro {
+        width: 450px;
+        margin: 0px;
     }
 
     /* body {
