@@ -81,13 +81,21 @@ main:hover {
 
 @media only screen and (max-width: 600px) {
     body {
+        width: 600px;
+    }
+    
+    header {
+        width: 600px;
+    }
+
+    footer {
+        width: 600px;
+    }
+
+    /* body {
         width: 375px;
     }
 
-    .boody {
-        width: 500px;
-    }
-    
     header {
         width: 400px;
     }
@@ -118,7 +126,7 @@ main:hover {
     
     .blaah {
         width: 400px;
-    }
+    } */
 
     .options-dropdown a {
         display: block;
@@ -137,13 +145,17 @@ main:hover {
         margin-bottom: 10px;
     }
 
-    .bruuh {
+    /* .bruuh {
         width: 400px;
     }
 
     .fooot {
         width: 375px;
-    }
+    } 
+    
+    table {
+        width: 200px;
+    }*/
 
     /* Notification Styles */
     .notification-area {
@@ -180,10 +192,6 @@ main:hover {
     .notification.error {
         background-color: #f44336;
         color: #fff;
-    }
-
-    table {
-        width: 200px;
     }
 }
 
