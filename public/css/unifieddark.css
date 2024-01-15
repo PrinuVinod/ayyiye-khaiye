@@ -42,39 +42,6 @@ header {
     text-align: center;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.restaurant-name {
-    font-size: 1.8em;
-    font-weight: bold;
-    color: var(--primary);
-}
-
-header {
-    background-color: var(--dark);
-    color: var(--light);
-    padding: 20px;
-    text-align: center;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.restaurant-name {
-    font-size: 1.8em;
-    font-weight: bold;
-    color: var(--primary);
-}
-
 main {
     flex: 1;
     max-width: 1000px;
@@ -83,7 +50,7 @@ main {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s;
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 main:hover {
@@ -91,6 +58,18 @@ main:hover {
 }
 
 @media only screen and (max-width: 600px) {
+    .boody {
+        width: 500px;
+    }
+
+    .heaaaad {
+        width: 500px;
+    }
+
+    .blaah {
+            width: 400px;
+        }
+
     .options-dropdown a {
         display: block;
     }
@@ -107,6 +86,42 @@ main:hover {
     .restaurant-name {
         margin-bottom: 10px;
     }
+
+    /* Notification Styles */
+    .notification-area {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        z-index: 999;
+    }
+
+    .notification {
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .notification.loading {
+        background-color: #fca311;
+        color: #ffffff;
+    }
+
+    .notification.error {
+        background-color: #f44336;
+        color: #fff;
+    }
+
+    .notification.success {
+        background-color: #4caf50;
+        color: #fff;
+        padding-top: 55px;
+    }
 }
 
 table {
@@ -114,7 +129,6 @@ table {
     border-collapse: collapse;
     margin-top: 20px;
     color: var(--light);
-    /* Change text color to light */
 }
 
 th,
@@ -152,13 +166,10 @@ tbody tr:nth-child(odd) {
 input[type="number"] {
     width: 50px;
     color: var(--light);
-    /* Change input text color to light */
     padding: 8px;
     border: 1px solid var(--primary);
-    /* Change input border color to primary color */
     border-radius: 4px;
     background-color: var(--dark);
-    /* Change input background color to dark */
 }
 
 button {
@@ -612,43 +623,6 @@ footer {
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
-}
-
-/* Notification Styles from Style 2 */
-.notification-area {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    z-index: 999;
-    width: 25%;
-}
-
-.notification {
-    margin-top: 20px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.notification.loading {
-    background-color: #fca311;
-    color: #ffffff;
-}
-
-.notification.success {
-    background-color: #4caf50;
-    color: #fff;
-}
-
-.notification.error {
-    background-color: #f44336;
-    color: #fff;
 }
 
 .blah {

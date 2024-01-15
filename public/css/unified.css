@@ -27,6 +27,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .restaurant-name {
@@ -35,7 +36,7 @@ nav {
     color: #fca311;
 }
 
-.options-dropdown {
+/* .options-dropdown {
     display: flex;
     align-items: center;
 }
@@ -61,7 +62,7 @@ nav {
 
 .hamburger-menu:hover {
     color: #fca311;
-}
+} */
 
 main {
     flex: 1;
@@ -79,6 +80,46 @@ main:hover {
 }
 
 @media only screen and (max-width: 600px) {
+    body {
+        width: 375px;
+    }
+
+    .boody {
+        width: 500px;
+    }
+    
+    header {
+        width: 400px;
+    }
+    
+    .head {
+        width: 375px;
+    }
+    
+    .heaaad {
+        width: 405px;
+    }
+
+    .heaaaad {
+        width: 500px;
+    }
+    
+    .heaad {
+        width: 375px;
+    }
+
+    .fot {
+        width: 405px;
+    }
+    
+    .foot {
+        width: 400px;
+    }
+    
+    .blaah {
+        width: 400px;
+    }
+
     .options-dropdown a {
         display: block;
     }
@@ -94,6 +135,55 @@ main:hover {
 
     .restaurant-name {
         margin-bottom: 10px;
+    }
+
+    .bruuh {
+        width: 400px;
+    }
+
+    .fooot {
+        width: 375px;
+    }
+
+    /* Notification Styles */
+    .notification-area {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        z-index: 999
+    }
+
+    .notification {
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    .notification.loading {
+        background-color: #fca311;
+        color: #ffffff;
+    }
+
+    .notification.success {
+        background-color: #4caf50;
+        color: #fff;
+        padding-top: 40px;
+    }
+
+    .notification.error {
+        background-color: #f44336;
+        color: #fff;
+    }
+
+    table {
+        width: 200px;
     }
 }
 
@@ -163,42 +253,6 @@ footer {
     padding: 20px;
     text-align: center;
     border-top: 2px solid #d35400;
-}
-
-.notification-area {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    z-index: 999;
-    width: 25%;
-}
-
-.notification {
-    margin-top: 20px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.notification.loading {
-    background-color: #fca311;
-    color: #ffffff;
-}
-
-.notification.success {
-    background-color: #4caf50;
-    color: #fff;
-}
-
-.notification.error {
-    background-color: #f44336;
-    color: #fff;
 }
 
 /* Additional Styles from Style 2 */
@@ -614,6 +668,11 @@ html {
     font-weight: bold;
 }
 
+.notification.loading {
+    background-color: #fca311;
+    color: #ffffff;
+}
+
 .notification.success {
     background-color: #4caf50;
     color: #fff;
@@ -652,34 +711,6 @@ nav {
 .restaurant-name {
     font-size: 1.8em;
     font-weight: bold;
-    color: #fca311;
-}
-
-.options-dropdown {
-    display: flex;
-    align-items: center;
-}
-
-.options-dropdown a {
-    color: #14213d;
-    text-decoration: none;
-    padding: 10px;
-    margin: 0 10px;
-    transition: color 0.3s;
-}
-
-.options-dropdown a:hover {
-    color: #fca311;
-}
-
-.hamburger-menu {
-    font-size: 1.8em;
-    cursor: pointer;
-    color: #14213d;
-    transition: color 0.3s;
-}
-
-.hamburger-menu:hover {
     color: #fca311;
 }
 

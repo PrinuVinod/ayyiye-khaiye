@@ -40,9 +40,17 @@
                 }
             });
         </script>
+
+        <style>
+            @media only screen and (max-width: 600px) {
+                .menuu {
+                    margin-left: 80px;
+                }
+            }
+        </style>
 </head>
 <body>
-    <header>
+    <header class="head">
         <nav>
             <a href="/" class="navbar-brand p-0 d-flex align-items-center">
                 <!-- <img src="img/logo.png" alt="Logo" class="ml-2 mr-2" style="max-height: 60px;"> -->
@@ -51,7 +59,7 @@
             <div style="display: flex;">
             <!-- <button style="margin-right: 10px; border-radius: 5px;" onclick="callWaiter()">Call Waiter</button> -->
                 <button onclick="suborder()" style="border-radius: 5px; margin-right: 20px;">Submitted Order</button>
-                <button style="border-radius: 5px;" onclick="backtoMenu()">Menu</button>
+                <button class="menuu" style="border-radius: 5px;" onclick="backtoMenu()">Menu</button>
             </div>
         </nav>
     </header>
@@ -98,7 +106,7 @@
     </main>
 
     <!-- Footer Start -->
-        <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn fooot" data-wow-delay="0.1s">
             <div class="container py-5">
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
