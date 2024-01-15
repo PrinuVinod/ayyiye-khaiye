@@ -68,8 +68,12 @@ This project is licensed under the MIT License.
 ## Screen Shots
 <img src="pics/homescreen.png" title="ayyiye khaiye">
 <img src="pics/menu.png" title="ayyiye khaiye">
-<img src="pics/tableavail.png" title="ayyiye khaiye">
+<img src="pics/revieworder.png" title="ayyiye khaiye">
+<img src="pics/submittedorder.png" title="ayyiye khaiye">
+<img src="pics/kitchenview.png" title="ayyiye khaiye">
 <img src="pics/disclaimer.png" title="ayyiye khaiye">
+<img src="pics/tableavail.png" title="ayyiye khaiye">
+<img src="pics/adminconsole.png" title="ayyiye khaiye">
 
 ---
 
