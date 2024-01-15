@@ -66,10 +66,10 @@ This project is licensed under the MIT License.
 ---
 
 ## Screen Shots
-<img src="pics/homescreen.png" title="Cum-'n-Eat">
-<img src="pics/menu.png" title="Cum-'n-Eat">
-<img src="pics/tableavail.png" title="Cum-'n-Eat">
-<img src="pics/disclaimer.png" title="Cum-'n-Eat">
+<img src="pics/homescreen.png" title="ayyiye khaiye">
+<img src="pics/menu.png" title="ayyiye khaiye">
+<img src="pics/tableavail.png" title="ayyiye khaiye">
+<img src="pics/disclaimer.png" title="ayyiye khaiye">
 
 ---
 
