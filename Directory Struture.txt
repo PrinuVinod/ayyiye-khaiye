@@ -4,6 +4,7 @@
 ├── models/
 │   └── KitchenView.js
 │   └── MenuItem.js
+│   └── Notification.js
 │   └── Order.js
 │   └── SubmittedOrder.js
 │   └── Table.js
@@ -21,6 +22,7 @@
 │   └── adminsubordersRoutes.js
 │   └── kitchenRoutes.js
 │   └── menuRoutes.js
+│   └── notificationRoutes.js
 │   └── submittedOrdercheckRoutes.js
 │   └── submittedOrderRoutes.js
 │   └── tableavailRoutes.js
@@ -37,13 +39,15 @@
 │   └── kitchenview.ejs
 │   └── menu.ejs
 │   └── navigation.ejs
+│   └── notifications.ejs
 │   └── revieworder.ejs
 │   └── submittedOrdercheck.ejs
 │   └── submittedOrders.ejs
 │   └── tableavail.ejs
 │   └── tables.ejs
 ├── .env
+├── app.js
 ├── Directory Structure.txt
-└── app.js
+└── LICENSE
 
 this is my root directory structure
