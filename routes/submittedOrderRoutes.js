@@ -2,12 +2,14 @@
 const express = require('express');
 const router = express.Router();
 const SubmittedOrder = require('../models/SubmittedOrder');
+const Notification = require('../models/Notification');
 
 router.get('/', async (req, res) => {
   try {
     const { tableNumber } = req.query;
 
     const submittedOrders = await SubmittedOrder.find({ tableNumber });
+    const notifications = await Notification.find({ tableNumber });
 
     const aggregatedOrders = {};
     for (const order of submittedOrders) {
@@ -25,7 +27,7 @@ router.get('/', async (req, res) => {
       aggregatedOrders[itemName].totalAmount += totalAmount;
     }
 
-    res.render('submittedOrders', { aggregatedOrders });
+    res.render('submittedOrders', { aggregatedOrders, notifications });
   } catch (error) {
     console.error('Error fetching submitted orders:', error);
     res.status(500).json({ error: 'Error fetching submitted orders' });
