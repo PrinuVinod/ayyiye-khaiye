@@ -1,11 +1,24 @@
-# License
+Apache License
+Version 2.0, 16th January 2024
 
-Copyright (c) 2024 Prinu Vinod Nair
+Copyright 2024 Prinu Vinod Nair
 
-All rights reserved. This work is proprietary and confidential. Any use,
-modification, reproduction, distribution, or disclosure is strictly prohibited
-without the prior written permission of Prinu Vinod Nair.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
-For inquiries about licensing or use permissions, please contact:
+    http://www.apache.org/licenses/LICENSE-2.0
 
-prinuvinod@gmail.com
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+
+Additional Terms:
+
+1. You are not granted rights or permissions to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, or any part of the Software, for any purpose, without the explicit written permission of the Copyright Holder.
+
+2. Commercial use of the Software, or any part thereof, is strictly prohibited without the explicit written permission of the Copyright Holder.
+
+3. Use of the Software in any form, including but not limited to personal or organizational projects, is prohibited without the explicit written permission of the Copyright Holder.
+
+4. Any permissions granted by the License are revoked if you breach any terms of this license.
+
+5. For clarification purposes, the term "Software" refers to the original work of authorship created by the Copyright Holder and distributed under the terms of the License.
+
+Please contact Prinu Vinod Nair at prinuvinod@gmail.com for inquiries about commercial use, redistribution, or any other use of the Software not expressly granted by this license.
