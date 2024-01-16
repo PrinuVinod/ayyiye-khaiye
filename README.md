@@ -1,6 +1,6 @@
 <div align="center">
    
-   [<img src="pics/logo.png" title="ayyiye khaiye">](https://t9l8ld-3000.csb.app/)
+   [<img src="pics/logo.png" title="ayyiye khaiye">](https://5pgxcl-3000.csb.app/)
    
 </div>
 
