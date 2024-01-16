@@ -83,6 +83,12 @@
           finalAmountElement.innerText = calculateFinalAmount() + ' INR';
           console.log('Calculated final amount:', calculateFinalAmount());
         }
+
+        function updateOrderStatus() {
+          window.location.reload();
+        }
+
+        setInterval(updateOrderStatus, 10000);
       });
 
       const urlParams = new URLSearchParams(window.location.search);
@@ -125,7 +131,34 @@
 
     <div class="text-end" style="color: white;">
       <h3>Total Amount: <span id="final-amount">Calculating...</span></h3>
+      <h2 id="order-status" class="mt-3"></h2>
     </div>
+    <div style="text-align: center;">
+      <% notifications.forEach(notification=> { %>
+        <div class="mb-3">
+          <span class="status-box <%= notification.status ? 'ready' : 'not-ready' %>">
+            Order Status: <%= notification.status ? 'Ready' : 'Not Ready' %>
+          </span>
+        </div>
+        <% }); %>
+    </div>
+    <style>
+      .status-box {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+      }
+    
+      .ready {
+        background-color: green;
+      }
+    
+      .not-ready {
+        background-color: red;
+      }
+    </style>
   </main>
   
   <!-- Footer Start -->
