@@ -40,6 +40,48 @@
         }
       });
     </script>
+    <style>
+      main {
+        max-width: 1500px;
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+    
+      th,
+      td {
+        text-align: left;
+      }
+
+      #div1 {
+        display: inline-block;
+        width: 685px;
+      }
+      #div2 {
+        display: inline-block;
+        width:685px;
+      }
+
+      @media screen and (max-width: 768px) {
+        main {
+          width: 100%;
+          margin-left: 0;
+          margin-right: 0;
+        }
+
+        #div1,
+        #div2 {
+          display: inline-block;
+          width: 410px;
+          box-sizing: border-box;
+        }
+      }
+    </style>
 </head>
 
 <body>
@@ -56,66 +98,72 @@
   <div id="notification-area" class="notification-area"></div>
 
   <main>
-    <h1 style="text-align: center;">Kitchen View</h1>
-    <table>
-      <thead>
-        <tr>
-          <th>Table Number</th>
-          <th>Item Name</th>
-          <th>Quantity</th>
-          <th>Action</th=>
-        </tr>
-      </thead>
-      <tbody>
-        <% kitchenData.forEach(item=> { %>
+    <div id="div1">
+      <h1 style="text-align: center;">Kitchen View</h1>
+      <table>
+        <thead>
           <tr>
-            <td>
-              <%= item.tableNumber %>
-            </td>
-            <td>
-              <%= item.itemName %>
-            </td>
-            <td>
-              <%= item.quantity %>
-            </td>
-            <td style="width: 50px; height: 20px; padding-bottom: 25px; padding-top: 0px;">
-              <form action="/deleteItem" method="post">
-                <input style="margin-top: 0;" type="hidden" name="itemId" value="<%= item._id %>">
-                <button class="deletebutt" type="submit">Delete</button>
-              </form>
-            </td>
+            <th>Table Number</th>
+            <th>Item Name</th>
+            <th>Quantity</th>
+            <th>Action</th>
           </tr>
-          <% }); %>
-      </tbody>
-    </table>
-
-    <h2 style="text-align: center; margin-top: 50px;">Notification Table</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Table Number</th>
-          <th>Status</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
+        </thead>
+        <tbody>
+          <% kitchenData.forEach(item=> { %>
+            <tr>
+              <td>
+                <%= item.tableNumber %>
+              </td>
+              <td>
+                <%= item.itemName %>
+              </td>
+              <td>
+                <%= item.quantity %>
+              </td>
+              <td style="width: 50px; height: 20px; padding-bottom: 25px; padding-top: 0px;">
+                <form action="/deleteItem" method="post">
+                  <input style="margin-top: 0;" type="hidden" name="itemId" value="<%= item._id %>">
+                  <button class="deletebutt" type="submit">Delete</button>
+                </form>
+              </td>
+            </tr>
+            <% }); %>
+        </tbody>
+      </table>
+    </div>
+  
+    <div id="div2">
+      <h1 style="text-align: center;">Order Status</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Table Number</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
           <% notifications.forEach(notification=> { %>
             <tr>
               <td>
                 <%= notification.tableNumber %>
               </td>
-              <td class="<%= notification.status ? 'ready' : 'not-ready' %>" data-id="<%= notification._id %>">
+              <td class="<%= notification.status ? 'ready' : 'not-ready' %>" data-id="<%= notification._id %>"
+                style="background-color: <%= notification.status ? 'green' : 'red' %>;">
                 <%= notification.status ? 'Ready' : 'Not Ready' %>
               </td>
-              <td style="width: 50px; height: 20px; padding-bottom: 25px; padding-top: 0px;">
-                <button type="button" class="update-status-button" onclick="updateNotificationStatus('<%= notification._id %>')">
+              <td style="width: 50px; height: 20px; padding-bottom: 25px; padding-top: 25px;">
+                <button type="button" class="update-status-button"
+                  onclick="updateNotificationStatus('<%= notification._id %>')">
                   Update Status
                 </button>
               </td>
             </tr>
-          <% }) %>
-      </tbody>
-    </table>
+            <% }) %>
+        </tbody>
+      </table>
+    </div>
   </main>
 
   <!-- Footer Start -->
