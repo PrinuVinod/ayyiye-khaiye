@@ -14,6 +14,7 @@ const submittedOrdercheckRoutes = require('./routes/submittedOrdercheckRoutes');
 const submittedOrderRoutes = require('./routes/submittedOrderRoutes');
 const adminsuborderscheck = require('./routes/adminsuborderscheckRoutes');
 const adminsuborders = require('./routes/adminsubordersRoutes');
+const notificationRoutes = require('./routes/notificationRoutes');
 const middleware = require('./middleware/middleware');
 const MenuItem = require('./models/MenuItem');
 const User = require('./models/User');
@@ -57,6 +58,7 @@ app.use('/submitted-orders-check', submittedOrdercheckRoutes);
 app.use('/submitted-orders', submittedOrderRoutes);
 app.use('/adminsuborderscheck', adminsuborderscheck);
 app.use('/adminsuborders', adminsuborders);
+app.use('/notifications', notificationRoutes);
 
 app.get('/disclaimer', (req, res) => {
   res.render('disclaimer');
